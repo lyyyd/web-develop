@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    .row div {
+      height: 40px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- 内部添加 4 列元素 -->
+      <div class="col-lg-3 col-md-6">1</div>
+      <div class="col-lg-3 col-md-6">2</div>
+      <div class="col-lg-3 col-md-6">3</div>
+      <div class="col-lg-3 col-md-6">4</div>
+    </div>
+    <div class="row">
+      <!-- 内部添加 4 列元素 -->
+      <div class="col-lg-6">1</div>
+      <div class="col-lg-2">2</div>
+      <div class="col-lg-2">3</div>
+      <div class="col-lg-2">4</div>
+    </div>
+    <!-- 内部的列的子元素占有的栅格份数小于 12 份，会留一些空白 -->
+    <div class="row">
+      <!-- 内部添加 4 列元素 -->
+      <div class="col-lg-6">1</div>
+      <div class="col-lg-2">2</div>
+      <div class="col-lg-2">3</div>
+      <div class="col-lg-1">4</div>
+    </div>
+    <!-- 内部的列的子元素占有的栅格份数总和大于 12 份，多出的部分会换行显示 -->
+    <div class="row">
+      <!-- 内部添加 4 列元素 -->
+      <div class="col-lg-6">1</div>
+      <div class="col-lg-2">2</div>
+      <div class="col-lg-2">3</div>
+      <div class="col-lg-4">4</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-size: 20px;
+    }
+    .box {
+      /* width: 200px;
+      height: 200px; */
+      width: 10rem;
+      height: 10rem;
+      background-color: pink;
+      font-size: 20px;
+    }
+    .box p {
+      /* em：相对单位，参考的是父级元素的字号大小的倍数，如果是 2em 表示字号的2倍 */
+      /* width: 5em;
+      height: 4em; */
+      /* rem：相对单位，参考的是根元素 html 的字号大小的倍数，如果是 2rem 表示 html 元素字号的 2 倍 */
+      width: 5rem;
+      height: 4rem;
+      background-color: skyblue;
+      /* rem 优势：参考元素是 html ，一个页面中只有一个 html 元素，可以实现整体控制 */
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p></p>
+  </div>
+</body>
+</html>

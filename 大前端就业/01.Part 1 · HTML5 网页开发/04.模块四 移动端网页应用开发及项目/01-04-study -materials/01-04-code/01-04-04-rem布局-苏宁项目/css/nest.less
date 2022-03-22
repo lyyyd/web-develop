@@ -1,0 +1,29 @@
+// less 嵌套
+.header {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  .logo {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+  }
+}
+.nav {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  a {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+    &.box {
+      background-color: yellowgreen;
+    }
+    &:hover {
+      background-color: deeppink;
+    }
+  }
+  
+}

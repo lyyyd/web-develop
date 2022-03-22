@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    /* 通过媒体查询，设置版心容器的宽度 */
+    /* 超小屏幕（手机，小于 768px）：设置宽度为 100%
+    小屏幕（平板，大于等于 768px）：设置宽度为 750px
+    中等屏幕（桌面显示器，大于等于 992px）：宽度设置为 970px
+    大屏幕（大桌面显示器，大于等于 1200px）：宽度设置为 1170px
+    */
+    .container {
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    /* 超小屏幕 */
+    @media screen and (max-width: 767px) {
+      .container {
+        width: 100%;
+        background-color: pink;
+      }
+    }
+    /* 小屏幕 */
+    @media screen and (min-width: 768px) {
+      .container {
+        width: 750px;
+        background-color: skyblue;
+      }
+    }
+    /* 中等屏幕 */
+    @media screen and (min-width: 992px) {
+      .container {
+        width: 970px;
+        background-color: yellowgreen;
+      }
+    }
+    /* 宽屏幕 */
+    @media screen and (min-width: 1200px) {
+      .container {
+        width: 1170px;
+        background-color: plum;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container"></div>
+</body>
+</html>

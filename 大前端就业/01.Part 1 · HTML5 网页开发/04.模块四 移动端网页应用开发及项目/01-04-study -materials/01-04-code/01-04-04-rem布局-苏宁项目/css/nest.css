@@ -1,0 +1,27 @@
+.header {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+.header .logo {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
+.nav {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+.nav a {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+}
+.nav a.box {
+  background-color: yellowgreen;
+}
+.nav a:hover {
+  background-color: deeppink;
+}

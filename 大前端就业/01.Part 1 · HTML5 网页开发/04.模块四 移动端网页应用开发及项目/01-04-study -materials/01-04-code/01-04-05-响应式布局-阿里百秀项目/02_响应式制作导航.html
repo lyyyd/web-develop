@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .nav {
+      width: 800px;
+      margin: 0 auto;
+      background-color: green;
+      overflow: hidden;
+      list-style: none;
+    }
+    .nav li {
+      float: left;
+      width: 100px;
+      height: 30px;
+      font-size: 16px;
+      text-align: center;
+      line-height: 30px;
+      color: #fff;
+    }
+    /* 在小屏幕中要更改 nav 容器的宽度，以及子元素的排列方式 */
+    @media screen and (max-width: 799px) {
+      .nav {
+        width: 100%;
+      }
+      .nav li {
+        width: 33.33%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul class="nav">
+    <li>首页</li>
+    <li>首页</li>
+    <li>首页</li>
+    <li>首页</li>
+    <li>首页</li>
+    <li>首页</li>
+    <li>首页</li>
+    <li>首页</li>
+  </ul>
+</body>
+</html>

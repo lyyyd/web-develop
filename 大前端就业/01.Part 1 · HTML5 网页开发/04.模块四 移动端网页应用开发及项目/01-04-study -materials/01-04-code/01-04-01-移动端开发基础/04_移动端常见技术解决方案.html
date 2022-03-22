@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum=1.0,minimum=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <style>
+    /* 传统盒模型：边框、内边距会在宽高之外进行扩展 */
+    .box1 {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      border: 10px solid #f00;
+      background-color: pink;
+    }
+    /* css3盒模型：元素占有的整体宽高不变，添加内边距和边框后，自动内减 */
+    .box2 {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      border: 10px solid #f00;
+      box-sizing: border-box;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">1</div>
+  <div class="box2">2</div>
+</body>
+</html>

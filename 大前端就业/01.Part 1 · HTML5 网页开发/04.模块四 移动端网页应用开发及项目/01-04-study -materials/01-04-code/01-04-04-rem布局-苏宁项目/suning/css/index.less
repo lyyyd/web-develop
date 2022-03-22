@@ -1,0 +1,186 @@
+// 书写首页的 css 样式
+
+// 导入公共的 common.less 文件
+@import "common";
+
+// body 的样式
+body {
+  min-width: 320px;
+  width: 15rem;
+  margin: 0 auto;
+  line-height: 1.5;
+  font-family: Arial,Helvetica,STHeiTi,sans-serif;
+  background: #F2F2F2;
+}
+
+ul,ol {
+  list-style: none;
+}
+// 后续的尺寸都需要使用 rem 单位
+@baseFont: 50px;
+// top-banner 区域
+.top-banner {
+  position: relative;
+  width: 750rem / @baseFont;
+  height: 100rem / @baseFont;
+  .top-banner-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .close {
+    position: absolute;
+    left: 0.1rem;
+    top: 0.5rem;
+    width: 50rem / @baseFont;
+    height: 50rem / @baseFont;
+    background: url(../images/close.png) no-repeat center center;    
+    background-size: 30rem / @baseFont auto;
+  }
+}
+
+// header 区域
+.header {
+  width: 750rem / @baseFont;
+  height: 180rem / @baseFont;
+  background-color: #ffdb47;
+  margin-bottom: 0;
+  .header-top {
+    display: flex;
+    width: 682rem / @baseFont;
+    height: 88rem / @baseFont;
+    padding: 0 34rem / @baseFont;
+    justify-content: space-between;
+    align-items: center;
+    .classify {
+      img {
+        display: block;
+        width: 36rem / @baseFont;
+        height: 60rem / @baseFont;
+      }
+    }
+    .ad {
+      img {
+        display: block;
+        width: 450rem / @baseFont;
+        height: 55rem / @baseFont;
+        margin-right: 50rem / @baseFont;
+      }
+    }
+    .login {
+      img {
+        display: block;
+        width: 36rem / @baseFont;
+        height: 60rem / @baseFont;
+      }
+    }
+  }
+  .search {
+    position: relative;
+    width: 750rem / @baseFont;
+    height: 92rem / @baseFont;
+    padding: 0 24rem / @baseFont;
+    box-sizing: border-box;
+    a {
+      position: absolute;
+      top: 0;
+      left: 24rem / @baseFont;
+      width: 702rem / @baseFont;
+      height: 88rem / @baseFont;     
+    } 
+    i {
+      position: absolute;
+      left: 42rem / @baseFont;
+      top: 26rem / @baseFont;
+      width: 36rem / @baseFont;
+      height: 36rem / @baseFont;
+      background: url(../images/search_btn.png) no-repeat 0 0;
+      background-size: 36rem / @baseFont auto;
+    }  
+    form {
+      display: flex;
+      width: 702rem / @baseFont;
+      height: 88rem / @baseFont;
+      align-items: center;
+      input {
+        width: 702rem / @baseFont;
+        height: 64rem / @baseFont;
+        padding: 3rem / @baseFont 20rem / @baseFont 0 65rem / @baseFont;
+        border: 0;
+        border-radius: 32rem / @baseFont;
+        box-sizing: border-box;
+        font-size: 0.56rem;
+        line-height: 64rem / @baseFont;
+      }
+    } 
+  }
+}
+
+// banner 区域
+.banner {
+  width: 750rem / @baseFont;
+  height: 260rem / @baseFont;
+  background: url(../images/banner_bg.png) no-repeat 0 0;
+  background-size: 750rem / @baseFont auto;
+  .wrapper {
+    width: 702rem / @baseFont;
+    height: 260rem / @baseFont;
+    margin: 0 auto;
+    overflow: hidden;
+    ul {
+      position: relative;
+      width: 2000rem / @baseFont;
+      height: 260rem / @baseFont;
+      margin: 0;
+      li {
+        position: absolute;
+        left: 702rem / @baseFont;
+        top: 0;
+        width: 702rem / @baseFont;
+        height: 260rem / @baseFont;
+        border-radius: 24rem / @baseFont;
+        overflow: hidden;
+        &.current {
+          left: 0;
+        }
+        img {
+          width: 702rem / @baseFont;
+          height: 260rem / @baseFont;
+        }
+      }
+    }
+  }
+}
+
+// nav 部分
+.nav {
+  width: 750rem / @baseFont;
+  height: 308rem / @baseFont;
+  a {
+    float: left;
+    width: 150rem / @baseFont;
+    height: 142rem / @baseFont;
+    text-decoration: none;
+    color: #666;
+    font-size: 22rem / @baseFont;
+    img {
+      display: block;
+      width: 84rem / @baseFont;
+      height: 84rem / @baseFont;
+      margin: 24rem / @baseFont 33rem / @baseFont 0;
+    }
+    p {
+      height: 28rem / @baseFont;
+      margin-top: 5rem / @baseFont;
+      line-height: 28rem / @baseFont;
+      text-align: center;
+    }
+  }
+}
+
+
