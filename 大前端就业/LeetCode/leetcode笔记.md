@@ -159,3 +159,9 @@ var addTwoNumbers = function(l1, l2) {
     return head;
 };
 ```
+```
+执行用时：100 ms
+内存消耗：46.7 MB
+```
+
+***
