@@ -343,4 +343,3 @@ var findMedianSortedArrays = (nums1, nums2) => {
 执行用时：112 ms
 内存消耗：45.2 MB
 ```
-
