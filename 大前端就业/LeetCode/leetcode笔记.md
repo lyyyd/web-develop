@@ -357,3 +357,69 @@ var findMedianSortedArrays = (nums1, nums2) => {
 执行用时：112 ms
 内存消耗：45.2 MB
 ```
+
+## 5. 最长回文子串
+
+给你一个字符串 s，找到 s 中最长的回文子串。
+
+**示例 1：**
+
+```
+输入：s = "babad"
+输出："bab"
+解释："aba" 同样是符合题意的答案。
+```
+**示例 2：**
+
+```
+输入：s = "cbbd"
+输出："bb"
+```
+
+**提示：**
+
+* 1 <= s.length <= 1000
+* s 仅由数字和英文字母组成
+
+**题解**
+
+```JavaScript
+var longestPalindrome = (s) => {
+    if (s == null || s.length < 1) {
+        return "";
+    }
+    let start = 0, end = 0;
+    for (let i = 0; i < s.length; i++) {
+        let len1 = expandAroundCenter(s, i, i);     // 寻找1个字母为中心的对称数
+        let len2 = expandAroundCenter(s, i, i + 1); // 寻找2个字母为中心，中间两个字母相同，左右对称的数
+        let len = Math.max(len1, len2);
+        if (len > end - start + 1) {
+            start = i - (len - 1) / 2;
+            end = i + len / 2;
+        }
+    }
+    return s.substring(start.toFixed(0), end + 1);
+}
+
+function expandAroundCenter(s, left, right) {
+    while (left >= 0 && right < s.length && s[left] === s[right]) {
+        --left;
+        ++right;
+    }
+    return right - left - 1;
+}
+```
+
+**测试**
+```JavaScript
+console.log(longestPalindrome('aaa'));   // aaa
+console.log(longestPalindrome('aaaa'));  // aaaa
+console.log(longestPalindrome('cbbd'));  // bb
+console.log(longestPalindrome('babad'));    // bab
+console.log(longestPalindrome('beabaed'));  // eabae
+```
+
+```
+执行用时: 72 ms
+内存消耗: 44.9 MB
+```
