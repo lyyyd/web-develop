@@ -915,7 +915,44 @@ var myAtoi = function(str) {
 **题解**
 
 ```JavaScript
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+
+ var isPalindrome = function(x) {
+    if(x < 0)
+            return false;
+        var cur = 0;
+        var num = x;
+        while(num != 0) {
+            cur = cur * 10 + num % 10; // 获取余数
+            num = Math.floor(num/10); // 获取除数
+        }
+        return cur === x;
+};
+
+// class Solution {
+//     constructor() {}
+//     test(x) {
+//         if(x < 0)
+//             return false;
+//         var cur = 0;
+//         var num = x;
+//         while(num != 0) {
+//             cur = cur * 10 + num % 10;
+//             num = Math.floor(num/10);
+//         }
+//         return cur === x;
+//     }
+// }
+
+// var solution = new Solution();
+// var isPalindrome = solution.test(121);
+// console.log('isPalindrome', isPalindrome)
 ```
 
 ```
+执行用时: 116 ms
+内存消耗: 48.8 MB
 ```
