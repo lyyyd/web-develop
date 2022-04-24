@@ -1289,7 +1289,6 @@ var strFun = function(str, num) {
 ```
 ```
 
-
 **题解**
 
 ```JavaScript
