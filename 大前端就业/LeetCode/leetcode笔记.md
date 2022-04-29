@@ -1286,8 +1286,6 @@ var strFun = function(str, num) {
 
 
 
-
-
 **示例 4：**
 
 ```
