@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form name="first">
+    <p>
+      用户名： <input type="text" value="请输入您的用户名">
+    </p>
+    <p>
+      密码： <input type="password">
+    </p>
+    <p>
+      性别：
+      <input type="radio" name="sex" checked="checked" id="nan"><label for="nan"> 男</label>
+      <input type="radio" name="sex" id="nv"> 女
+    </p>
+    <p>
+      爱好:
+      <label><input type="checkbox" name="hobby"> 绘画</label>
+      <input type="checkbox" name="hobby"> 音乐
+      <input type="checkbox" name="hobby" checked="checked"> 代码
+    </p>
+    <p>
+      文件：
+      <input type="file" multiple="multiple">
+    </p>
+    <p>
+      自我介绍:
+      <textarea rows="5" cols="30">请书写一个200字的自我介绍</textarea>
+    </p>
+    <p>
+      城市：
+      <select>
+        <optgroup label="国内">
+          <option>北京</option>
+          <option>上海</option>
+          <option selected="selected">广州</option>
+          <option>厦门</option>
+        </optgroup>
+        <optgroup label="国外">
+          <option>伦敦</option>
+          <option>东京</option>
+          <option>纽约</option>
+        </optgroup>
+      </select>
+    </p>
+    <p>
+      <input type="button" value="普通按钮">
+      <input type="reset" value="重置按钮">
+      <input type="submit" value="提交按钮">
+      <input type="image" src="images/btn.png">
+    </p>
+  </form>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/* 直接书写css规则 */
+p,div {
+  font-size: 30px;
+  color: yellow;
+}

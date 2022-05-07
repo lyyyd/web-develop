@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 选中目标，判断选择器权重 */
+    /* #ps {
+      color: blue;
+    }
+    .demo {
+      color: yellow;
+    }
+    p {
+      color: green;
+    }
+    * {
+      color: red;
+    } */
+    /* body p {
+      color: red;
+    }
+    .demo {
+      color: green;
+    }
+    #ps.demo {
+      color: blue;
+    } */
+    #box1 .box2 .demo,.box1 #box2 #ps {
+      color: red !important;
+    }
+    /* 选中目标，判断选择器权重，权重相同，判断css书写顺序 */
+    /* .box1 #box2 .box3 .demo {
+      color: blue;
+    }
+    .box1 .box2 #box3 .demo {
+      color: yellow;
+    } */
+    /* 选中的是目标的组先级，文字样式被继承，也会出现层叠 */
+    /* 第一步：就近原则 */
+    /* #box1 {
+      color: red;
+    }
+    .box2 {
+      color: green;
+    } */
+    
+    /* 第二步：距离相同的组先级，判断选择器权重 */
+    /* .box3 {
+      color: blue;
+    }
+    #box3 {
+      color: yellow;
+    } */
+    /* 第三步：距离相同的组先级，权重也相同，比较书写顺序 */
+    
+    /* .box2 #box3 {
+      color: yellow;
+    }
+    #box2 .box3 {
+      color: blue;
+    } */
+    
+    /* 如果遇到 important ，在判断权重过程中 ，会将某条属性的权重提升到最大 */
+    /* #box2 {
+      color: yellow !important;
+    }
+    #box2 .box3 {
+      color: blue;
+    } */
+
+    /* 行内样式的权重最高，但是低于 important */
+  </style>
+</head>
+<body>  
+  <div class="box1" id="box1">
+    <div class="box2" id="box2">
+      <div class="box3" id="box3">
+        <p class="demo" id="ps" style="color: blue;">看一看文字颜色是什么？</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
