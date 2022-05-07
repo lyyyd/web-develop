@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 450px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 150px auto;
+      /* 透视 */
+      perspective: 500px;
+		}
+		.box img{
+      /* transition: all 1s ease; */
+      transform: rotateY(60deg) translateX(200px) ;
+		}
+    .box img:hover {
+      /* 沿 X 轴进行旋转 */
+      /* transform: rotateX(-60deg); */
+      /* 沿 Y 轴进行旋转 */
+      /* transform: rotateY(-60deg); */
+      /* 沿 Z 轴进行旋转 */
+      /* transform: rotateZ(-60deg); */
+      /* 沿 X 轴进行位移 */
+      /* transform: translateX(-200px); */
+      /* transform: translateY(-200px); */
+      /* transform: translateZ(200px); */
+      /* 旋转和位移可以同时设置，但是顺序不同，导致效果也有差异 */
+      
+    }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/1.jpg" alt="">
+	</div>
+</body>
+</html>

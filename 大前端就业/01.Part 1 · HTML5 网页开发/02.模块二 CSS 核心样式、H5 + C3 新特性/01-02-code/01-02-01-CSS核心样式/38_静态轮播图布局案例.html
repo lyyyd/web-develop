@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 清除默认样式 */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul,ol {
+      list-style: none;
+    }
+    .lunbo {
+      position: relative;
+      width: 880px;
+      height: 550px;
+      border: 1px solid #333;
+      margin: 20px auto;
+    }
+    .lunbo .pic li {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 880px;
+      height: 550px;
+      display: none;
+    }
+    .lunbo .pic .current {
+      display: block;
+    }
+    /* 按钮 */
+    .lunbo .btn a {
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      margin-top: -20px;
+      background-color: rgba(255,255,255,0.3);
+      font: 20px/40px "宋体";
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .lunbo .btn .leftbtn {
+      left: 20px;
+    }
+    .lunbo .btn .rightbtn {
+      right: 20px;
+    }
+    .lunbo .btn a:hover {
+      background-color: rgba(255,255,255,0.6);
+    }
+    /* 下标 */
+    .lunbo .sub {
+      position: absolute;
+      left: 100px;
+      bottom: 50px;
+      width: 240px;
+    }
+    .lunbo .sub li {
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin-right: 20px;
+      background-color: rgba(255,255,255,0.4);
+      font: 12px/20px "微软雅黑";
+      text-align: center;
+      color: #666;
+      cursor: pointer;
+    }
+    .lunbo .sub .current {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- 轮播图大结构 -->
+  <div class="lunbo">
+    <!-- 图片部分 -->
+    <ul class="pic">
+      <li class="current"><img src="images/lunbo/c1.jpg"></li>
+      <li><img src="images/lunbo/c2.jpg"></li>
+      <li><img src="images/lunbo/c3.jpg"></li>
+      <li><img src="images/lunbo/c4.jpg"></li>
+      <li><img src="images/lunbo/c5.jpg"></li>
+      <li><img src="images/lunbo/c6.jpg"></li>
+    </ul>
+    <!-- 按钮 -->
+    <div class="btn">
+      <a href="javascript:;" class="leftbtn">&lt;</a>
+      <a href="javascript:;" class="rightbtn">&gt;</a>
+    </div>
+    <!-- 小圆点 -->
+    <ol class="sub">
+      <li class="current">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+    </ol>
+  </div>
+</body>
+</html>

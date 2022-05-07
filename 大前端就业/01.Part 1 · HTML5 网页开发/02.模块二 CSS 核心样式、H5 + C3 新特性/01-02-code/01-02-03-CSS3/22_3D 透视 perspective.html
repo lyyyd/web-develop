@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 450px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 150px auto;
+      /* 透视 */
+      perspective: 500px;
+		}
+		.box img{
+      transition: all 1s ease;
+		}
+    .box img:hover {
+      transform: rotateX(30deg);
+    }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/1.jpg" alt="">
+	</div>
+</body>
+</html>

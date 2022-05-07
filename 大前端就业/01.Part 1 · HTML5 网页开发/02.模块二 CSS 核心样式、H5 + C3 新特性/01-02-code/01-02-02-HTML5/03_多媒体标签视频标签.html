@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 视频文件的标签和属性 -->
+  <!-- <video src="media/video.mp4" controls muted="muted" width="200px" height="300px" poster="images/pig.jpg"></video> -->
+  <!-- 不同的浏览器兼容写法，需要添加多个视频资源文件 -->
+  <video controls width="200px">
+    <source src="media/video.mp4" type="video/mp4">
+    <source src="media/video.ogg" type="video/ogg">
+    您的浏览器版本过低，不支持 video 视频标签
+  </video>
+</body>
+</html>

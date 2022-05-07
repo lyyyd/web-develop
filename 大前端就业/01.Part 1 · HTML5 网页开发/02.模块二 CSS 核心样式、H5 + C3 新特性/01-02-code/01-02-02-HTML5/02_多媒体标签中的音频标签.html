@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 音频的标签和属性 -->
+  <!-- h5 中如果标签属性的属性名和属性值是一样的，那么可以省略属性值不写 -->
+  <!-- <audio src="media/snow.mp3" controls></audio> -->
+  <!-- <audio src="media/snow.mp3" controls="controls" autoplay="autoplay" loop></audio> -->
+  <!-- <audio src="media/snow.mp3" controls="controls" preload="preload" loop></audio> -->
+
+  <!-- 多种音频格式的兼容写法 -->
+  <audio controls>
+    <source src="media/snow.mp3" type="audio/mpeg"> 
+    <source src="media/snow.ogg" type="audio/ogg"> 
+    您的浏览器版本过低，不支持音频播放
+  </audio>
+</body>
+</html>

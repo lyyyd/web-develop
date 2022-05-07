@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+			height: 200px;
+			border: 10px solid #f00;
+      z-index: 2;
+		}
+		.son{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 150px;
+			height: 150px;
+			background-color: pink;
+      z-index: 5;
+		}
+		.fuqin{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+			height: 200px;
+			border: 10px solid #0f0;
+      z-index: 4;
+		}
+		.erzi{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+      z-index: 4;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+	<div class="fuqin">
+		<div class="erzi"></div>
+	</div>
+</body>
+</html>

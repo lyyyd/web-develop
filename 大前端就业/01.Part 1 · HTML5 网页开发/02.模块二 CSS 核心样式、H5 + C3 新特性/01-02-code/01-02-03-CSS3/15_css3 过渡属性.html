@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+      /* 过渡属性：属性 过渡时间 时间曲线 延迟时间 */
+      /* transition: all 2s ease-in 0s; */
+      transition: all 2s cubic-bezier(0.9, 0.17, 0.29, 0.95) 0s;
+		}
+    .box:hover {
+      width: 500px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

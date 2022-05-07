@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* input[name] {
+      width: 30px;
+      height: 30px;
+    } */
+    /* input[type="checkbox"] {
+      width: 30px;
+      height: 30px;
+    } */
+    /* input[class^="icon"] {
+      width: 30px;
+      height: 30px;
+    } */
+    /* input[class$="dan"] {
+      width: 30px;
+      height: 30px;
+    } */
+    input[type*="o"] {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <input type="radio" name="sex" class="icon-dan"> 男性
+    <input type="radio" name="sex" class="icon-dan"> 女性
+  </p>
+  <p>
+    <input type="checkbox" class="icon-duo"> 运动
+    <input type="checkbox" class="icon-duo"> 代码
+  </p>
+  <p>
+    <input type="button" value="按钮">
+    <input type="submit" value="提交按钮">
+  </p>
+</body>
+</html>

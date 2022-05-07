@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    姓名： <input type="text" required="required" placeholder="请填入用户名" value="比如：zhangsan"><br>    
+    年龄：<input type="number" max="100" min="0" step="4" value="4"><br>
+    搜索框： <input type="search" autofocus="autofocus" autocomplete="off" name="sousuo"><br>
+    城市：<input type="text" list="list01">
+    <!-- 预定义一些选项 -->
+    <datalist id="list01">
+      <option value="广州">gz</option>
+      <option value="深圳">sz</option>
+      <option value="北京">bj</option>
+      <option value="上海">
+    </datalist>
+    文件： <input type="file" multiple="multiple">
+    <input type="submit" value="提交">
+    
+  </form>
+</body>
+</html>
