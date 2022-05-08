@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 构造函数的属性的继承
+    // 人类类型
+    function Person(name,age,sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+    // 学生类型
+    function Student(name,age,sex,score) {
+      // 直接对父类型的构造函数进行一个普通调用
+      // Person 普通调用过程中，内部的 this 指向的是 window
+      // 可以通过 call 方法更改Person 内部的 this
+      Person.call(this,name,age,sex); 
+      this.score = score;
+    }
+    // 老师类型
+    function Teacher(name,age,sex,salary) {
+      Person.call(this,name,age,sex); 
+      this.salary = salary;
+    }
+    // 创建学生的实例对象
+    var s1 = new Student("zs",18,"男",89);
+    var s2 = new Student("ls",19,"男",92);
+    console.dir(s1);
+    console.dir(s2);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 想修改的是定时器的函数内部的 this
+    var o = {
+      name: "zs",
+      age: 18,
+      s: function () {
+        setInterval(function () {
+          console.log(this.age);
+        }.bind(this),1000);
+      }
+    }
+    // o.s();
+    // 更改 事件函数中的 this
+    document.onclick = function () {
+      console.log(this);
+    }.bind(o);
+  </script>
+</body>
+</html>

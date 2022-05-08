@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 自定义构造函数
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      this.sayName = function () {
+        console.log(this.name);
+      };
+    }
+    // 生成对象实例
+    // new 关键字的用途
+    // 1.创建一个新对象
+    // 2.将函数内部的 this 指向了这个新对象
+    // 3.执行构造函数内部的代码
+    // 4.将新对象作为返回值
+    var person1 = new Person("Bob", 18);
+    var person2 = new Person("Mike", 20);
+    // 演示 new 的功能
+    // function Person(name,age) {
+    //   // var instance = new Object();
+    //   // this = instance;
+    //   this.name = name;
+    //   this.age = age;
+    //   this.sayName = function () {
+    //     console.log(this.name);
+    //   };
+    //   // return instance;
+    // }
+    // 调用方法
+    person1.sayName();
+    person2.sayName();
+
+    // 通过构造函数生成的实例是可以找到自己当初的构造函数的
+    var arr = new Array(1, 2);
+    console.log(arr);
+    // constructor 属性，构造器、构造函数
+    // 每个对象的 constructor 属性值就是生成这个对象的构造函数
+    // console.log(arr.constructor);
+    // console.log(person1.constructor);
+
+    // 判断一个对象的具体对象类型，需要使用 instanceof 进行判断
+    console.log(person1 instanceof Person);
+    console.log(person1 instanceof Array);
+  </script>
+</body>
+
+</html>

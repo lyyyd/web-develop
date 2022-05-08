@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 模板字符串标签函数
+    // const str = console.log`hello JavaScript`
+
+    const name = "zs"
+    const gender = true
+    function myTagFunc(strings, name, gender) {
+      // console.log(strings,name,gender)
+      // 处理一下 性别
+      const sex = gender ? "man" : "woman"
+      return strings[0] + name + strings[1] + sex + strings[2]
+    }
+    const str = myTagFunc`hi, ${name} is a ${gender}`
+    console.log(str)
+  </script>
+</body>
+</html>

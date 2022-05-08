@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 封装的构造函数就是用来创建一类对象
+    // 继承指的是 类型 和 类型之间的继承
+    // 学生类型  老师类型  --> 抽象，提取所有的公共的属性，放到一个 父类型中
+    // 当前学习阶段，没有一个专门的用来继承的方法
+
+    // 人类类型
+    function Person(name,age,sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+    // 学生类型
+    function Student(score) {      
+      this.score = score;
+    }
+    // 老师类型
+    function Teacher(salary) {
+      this.salary = salary;
+    }
+    // 原型对象，可以将自己的属性和方法继承给将来的实例对象使用
+    Student.prototype = new Person("zs",18,"男");
+    Student.prototype.constructor = Student;
+    // 生成一个实例
+    var s1 = new Student(89);
+    var s2 = new Student(100);
+    console.dir(s1);
+    console.dir(s2);
+    console.log(s1.name);
+    console.log(s1.constructor);
+  </script>
+</body>
+
+</html>

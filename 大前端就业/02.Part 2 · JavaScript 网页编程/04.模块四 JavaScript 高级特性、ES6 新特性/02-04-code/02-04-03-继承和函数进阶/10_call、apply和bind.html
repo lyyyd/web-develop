@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fun(a,b,c,d) {
+      console.log(this);
+      console.log(a + b + c + d);
+    }
+    // 函数内部在调用时，this有自己默认的指向
+    // console.dir(fun);
+    // fun(3,4);
+
+    // call 方法
+    // 1.功能：第一个可以指定函数的 this，第二个可以执行函数并传参
+    // 2.参数：第一个参数，传入一个指定让 this 指向的对象，第二个参数及以后，是函数参数的列表
+    // 3.返回值：就是函数自己的返回值
+    // 4.测试
+    var o = {
+      name: "zs"
+    }
+    // fun.call(o,1,2);
+
+    // apply 方法
+    // 1.功能：第一个可以指定函数的 this，第二个可以执行函数并传参
+    // 2.参数：第一个参数，传入一个指定让 this 指向的对象，第二个参数是函数的参数组成的数组
+    // 3.返回值：就是函数自己的返回值
+    // 4.测试
+    // fun.apply(o,[4,5]);
+
+    // bind 方法
+    // 1.功能：第一个可以指定函数的 this，bind 方法不能执行函数，但是可以传参
+    // 2.参数：第一个参数，传入一个指定让 this 指向的对象，第二个参数及以后，是函数参数的列表
+    // 3.返回值：返回一个新的指定了 this 的函数，也可以叫绑定函数
+    // 4.测试
+    var fn = fun.bind(o,2,3);
+    console.log(fn);
+    fn(6,7);
+  </script>
+</body>
+</html>

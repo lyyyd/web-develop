@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Symbol 数据类型
+
+    // shared.js =============================
+    // const cache = {}
+    // // a.js ==================================
+    // cache['a_foo'] = Math.random()
+    // // b.js ==================================
+    // cache['b_foo'] = 123
+    
+    // console.log(cache)
+
+    // Symbol 符号，作用就是表示一个独一无二的值
+    // const s = Symbol()
+    // console.log(s)
+    // console.log(typeof s)
+    // console.log(Symbol() === Symbol())
+    // console.log(Symbol('foo'))
+    // console.log(Symbol('bar'))
+    // console.log(Symbol('baz'))
+    
+    const obj = {
+      [Symbol()] : 789,
+      name: "zs"
+    }
+    obj[Symbol()] = 123
+    obj[Symbol()] = 456
+    console.log(obj[Symbol()])
+    console.log(obj.name)
+
+
+  </script>
+</body>
+</html>

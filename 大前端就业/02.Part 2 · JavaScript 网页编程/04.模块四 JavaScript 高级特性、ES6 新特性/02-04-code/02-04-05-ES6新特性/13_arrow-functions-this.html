@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 箭头函数与 this
+    const person = {
+      name: "tom",
+      // sayHi: function () {
+      //   console.log(`hi,my name is ${this.name}`)
+      // }
+      // sayHi: () => {
+      //   console.log(`hi,my name is ${this.name}`)
+      // }
+      sayHi: function () {
+        // const _this = this;
+        setTimeout(() => {
+          console.log(`hi,my name is ${this.name}`)
+        },1000);
+      }
+    }
+    person.sayHi()
+  </script>
+</body>
+</html>

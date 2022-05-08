@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 数组解构
+    // const arr = [100, 200, 300]
+    // const foo = arr[0]
+    // const bar = arr[1]
+    // const baz = arr[2]
+    // console.log(foo, bar, baz)
+
+    // const arr = [100, 200, 300]
+    // const [foo, bar, baz] = arr
+    // console.log(foo, bar, baz)
+
+    // const arr = [100, 200, 300]
+    // const [, , baz] = arr
+    // console.log( baz)
+
+    // const arr = [100, 200, 300]
+    // const [foo, ...rest] = arr
+    // console.log(rest)
+
+    // const arr = [100, 200, 300]
+    // const [foo] = arr
+    // console.log(foo)
+
+    // const arr = [100, 200, 300]
+    // const [foo, bar, baz = 400, more = 123] = arr
+    // console.log(more)
+    // console.log(baz)
+
+    const path = "foo/bar/baz"
+    // const temp = path.split("/")
+    // const a = temp[1]
+    const [,,a] = path.split("/")
+    console.log(a)
+  </script>
+</body>
+</html>

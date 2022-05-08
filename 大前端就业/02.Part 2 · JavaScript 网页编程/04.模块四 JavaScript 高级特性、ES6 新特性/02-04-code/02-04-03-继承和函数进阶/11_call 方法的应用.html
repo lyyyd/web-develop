@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 构造函数扩展原型对象方法
+    // Array.prototype.getSum = function () {
+      // this 的指向
+    // };
+    // 数组中的方法
+    // var arr = [1,2,3,4];
+    // 使用的是 Array 构造函数的原型对象上的方法
+    // 方法内部的 this 指向的就是 arr 数组对象，操作的也是 arr 的对象
+    // arr.push();
+    // arr.splice();
+    // arr.getSum();
+
+    // {} 的对象自己是没有 push 方法的
+    // 类数组对象 getElementsByTagName
+    var o = {
+      0: 10,
+      1: 20,
+      2: 30,
+      length: 3
+    };
+    // console.log(o[0])
+    // 增加一项新的数据
+    // o["3"] = 40;
+    // o.length = 4;
+
+    // 利用数组中的 push 方法，指定内部的this 为对象 o，就可以处理类数组对象的数据
+    Array.prototype.push.call(o,50);
+    console.log(o);
+
+  </script>
+</body>
+</html>

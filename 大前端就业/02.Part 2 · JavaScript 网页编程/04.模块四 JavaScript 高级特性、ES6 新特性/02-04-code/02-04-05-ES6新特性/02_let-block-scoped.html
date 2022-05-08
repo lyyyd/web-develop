@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // if (true) {
+    //   var foo = 1;
+    // }
+    // if (true) {
+    //   let foo = 1;
+    // }
+    // console.log(foo);
+    // 可以通过新的关键字 let 定义块内部的变量
+    // let 定义的变量在块级作用域内部能够被访问
+
+    // 非常适合设置 在 for 循环中的循环变量
+    // for (var i = 0 ; i < 3 ; i++) {
+    //   for (var i = 0; i < 3;i++) {
+    //     console.log(i);
+    //   }
+    // }
+    // 通过 let 定义变量，只在自己的循环中生效
+    // for (let i = 0 ; i < 3 ; i++) {
+    //   for (let i = 0; i < 3;i++) {
+    //     console.log(i);
+    //   }
+    // }
+
+    // 通过循环批量添加事件
+    // 通过 let 定义变量，只能在块级内部被调用
+    // var eles = [{}, {}, {}];
+    // for (let i = 0 ; i < eles.length ; i++) {
+    //   eles[i].onclick = function () {
+    //     console.log(i);
+    //   }
+    // }
+    // eles[0].onclick();
+
+    // 循环 实际上有两层作用域
+    // for (let i = 0 ; i < 10 ; i++) {
+    //   let i = "foo";
+    //   console.log(i);
+    // }
+    // let i = 0;
+    // if (i < 10) {
+    //   let i = "foo";
+    //   console.log(i);
+    // }
+    // i++;
+
+    // 和 var 有另外一个区别，let 不会进行变量声明提升
+    // console.log(a);
+    // // var a = 1;
+    // let a = 2;
+  </script>
+</body>
+</html>

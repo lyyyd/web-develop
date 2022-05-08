@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 可以再自调用函数之前，强行加一个分号，意思是让前面的程序结束
+    ;(function () {
+      console.log(1)
+    })()
+    // 前面还有一个返回值，默认为 undefined
+    ;(function () {
+      console.log(2)
+    })()
+
+    // 如果函数作为事件或者函数表达式方式，在后面写的自调用函数也要注意
+    var fun = function () {
+      console.log(1);
+    }
+    ;(function () {
+      console.log(2)
+    })()
+
+    // undefined 在低版本浏览器中会被更改
+    undefined = "haha";
+    console.log(undefined);
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 字符集：使用 [] 表示的可能的字符的集合，集合内部可以排列多个匹配字符串的可能性，整个字符集需要匹配的是字符串中的一个字符。
+        // [] --> 字符串中的一个字符，多选一的效果，有一个满足就算匹配成功
+
+        // 简单类：多个可能匹配的字符连续书写在一起，只要其中一个匹配成功即可
+        // var reg = /[abc]/;
+        // console.log(reg.test("eeeb"));
+
+        // 范围类：将匹配同一类型且连续在一起的字符写到集合中，中间使用 - 连接
+        // var reg = /[0-9]/;
+        // var reg = /[a-z]/;
+        // var reg = /[A-Q]/;
+        // console.log(reg.test("A123456"));
+
+        // 负向类：取反的意思，不包含字符集内部书写的字符
+        // var reg = /[^A-Q]/;
+        // console.log(reg.test("A"));
+
+        // 组合类：单一类型或者简单类不能匹配所有结果，可以将多个写法连在一起书写
+        // 特殊的：如果数字、大写字母、小写字母，按照这种顺序写的完整的范围，可以缩写
+        // var reg = /[0-9a-z]/;
+        // var reg = /[0-9A-Z]/;
+        var reg = /[0-z]/;
+        console.log(reg.test("a"));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

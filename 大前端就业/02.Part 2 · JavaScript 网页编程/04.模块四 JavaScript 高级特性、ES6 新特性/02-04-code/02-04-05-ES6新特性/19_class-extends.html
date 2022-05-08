@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 静态方法
+    class Person {
+      constructor (name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      sayHi () {
+        console.log(`hi,my name is ${this.name}`)
+      }   
+    }
+    class Student extends Person {
+      constructor (name,age,number) {
+        super(name,age)
+        this.number = number
+      }
+      hello () {
+        super.sayHi()
+        console.log(`学号是 ${this.number}`)
+      }
+    }
+    const s1 = new Student("tom",18,101)
+    s1.hello();
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 匹配中文字符
+        var reg = /^[a-z\u4e00-\u9fa5]+$/;
+        console.log(reg.test("只有中文的文字内容"));
+        console.log(reg.test("只有中文的文 字内容"));
+        console.log(reg.test("只有中文的文a字内容"));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

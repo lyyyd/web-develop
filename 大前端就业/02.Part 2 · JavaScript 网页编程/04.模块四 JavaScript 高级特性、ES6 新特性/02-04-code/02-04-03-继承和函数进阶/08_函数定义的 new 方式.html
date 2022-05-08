@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fn(a,b) {
+      var a = 1;
+      console.log(a + b);
+    }
+    // 通过构造函数方法定义函数
+    // 函数本身也是一种对象
+    var fun = new Function('a','b','var a = "1";console.log(a+b)');
+    fun(2,3);
+    console.dir(fun);
+  </script>
+</body>
+</html>

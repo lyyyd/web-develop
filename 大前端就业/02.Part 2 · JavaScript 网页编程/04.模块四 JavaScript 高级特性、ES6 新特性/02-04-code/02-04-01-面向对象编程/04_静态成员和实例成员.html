@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 自定义构造函数
+    function Person(name,age) {
+      // 实例成员  ，通过将来生成的实例对象进行调用的成员
+      // 创建时，是直接添加给函数内部的 this
+      this.name = name;
+      this.age = age;
+      this.sayName = function () {
+        console.log(this.name);
+      };
+    }
+    // 静态成员 -- 直接给构造函数添加的成员
+    Person.version = "1.0";
+    // 生成对象实例
+    var person1 = new Person("Bob",18);
+    var person2 = new Person("Mike",20);
+    
+    // 调用实例成员
+    console.log(person1.name);
+    // 使用构造函数调用实例成员会出错
+    // console.log(Person.name);
+    // Person.sayName();
+
+    // 调用静态成员,只能通过构造函数进行调用
+    console.log(Person.version);
+    console.log(person1.version);
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Symbol 补充
+    
+    // console.log(Symbol("foo") === Symbol("foo"))
+
+    // const a = Symbol.for(true)
+    // const b = Symbol.for('true')
+    // console.log(a === b)
+
+    // const obj = {
+    //   [Symbol.toStringTag]: "XObject"
+    // }
+    // console.log(obj.toString())
+
+    const obj = {
+      [Symbol()]: "Symbol value",
+      foo: "foo value"
+    }
+    // for (var k in obj) {
+    //   console.log(k)
+    // }
+    console.log(Object.getOwnPropertySymbols(obj))
+    // console.log(Object.keys(obj))
+    // console.log(JSON.stringify(obj))
+  </script>
+</body>
+</html>

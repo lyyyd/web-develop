@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 体会闭包
+    // 将一个内部函数拿到父函数的外面，观察是否还能调用父函数内部的变量
+    function outer() {
+      // 形成闭包环境中的变量不是一成不变的，可以被更改
+      var a = 10;
+      function inner() {
+        console.log(a++);
+      }
+      // 将inner 函数作为返回值
+      return inner;
+    }
+    var inn = outer();
+    inn();
+    inn();
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 给数组中的每一项赋值一个 函数
+    var arr = [];
+    for (var i = 0 ; i <= 10 ; i++) {
+      // 自调用函数
+      (function (i) {
+        arr[i] = function () {
+          console.log(i);
+        };
+      })(i);
+    }
+    // 目的：调用数组对应的项，输出它的对应下标
+    arr[0]();
+    arr[1]();
+    arr[2]();
+  </script>
+</body>
+</html>

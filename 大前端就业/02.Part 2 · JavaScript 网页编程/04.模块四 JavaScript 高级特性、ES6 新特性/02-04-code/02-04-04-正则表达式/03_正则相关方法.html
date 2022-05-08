@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // exec 方法：查找匹配的字符串，输出到数组中
+    // 不论有没有全局修饰符，都只会在找到第一个之后停止
+    // var str = "aaaabccccbacabc";
+    // var reg = /abc/;
+    // var arr = reg.exec(str);
+    // console.log(arr);
+    // console.log(arr.index);
+
+    // test 方法：检测字符串中是否满足正则表达式的匹配规则，返回值是布尔值
+    var reg = /abc/;
+    console.log(reg.test("aaddccddabcddeeddfff"));
+  </script>
+</body>
+</html>

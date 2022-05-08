@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 函数声明提升
+    // fun();
+    // fn();
+    // 函数声明
+    // 必须定义函数名
+    // function fun() {
+    //   console.log(1);
+    // }
+    // 函数表达式
+    // 是将函数赋值给一个变量，可以是一个匿名函数
+    // var fn = function () {
+    //   console.log(2);
+    // };
+    // fun();
+    // fn();
+
+    // 提前调用
+    // 现代浏览器进行的是变量声明提升
+    // fn();
+    // console.log(fn);
+    // 低版本浏览器可以进行函数声明提升
+    // 进行 if 语句中的函数提升
+
+    var fn;
+    // if (true) {
+    //   function fn() {
+    //     console.log("fn-true");
+    //   }
+    // } else {
+    //   function fn() {
+    //     console.log("fn-false");
+    //   }
+    // }
+    if (true) {
+      fn = function () {
+        console.log("fn-true");
+      }
+    } else {
+      fn = function () {
+        console.log("fn-false");
+      }
+    }
+    fn();
+  </script>
+</body>
+</html>

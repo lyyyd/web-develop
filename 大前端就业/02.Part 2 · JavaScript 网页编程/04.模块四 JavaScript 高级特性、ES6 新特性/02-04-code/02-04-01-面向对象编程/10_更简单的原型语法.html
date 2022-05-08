@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>         
+    // 自定义构造函数
+    function Person(name,age) {
+      this.name = name;
+      this.age = age;     
+    }
+    // 将所有实例共享的属性和方法，都添加给原型对象
+    // Person.prototype.type = "human";
+    // Person.prototype.sayName = function () {
+    //   console.log(this.name);
+    // };  
+    // 直接使用一个对象字面量对 原型对象进行赋值
+    Person.prototype = {
+      constructor : Person,  // 需要手动 将 constructor 属性指向正确的构造函数
+      type : "human",
+      sayName : function () {
+        console.log(this.name);
+      }
+    };
+    // 生成对象实例
+    var person1 = new Person("Bob",18);
+    var person2 = new Person("Mike",20);
+
+    person1.sayName();
+    console.log(person2.constructor);
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>  
+    
+    // var fns = {
+    //   sayName : function () {
+    //     console.log(this.name);
+    //   },
+    //   sayAge : function () {
+    //     console.log(this.age);
+    //   }      
+    // };    
+    // 自定义构造函数
+    function Person(name,age) {
+      this.name = name;
+      this.age = age;      
+    }
+    // 更优的解决方法，将所有实例共享的属性和方法，都添加给原型对象
+    Person.prototype.type = "human";
+    Person.prototype.sayName = function () {
+      // 方法调用时，哪个对象调用，this 指向的就是谁
+      console.log(this.name);
+    };
+    Person.prototype.sayAge = function () {
+      // 方法调用时，哪个对象调用，this 指向的就是谁
+      console.log(this.age);
+    }
+    // 生成对象实例
+    var person1 = new Person("Bob",18);
+    var person2 = new Person("Mike",20);
+
+    // 调用原型对象上公用的属性和方法
+    person2.sayAge();
+    console.log(person1.sayAge === person2.sayAge);
+  </script>
+</body>
+</html>

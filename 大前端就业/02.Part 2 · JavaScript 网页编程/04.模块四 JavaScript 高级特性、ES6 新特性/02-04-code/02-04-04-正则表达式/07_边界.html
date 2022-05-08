@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 边界
+        // ^  表示限制开头，后面的正则内容匹配的结果必须出现在字符串开始
+        var str = "hello ll Javascript";
+        console.log(/^hello/.test(str));
+        console.log(/^hhello/.test(str));
+
+        // $ 表示限制结尾，前面的正则内容匹配的结果必须出现在字符串结尾
+        console.log(/script$/.test(str));
+        console.log(/scripthaha$/.test(str));
+
+        // 实际应用中，会同时限制开头和结尾
+        console.log(/^hello\s+Javascript$/.test(str));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

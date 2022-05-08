@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 体会闭包
+    // 将一个内部函数拿到父函数的外面，观察是否还能调用父函数内部的变量
+    function outer() {
+      var a = 10;
+      function inner() {
+        console.log(a);
+      }
+      // 将inner 函数作为返回值
+      return inner;
+    }
+    // 在outer函数的外面，是不能直接访问 a 变量
+    // outer();
+    // console.log(a);
+    // 将 outer 执行的结果，赋值给一个变量
+    var inn = outer();
+    // console.log(inn);
+    // 在全局调用 inn，按道理应该查找全局的 a变量
+    inn();
+    // 输出的真正结果是 10，来自于 outer 函数内部的变量
+  </script>
+</body>
+</html>

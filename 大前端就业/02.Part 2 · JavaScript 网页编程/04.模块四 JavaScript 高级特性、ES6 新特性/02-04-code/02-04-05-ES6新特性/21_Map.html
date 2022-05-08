@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Map 数据结构
+    // const obj = {}
+    // obj[true] = "boolean"
+    // obj[123] = "number"
+    // obj[{a: 1}] = "object"
+
+    // console.log(Object.keys(obj))
+    // console.log(obj[{}])
+    // console.log(obj['[object Object]'])
+
+    const map = new Map()
+    const a = { a: 1}
+    map.set(a,100)
+    console.log(map)
+    console.log(map.get(a))
+    
+    // map.has()
+    // map.delete()
+    // map.clear()
+
+    map.forEach((value,key) => {
+      console.log(key,value)
+    })
+  </script>
+</body>
+</html>

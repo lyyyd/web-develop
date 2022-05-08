@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>         
+    // 自定义构造函数
+    function Person(name,age) {
+      this.name = name;
+      this.age = age; 
+      // this.sayName = function () {
+      //   console.log("hello");
+      // }     
+    }
+    // 将所有实例共享的属性和方法，都添加给原型对象
+    Person.prototype.type = "human";
+    // Person.prototype.sayName = function () {
+    //   console.log(this.name);
+    // };
+    // 生成对象实例
+    var person1 = new Person("Bob",18);
+    var person2 = new Person("Mike",20);
+
+    // 方法的调用查找
+    // person1.sayName();
+    console.log(person1.valueOf());
+    // console.log(person1);
+    // var o = person1.__proto__;   //指向的是 Person 构造函数的原型对象
+    // // 任何一个对象都有 __proto__ 属性，指向的就是该对象的 构造函数的 原型对象
+    // var o2 = o.__proto__;
+    // console.log(o2.constructor);
+    // console.dir(o2);
+    // console.dir(o2.__proto__);
+  </script>
+</body>
+</html>

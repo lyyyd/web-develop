@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 对象扩展方法
+    // Object.assign 方法
+    
+    // const source1 = {
+    //   a: 123,
+    //   b: 123
+    // }
+    // const source2 = {
+    //   b: 678,
+    //   d: 789
+    // }
+    // const target = {
+    //   a:456,
+    //   c:789
+    // }
+    // const result = Object.assign(target,source1,source2)
+    // console.log(target)
+    // console.log(target === result)
+
+    // 复制对象
+    // function fun(obj) {
+    //   // 希望内部更改时，不要改外部的对象
+    //   const newObj = Object.assign({},obj)
+    //   newObj.name = 'tom'      
+    //   console.log(newObj)
+    // }
+    // const obj = {
+    //   name: 'jack',
+    //   age: 18
+    // }
+    // fun(obj)
+    // console.log(obj)
+
+    // 应用，在 options 对象参数接收时，简化
+    function Block(options) {
+      // this.width = options.width;
+      Object.assign(this,options)
+    }
+    const block1 = new Block({width: 100, height: 100, x: 50, y: 50})
+    console.log(block1)
+  </script>
+</body>
+</html>

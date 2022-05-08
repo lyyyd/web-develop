@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 量词
+        // {n}  硬性量词   对应前面的内容必须在字符串中出现 n 次连续
+        // var reg = /^\d{5}$/;
+        // console.log(reg.test("1234"));
+        // console.log(reg.test("12345"));
+        // console.log(reg.test("123456"));
+
+        // {n,m}  软性量词  对应前面的内容必须在字符串中出现 n-m 次连续
+        // var reg = /^\d{5,7}$/;
+        // console.log(reg.test("1234"));
+        // console.log(reg.test("12345"));
+        // console.log(reg.test("123456"));
+        // console.log(reg.test("1234567"));
+        // console.log(reg.test("12345678"));
+
+        // {n,}  软性量词  对应前面的内容必须在字符串中出现至少 n 次连续
+        // var reg = /^\d{5,}$/;
+        // console.log(reg.test("1234"));
+        // console.log(reg.test("12345"));
+        // console.log(reg.test("123456"));
+        // console.log(reg.test("1234567"));
+        // console.log(reg.test("123456789101112"));
+
+        // ?  软性量词  {0,1} 表示前面的内容出现 0 次或 1次
+        // var reg = /^\d?$/;
+        // console.log(reg.test("1"));
+        // console.log(reg.test(""));
+        // console.log(reg.test("12345"));
+
+        // *  软性量词  {0,} 表示前面的内容出现 0 次或 任意次
+        // var reg = /^\d*$/;
+        // console.log(reg.test("1"));
+        // console.log(reg.test(""));
+        // console.log(reg.test("12345"));
+
+        // +  软性量词  {1,} 表示前面的内容出现 1 次或 以上
+        var reg = /^\d+$/;
+        console.log(reg.test(""));
+        console.log(reg.test("1"));
+        console.log(reg.test("12345"));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

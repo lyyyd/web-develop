@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //或操作符 | 
+        // var reg = /^a|bcd$/;    //匹配时，要么匹配以a开头的，要么匹配以 bcd 结尾的
+        // console.log(reg.test("cbcde"));
+        // console.log(reg.test("acbcde"));
+        // console.log(reg.test("abcd"));
+        // 如果想在正则中，在两个规则之间只能选其中一个，不能包含其他的开头结尾，需要去讲或运算放到分组里
+        var reg = /^(ab|cd)$/;
+        console.log(reg.test("abcd"));
+        console.log(reg.test("ab"));
+        console.log(reg.test("cd"));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

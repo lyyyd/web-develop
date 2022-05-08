@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>         
+    // 自定义构造函数
+    function Person(name,age) {
+      this.name = name;
+      this.age = age;     
+    }
+    // 将所有实例共享的属性和方法，都添加给原型对象
+    Person.prototype.type = "human";
+    Person.prototype.sayName = function () {
+      console.log(this.name);
+    };
+    // 添加一个新的属性给原型对象，值是一个对象类型
+    Person.prototype.address = {
+      city : "北京"
+    };
+    // 生成对象实例
+    var person1 = new Person("Bob",18);
+    var person2 = new Person("Mike",20);
+
+    // 读取 属性和方法
+    // console.log(person1.type);
+    // console.log(person1.city);
+    // console.log(person1.sayName);
+    // person1.sayName();
+
+    // 通过实例对象添加新成员,会直接添加给自己，会屏蔽掉对原型对象的访问
+    person1.sex = "male";
+    person1.sayAge = function () {
+      console.log(this.age);
+    };
+
+    // 如果通过实例对象更改原型对象的属性和方法,会直接添加给自己，会屏蔽掉对原型对象的访问
+    person1.type = "person";
+    person1.sayName = function () {
+      console.log(this.name);
+    }
+    console.dir(person1);
+
+    // 通过实例对象更改原型对象中复杂类型数据中的内容,还是会进行原型链的查找
+    person1.address.city = "上海";
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 非回车非换行字符 .
+        // console.log(/^.+$/.test(`asldjf2830&*^`));
+        // console.log(/^.+$/.test(`asldjf
+        // 2830&*^`));
+
+        // \d 数字字符 \D 非数字字符
+        // console.log(/^\d+$/.test(`0123456789`));
+        // console.log(/^\d+$/.test(`01234z56789`));
+        // console.log(/^\D+$/.test(`askdAK  *&^`));
+        // console.log(/^\D+$/.test(`askdAK  *&^7`));
+
+        // \s 空白字符 \S 非空白字符
+        // console.log(/^\s+$/.test(`  1    
+        // `));
+        // console.log(/^\s+$/.test(`      
+        // `));
+        // console.log(/^\S+$/.test(`AJO456`));
+        // console.log(/^\S+$/.test(`AJO  456`));
+
+        // \w 单词字符 \W 非单词字符
+        console.log(/^\w+$/.test(`abc09_A`));
+        console.log(/^\w+$/.test(`abc*09_A`));
+        console.log(/^\W+$/.test(`*&^%$ *`));
+        console.log(/^\W+$/.test(`a*&^%$ *`));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

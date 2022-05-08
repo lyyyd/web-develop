@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // class 类
+    // function Person(name, age) {
+    //   this.name = name;
+    //   this.age = age;
+    // }
+    // Person.prototype.sayHi = function () {
+    //   console.log(`hi,my name is ${this.name}`)
+    // }
+
+    class Person {
+      constructor (name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      sayHi () {
+        console.log(`hi,my name is ${this.name}`)
+      }
+    }
+    const p1 = new Person("tom",18)
+    console.log(p1)
+    p1.sayHi()
+  </script>
+</body>
+</html>

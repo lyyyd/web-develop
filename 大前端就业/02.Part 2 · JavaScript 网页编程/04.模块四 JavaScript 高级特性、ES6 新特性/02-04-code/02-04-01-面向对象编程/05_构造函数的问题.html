@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 自定义构造函数
+    // function Person(name,age) {
+    //   this.name = name;
+    //   this.age = age;
+    //   // this 内部的 type 属性值是不变的
+    //   this.type = "human";
+    //   // 每个对象的 sayName 方法也是一样的
+    //   this.sayName = function () {
+    //     console.log(this.name);
+    //   };
+    // }
+    
+    
+    // 判断各自的方法是否是同一个函数
+    // console.log(person1.sayName === person2.sayName);
+    
+    // 解决方法1： 将公共的函数提取到构造函数之外
+    // function sayName() {
+    //   console.log(this.name);
+    // }
+    // // 问题：如果有多个公共函数，需要在外部创建多个函数，可能会造成命名冲突
+    // function sayAge() {
+    //   console.log(this.age);
+    // }
+    // function Person(name,age) {
+    //   this.name = name;
+    //   this.age = age;
+    //   // this 内部的 type 属性值是不变的
+    //   this.type = "human";
+    //   // 每个对象的 sayName 方法也是一样的
+    //   this.sayName = sayName;
+    //   this.sayAge = sayAge;
+    // }
+
+    // 解决方法第2种：将多个公共的函数封装到一个对象
+    var fns = {
+      sayName : function () {
+        console.log(this.name);
+      },
+      sayAge : function () {
+        console.log(this.age);
+      }      
+    };    
+    function Person(name,age) {
+      this.name = name;
+      this.age = age;
+      // this 内部的 type 属性值是不变的
+      this.type = "human";
+      // 每个对象的 sayName 方法也是一样的
+      this.sayName = fns.sayName;
+      this.sayAge = fns.sayAge;
+    }
+    // 生成对象实例
+    var person1 = new Person("Bob",18);
+    var person2 = new Person("Mike",20);
+
+    // person1.sayName();
+    console.log(person1.sayName === person2.sayName);
+    console.log(person1.sayAge === person2.sayAge);
+  </script>
+</body>
+</html>

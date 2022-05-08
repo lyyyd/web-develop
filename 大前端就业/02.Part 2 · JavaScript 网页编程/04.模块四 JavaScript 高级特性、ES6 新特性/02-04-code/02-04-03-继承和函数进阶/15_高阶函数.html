@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 高阶函数
+    // 1.函数作为另一个函数的参数
+    // 定义一个函数，吃饭的函数，吃完饭之后，可以做其他的事情，看电影、聊天、看书
+    // function eat(fn) {
+    //   console.log("吃晚饭");
+    //   // 接下来的要做的事情是不固定的
+    //   fn();
+    // }
+    // eat(function () {
+    //   console.log("看电影");
+    // });
+
+    // 2.函数作为一个函数的返回值
+    // 需求：通过同一段代码实现以下效果
+    // 输出 100 + m
+    // 输出 1000 + m
+    // 输出 10000 + m
+    function outer(n) {
+      return function inner(m) {
+        console.log(m + n);
+      }
+    }
+    // 在外部执行 inner 函数
+    //  100 + m
+    var fun = outer(100);
+    fun(3);
+    fun(13);
+    fun(23);
+    var fun1 = outer(1000);
+    fun1(3);
+  </script>
+</body>
+</html>

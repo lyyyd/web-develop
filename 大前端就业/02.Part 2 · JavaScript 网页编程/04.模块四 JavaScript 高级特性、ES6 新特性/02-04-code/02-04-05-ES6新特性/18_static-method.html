@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 静态方法
+    class Person {
+      constructor (name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      sayHi () {
+        console.log(`hi,my name is ${this.name}`)
+      } 
+      static create (name,age) {
+        console.log(this)
+        return new Person(name,age)
+      }     
+    }
+    const p1 = Person.create("zs",19)
+    console.log(p1)
+  </script>
+</body>
+</html>
