@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 工厂方法就是相当于对 new Object() 方法的一个封装
+    function createPerson(name,age,sex) {
+      // 创建一个空对象
+      var person = new Object();
+      // 添加属性和方法，属性可以接受参数的值
+      person.name = name;
+      person.age = age;
+      person.sex = sex;
+      person.sayHi = function () {
+        console.log("hello");
+      };
+      // 将对象作为函数的返回值
+      return person;
+    }
+    // 想创建一个对象，可以调用工厂函数
+    var p1 = createPerson("zs",18,true);
+    var p2 = createPerson("ls",19,false);
+    // 输出
+    console.log(p1);
+    console.log(p2);
+  </script>
+</head>
+<body>
+
+</body>
+
+</html>

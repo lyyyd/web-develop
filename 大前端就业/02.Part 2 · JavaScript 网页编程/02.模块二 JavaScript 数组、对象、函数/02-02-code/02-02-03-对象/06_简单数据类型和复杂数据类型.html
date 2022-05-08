@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 基础数据类型
+    // var a = 5;
+    // var b = a;  //将 a 内部存储的数据 5 复制了一份给 b
+    // a = 10;
+    // console.log(a);
+    // console.log(b);
+
+    // 复杂数据类型
+    var p1 = {
+      name : "zs",
+      age : 18,
+      sex : "male"
+    };
+    var p = p1;  //p1 将内部存储的指向对象原型的地址复制给了 p
+    // 两个变量之间是一个联动的关系，一个变化，会引起另一个变化
+    p.name = "ls";
+    console.log(p);
+    console.log(p1);
+
+    // 数组和函数存储在变量中时，也是存储的地址
+    var arr = [1,2,3,4];
+    var arr2 = arr;
+    arr[4] = 5;
+    console.log(arr);
+    console.log(arr2);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

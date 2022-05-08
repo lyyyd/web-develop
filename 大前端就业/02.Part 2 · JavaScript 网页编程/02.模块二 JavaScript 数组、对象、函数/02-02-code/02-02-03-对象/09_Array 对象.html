@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 字面量方法
+    var arr = [1,2,3];
+
+    // 数组也是对象，可以通过构造函数生成
+    // 空数组
+    var arr1 = new Array();
+    // 添加数据，可以传参数
+    var arr2 = new Array(1,2,3);
+    var arr3 = new Array("zs","ls","ww");
+    // console.log(arr1);
+    // console.log(arr2);
+    // console.log(arr3);
+
+    // 检测数组的数据类型
+    // console.log(typeof(arr));
+    // console.log(typeof(arr3));
+    var a = {};
+    // 检测某个实例对象是否属于某个对象类型
+    console.log(arr instanceof Array);
+    console.log(arr2 instanceof Array);
+    console.log(a instanceof Array);
+
+    function fun () {
+      console.log(1);
+    }
+    console.log(fun instanceof Function);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 自己定义一个构造函数
+    function Person(name,age,sex) {
+      // 不需要使用 new 一个新对象
+      // 用 this 替代将来创建的新对象
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+      this.sayHi = function () {
+        console.log("hello");
+      };
+      // 不需要添加 return
+    }
+    // 用 new 关键字调用构造函数
+    var p1 = new Person("zs",18,true);
+    console.log(p1);
+  </script>
+</head>
+<body>
+
+</body>
+
+</html>

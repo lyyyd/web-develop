@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 基本类型的数据：没有属性和方法
+    // 对象数据类型：有属性和方法
+    // 但是字符串是可以调用一些属性和方法
+    // var str = "这是一个字符串";
+    // var str2 = str.slice(3,5);
+    // console.log(str2);
+
+    // 基本包装类型：基本类型的数据在进行一些特殊操作时，会暂时被包装成一个对象，结束后再被销毁
+    // 字符串也有一种根据构造函数创建的方法
+    // var str3 = new String("abcdef");
+    // console.log(str);
+    // console.log(str3);
+
+    // 模拟计算机的工作
+    var str = "这是一个字符串";
+    // 进行了一个临时的包装
+    var str4 = new String(str);
+    var str2 = str4.slice(3,5);
+    str4 = null;
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

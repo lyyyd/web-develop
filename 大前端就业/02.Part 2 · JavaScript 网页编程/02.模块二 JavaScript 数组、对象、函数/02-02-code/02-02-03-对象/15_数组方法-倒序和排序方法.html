@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 字面量方法
+    var arr = [1,2,3,4,5,6,7,8,9,10,20,30];
+
+    // 倒序排列
+    // console.log(arr.reverse());
+    // console.log(arr);
+    
+    // 排序，默认按照字符编码顺序从小到大排列
+    // arr.sort();
+    // 添加一个比较函数的参数
+    arr.sort(function(a,b){
+      if (a < b) {
+        return -1;   //表示 a 要排在 b 前面
+      } else if (a > b) {
+        return 1;  //表示 a 要排在 b 后面
+      } else {
+        return 0;  //表示 a 和 b 保持原样，不换位置
+      }
+    });
+    console.log(arr);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
