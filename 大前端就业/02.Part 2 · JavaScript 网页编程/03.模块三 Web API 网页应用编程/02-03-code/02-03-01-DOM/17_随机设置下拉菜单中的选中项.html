@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="选择" id="btn">
+    <br>
+    <select id="food">
+        <option>烤肉</option>
+        <option>拉面</option>
+        <option>麻辣烫</option>
+        <option>小龙虾</option>
+        <option>火锅</option>
+        <option>外卖</option>
+    </select>
+    <script>
+        // 1.获取元素
+        var btn = document.getElementById("btn");
+        var food = document.getElementById("food");
+        var opts = food.getElementsByTagName("option");
+
+        // 2.给按钮添加点击事件
+        btn.onclick = function () {
+            // 3.随机选择一个 option
+            // 每次点击需要获取一个 opts 数组的随机下标
+            // Math.random()   [0,1)
+            // Math.random()*6   [0,6)
+            var n = Math.floor(Math.random() * opts.length);
+            // console.log(n);
+            // 设置对应的随机项的属性
+            opts[n].selected = true;
+        };
+    </script>
+</body>
+</html>

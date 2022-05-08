@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #pic {
+        position: fixed;
+      }
+    </style>
+</head>
+<body>
+    <img src="images/tianshi.gif" alt="" id="pic">
+    <script>
+        // 通过 鼠标移动事件给 图片添加 left 和 top 的值
+        // 获取元素
+        var pic = document.getElementById("pic");
+        // 给整个文档添加鼠标移动事件
+        document.onmousemove = function (e) {
+          e = e || window.event;
+          // 给元素的css 属性赋值
+          pic.style.left = e.clientX + "px";
+          pic.style.top = e.clientY + "px";
+        };
+    </script>
+</body>
+</html>

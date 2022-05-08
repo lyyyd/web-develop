@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // window 对象是 BOM 中的一个顶层对象，其他的对象都是 window 的子对象。
+    // document 对象就是 window 的一个子对象
+    // console.dir(window.document);
+
+    // 输出 window 对象
+    console.dir(window);
+
+    // window 对象在调用属性和方法时，可以省略 window 不写
+    // alert(1);
+    // window.alert(2);
+
+    // 在全局作用域定义的全局变量，都是 window 的一个属性
+    var age = 18;
+    console.log(window.age);
+    // window 中 的特殊属性 name,如果定义新的变量，只会在原来的 name 属性上进行赋值，并且只能是字符串格式的值
+    // var name = 123;
+    // console.log(window.name);
+
+    // top 属性 在 window 中，属性值指向的就是顶层对象 window,这个属性是只读的，不能后期更改。
+    // var top = 23;
+    // console.dir(window.top);
+  </script>
+</body>
+</html>

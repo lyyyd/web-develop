@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <button id="btn">按钮</button>    
+    <script>
+        // 获取元素
+        var txts = document.getElementsByTagName("input");
+        // 添加批量的获取焦点事件
+        for (var i = 0 ; i < txts.length ; i++) {
+            // 排他思想：1.排除其他 2.保留自己         
+
+            // 给每一个input标签添加获取焦点事件
+            txts[i].onfocus = function () {
+                // 排除其他的方法：将所有的项包含自己都设置为默认样式
+                // 遍历数组，让所有的样式恢复默认
+                for (var j = 0 ; j < txts.length ; j++) {
+                    txts[j].style.backgroundColor = "";
+                }
+                // 设置元素自己高亮显示
+                // 保留自己的特殊样式
+                // this 指代事件源自己
+                this.style.backgroundColor = "yellow";
+            };
+        }
+    </script>
+</body>
+</html>

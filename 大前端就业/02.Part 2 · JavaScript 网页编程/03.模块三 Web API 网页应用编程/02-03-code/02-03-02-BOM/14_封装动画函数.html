@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      opacity: 0.5;
+      background-color: #0f0;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="开始" id="start">
+  <div class="box" id="box"></div>
+  <script src="animate.js"></script>
+  <script>
+    // 获取元素
+    var start = document.getElementById("start");
+    var box = document.getElementById("box");
+    // 补充 获取计算后样式的方法
+    // console.dir(window.getComputedStyle(box));
+    // console.log(window.getComputedStyle(box).width);
+    // console.log(window.getComputedStyle(box).height);
+    // console.log(window.getComputedStyle(box).backgroundColor);
+    // console.log(window.getComputedStyle(box)["opacity"]);
+    
+    // box 是需要运动的元素
+    // 多属性运动
+    // 共同点：总时间、时间间隔是相同的，自定义
+    // 不同的：起始位置（通过程序方法自动获取当前页面最终显示效果）和结束位置（自定义指定的）
+
+    // 函数参数
+    // 参数1：元素对象，它要进行运动
+    // 参数2：结束位置，以对象数据方式传递
+    // 参数3：总时间
+
+    // 调用函数
+    start.onclick = function () {
+      animate(box,{left: 400,width: 300},2000);
+    };
+
+    
+  </script>
+</body>
+</html>

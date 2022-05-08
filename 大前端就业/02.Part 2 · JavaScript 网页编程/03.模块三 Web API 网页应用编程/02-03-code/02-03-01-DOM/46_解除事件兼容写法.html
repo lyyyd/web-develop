@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="点击" id="btn">
+  <script>
+    var btn = document.getElementById("btn");  
+    // 调用函数
+    addEvent(btn,"click",fun); 
+    // 移除事件
+    removeEvent(btn,"click",fun);
+    function fun() {
+      alert(1);
+    }
+    // DOM 2 级事件绑定方式
+    // 自己制作一个兼容所有浏览器的绑定事件的函数
+    // 参数：事件源，事件类型，事件函数
+    function addEvent(ele,type,fn) {
+      // IE 9 及以上的浏览器和其他浏览器，使用 addEventListener 方法
+      // IE 9 以下的浏览器，使用 attachEvent 方法
+      // 浏览器能力检测
+      if (ele.addEventListener) {
+        ele.addEventListener(type,fn);
+      } else if (ele.attachEvent) {
+        ele.attachEvent("on" + type,fn);
+      }
+    }
+
+    // 兼容所有浏览器的 解除绑定事件的函数
+    // 参数：事件源，事件类型，事件函数
+    function removeEvent(ele,type,fn) {
+      // 浏览器能力检测
+      if (ele.removeEventListener) {
+        ele.removeEventListener(type,fn);
+      } else if (ele.detachEvent) {
+        ele.detachEvent("on" + type,fn);
+      }
+    }
+    </script>
+</body>
+</html>

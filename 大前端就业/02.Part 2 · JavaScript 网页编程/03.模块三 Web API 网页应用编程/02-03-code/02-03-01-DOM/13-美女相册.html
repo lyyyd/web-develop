@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica", "Arial", serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+
+        #imagegallery {}
+
+        #imagegallery a {
+            margin: 0px 20px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+
+        #imagegallery a img {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+        美女画廊
+    </h2>
+
+    <div id="imagegallery">
+        <a href="images/1.jpg" title="美女A">
+            <img src="images/1-small.jpg" width="100px" alt="美女1" />
+        </a>
+        <a href="images/2.jpg" title="美女B">
+            <img src="images/2-small.jpg" width="100px" alt="美女2" />
+        </a>
+        <a href="images/3.jpg" title="美女C">
+            <img src="images/3-small.jpg" width="100px" alt="美女3" />
+        </a>
+        <a href="images/4.jpg" title="美女D">
+            <img src="images/4-small.jpg" width="100px" alt="美女4" />
+        </a>
+    </div>
+
+    <div style="clear:both"></div>
+
+    <img id="image" src="images/placeholder.png" alt="" width="450px" />
+
+    <p id="des">选择一个图片</p>
+    <script>
+        // 1.获取元素
+        var imagegallery = document.getElementById("imagegallery");
+        var links = imagegallery.getElementsByTagName("a");
+        var image = document.getElementById("image");
+        var des = document.getElementById("des");
+
+        // 2.遍历数组，添加点击事件
+        for (var i = 0 ; i <= links.length - 1 ; i++) {
+            links[i].onclick = function () {
+                // alert("aaa");
+                // 3.更改 image 内部的 src 属性值
+                // this 关键字指代的是触发事件的真正事件源
+                image.src = this.href;
+                // 4.更改 des 内部的文字内容
+                des.innerText = this.title;
+                // 5.取消 a 标签的默认跳转效果
+                return false;
+            };
+        }
+
+        // for 循环内部添加的绑定事件，在触发时，所有的批量添加的事件已经成功，触发事件时都是在循环结束之后
+        // 批量绑定的事件的事件函数内部如果有 变量 i，要注意，函数执行时已经是在循环结束后
+        // 循环内部定义的变量是一个全局变量，在循环后执行的 i 变量的值是 i 跳出循环时的值
+        // image.src = links[i].href;
+        // console.log(i);
+    </script>
+</body>
+
+</html>

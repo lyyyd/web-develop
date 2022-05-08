@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.scroll{
+			position: relative;
+			width: 830px;
+			height: 130px;
+			border: 10px solid #000;
+			margin: 100px auto;
+			overflow: hidden;
+		}
+		.scroll ul{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 5000px;
+			height: 130px;
+		}
+		.scroll ul li{
+			float: left;
+			width: 200px;
+			height: 130px;
+			margin-right: 10px;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="scroll" id="scroll">
+		<ul id="munit">
+			<li><img src="images/shuzi/0.png" alt="" /></li>
+			<li><img src="images/shuzi/1.png" alt="" /></li>
+			<li><img src="images/shuzi/3.png" alt="" /></li>
+			<li><img src="images/shuzi/4.png" alt="" /></li>
+			<li><img src="images/shuzi/5.png" alt="" /></li>
+			<li><img src="images/shuzi/6.png" alt="" /></li>
+			<li><img src="images/shuzi/7.png" alt="" /></li>
+			<li><img src="images/shuzi/0.png" alt="" /></li>
+			<li><img src="images/shuzi/1.png" alt="" /></li>
+			<li><img src="images/shuzi/3.png" alt="" /></li>
+			<li><img src="images/shuzi/4.png" alt="" /></li>
+			<li><img src="images/shuzi/5.png" alt="" /></li>
+			<li><img src="images/shuzi/6.png" alt="" /></li>
+			<li><img src="images/shuzi/7.png" alt="" /></li>
+		</ul>
+	</div>
+	<script src="common.js"></script>
+	<script>
+		// 1.获取元素
+		var scroll = my$("scroll");
+		var munit = my$("munit");
+		// 2.自己进行滚动播放
+		var nowLeft = 0;
+		// 关键点：找到 ul 元素的运动的折返点
+		// 耦合性比较强，只适用于一部分程序
+		var back = -1470;
+		var timer;
+		timer = setInterval(run,10);
+		// 3.鼠标移上 scroll 元素，让运动停止
+		scroll.onmouseover = function () {
+			clearInterval(timer);
+		};
+		// 4.鼠标离开 scroll 元素，让运动重新开始
+		scroll.onmouseout = function () {
+			timer = setInterval(run,10);
+		};
+
+		// 运动函数
+		function run() {
+			// nowLeft 进行自减
+			nowLeft -= 2;
+			// 每次都要判断，是否走到了折返点，如果走到了，让他瞬间切换到 0
+			if (nowLeft <= back) {
+				nowLeft = 0;
+			}
+			// 给ul 赋值
+			munit.style.left = nowLeft + "px";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .gray {
+      color: gray;
+    }
+
+    .black {
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" class="gray" value="请输入搜索关键字" id="txtSearch">
+  <input type="button" value="搜索" id="btnSearch">
+  <script>
+    // 获取元素
+    var txtSearch = document.getElementById("txtSearch");
+    // 1.获得焦点时，可以使用一个 onfocus，如果文本框内容是默认 请输入搜索关键字，需要清空文字，让文字加载黑色
+    txtSearch.onfocus = function () {
+      // 判断是否是默认的提示文字
+      if (this.value === "请输入搜索关键字") {
+        this.value = "";
+        this.className = "black";
+      }
+    };
+    // 2.失去焦点时，可以使用一个 onblur，如果文本框内容为空，需要改为默认提示内容 请输入搜索关键字，让文字颜色变为灰色
+    txtSearch.onblur = function () {
+      // 如果用户输入的内容正好与默认提示文本相同，失去焦点时，也应该让文字颜色变为灰色
+      // 判断内容是否为空
+      if (this.value === "" || this.value === "请输入搜索关键字") {
+        this.value = "请输入搜索关键字";
+        this.className = "gray";
+      }
+    };
+  </script>
+</body>
+
+</html>

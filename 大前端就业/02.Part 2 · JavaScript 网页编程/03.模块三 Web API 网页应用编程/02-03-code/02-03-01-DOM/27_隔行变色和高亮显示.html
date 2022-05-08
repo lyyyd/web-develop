@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        td{
+            width: 100px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        // 获取所有的行
+        var trs = document.getElementsByTagName("tr");
+        // 1.隔行变色
+        for (var i = 0; i < trs.length ; i++) {
+            // 下标为偶数的行显示粉色
+            // 下标为奇数的行显示灰色
+            if (i % 2 == 0) {
+                trs[i].style.backgroundColor = "pink";
+            } else {
+                trs[i].style.backgroundColor = "lightgray";
+            }
+            // 2.鼠标移上高亮显示，鼠标离开恢复默认
+            // 全局变量
+            var bgc;
+            // 鼠标移上高亮显示
+            trs[i].onmouseover = function () {
+                // 定义变量记录 tr 原来的颜色
+                bgc = this.style.backgroundColor;
+                this.style.backgroundColor = "skyblue";
+            };
+            // 鼠标离开恢复默认
+            trs[i].onmouseout = function () {
+                this.style.backgroundColor = bgc;
+            };
+        }
+    </script>
+</body>
+</html>

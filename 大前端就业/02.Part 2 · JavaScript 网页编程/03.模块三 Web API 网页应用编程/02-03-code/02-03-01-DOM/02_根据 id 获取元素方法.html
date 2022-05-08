@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <p id="para">text0</p>
+  <p id="para">text1</p>
+  <p id="box">text2</p>
+  <p>text3</p>
+  <p>text4</p>
+  <script>
+    // 根据 id 获取元素
+    var para = document.getElementById("para");
+    // console.log(typeof para);
+    // 补充：在控制台打印具体的对象
+    // console.dir(para);
+    para.style.background = "pink";
+    // 代码书写顺序：js 中获取元素时，必须保证元素已经在浏览器中渲染成功
+    // 需要将 js 的代码写在 html 结构之后
+    // box.style.background = "blue"; 不推荐直接使用 id 名
+  </script>
+</body>
+</html>

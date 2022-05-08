@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+
+</head>
+<body>
+  <div class="wrap">
+      <table>
+          <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="all" />
+                </th>
+                <th>商品</th>
+                <th>价钱</th>
+            </tr>
+          </thead>
+          <tbody id="tb">
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>iPhone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>iPad Pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>iPad Air</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>Apple Watch</td>
+                <td>2000</td>
+            </tr>
+
+          </tbody>
+      </table>
+      <input type="button" value="  反 选  " id="btn">
+  </div>
+  <script>
+    // 获取元素
+    var all = document.getElementById("all");
+    var tb = document.getElementById("tb");
+    var btn = document.getElementById("btn");
+    var tb_inputs = tb.getElementsByTagName("input");
+
+    // 1.全选:让子选项的选择效果始终与全选保持一致
+    all.onclick = function () {
+        // 遍历所有的子选项
+        for (var i = 0 ; i < tb_inputs.length ; i++) {
+            // 让每一个子选项的 checked 属性值与全选保持一致
+            tb_inputs[i].checked = all.checked;
+        }
+    };
+    // 2.单独选择子选项过程
+    // 给每一次点击任何一个子选项进行判断
+    for (var i = 0 ; i < tb_inputs.length ; i++) {
+        tb_inputs[i].onclick = function () {
+            // 需要判断所有的子选项是否都是选中的状态，如果都选中，让全选被选中，如果有的没有被选中，让全选取消选择
+            allChecked();
+        }
+    }
+    // 3.反选
+    btn.onclick = function () {
+        // 让所有子选项与之前的状态相反
+        for (var i = 0 ; i < tb_inputs.length ; i++) {
+            // 让属性值取原来相反的值
+            tb_inputs[i].checked = !tb_inputs[i].checked;
+        }
+        // 控制全选效果，也需要进行取反
+        allChecked();
+    };
+    // 定义一个 all 是否被选中的函数
+    function allChecked() {
+        // 使用一个中间过渡变量，初始认为所有的子选项都是被选中的
+        var isAllChecked = true;
+        // 遍历所有子选项，进行判断
+        for (var j = 0 ; j < tb_inputs.length ; j++) {
+            // 一旦有一个是没有被选择的，让变量变为 false
+            if (tb_inputs[j].checked === false) {
+                isAllChecked = false;
+                // 只要走到这里，说明肯定不是全选，不需要往下执行循环
+                break;
+            }
+        }
+        // 如果循环内部条件永远不成立，说明所有子选项都是被选中，isAllChecked 的值没有发生变化，还是 true
+        // 给 all 元素设置 checked 属性
+        all.checked = isAllChecked;
+    }
+  </script>
+</body>
+</html>

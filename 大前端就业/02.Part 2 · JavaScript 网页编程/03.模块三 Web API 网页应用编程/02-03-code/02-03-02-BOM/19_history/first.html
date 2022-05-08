@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>First</h1>
+  <a href="second.html">跳转到二级页面</a><br>
+  <input type="button" value="前进" id="btn">
+  <script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+      // 前进，查看之前记录的跳转后的页面
+      // history.forward();
+      history.go(1);
+    };
+  </script>
+</body>
+</html>

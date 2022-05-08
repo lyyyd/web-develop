@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>  
+  <script>
+    // // 在结构之前使用 选择器 选取方法
+    // var para = document.querySelector("#box1 .para");
+    // console.log(para);
+
+    // 选择所有符合条件的元素
+    // var paras = document.querySelectorAll("#box1 .para");
+    // console.log(paras);
+  </script>
+</head>
+<body>
+  <div id="box1">
+    <p>text1 of box1</p>
+    <p class="para">text2 of box1</p>
+    <p class="para">text3 of box1</p>
+    <p>text4 of box1</p>
+  </div>
+  <div id="box2">
+    <p>text1 of box2</p>
+    <p class="para">text2 of box2</p>
+    <p class="para">text3 of box2</p>
+    <p>text4 of box2</p>
+  </div>
+  <script>
+    // 在结构之后使用 选择器 选取方法
+    var para = document.querySelector("#box1 .para");
+    console.log(para);
+    var paras = document.querySelectorAll("#box1 .para");
+    console.log(paras);
+    // 兼容问题：在 IE8 以下不能使用
+  </script>
+</body>
+</html>

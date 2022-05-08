@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {margin:0; padding: 0;}
+        ul {
+            list-style-type: none;
+        }
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .hd {
+            height: 45px;
+        }
+        .hd span {
+            display:inline-block;
+            width: 90px;
+            background-color: pink;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .hd span.current {
+            background-color: skyblue;
+        }
+        .bd div {
+            height: 255px;
+            background-color: skyblue;
+            display: none;
+        }
+        .bd div.current {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <div class="hd" id="hd">
+            <span class="current">体育</span>
+            <span>娱乐</span>
+            <span>新闻</span>
+            <span>综合</span>
+        </div>
+        <div class="bd" id="bd">
+            <div class="current">我是体育模块</div>
+            <div>我是娱乐模块</div>
+            <div>我是新闻模块</div>
+            <div>我是综合模块</div>
+        </div>
+    </div>
+    <script src="common.js"></script>
+    <script>
+        // 获取元素
+        var hd = my$("hd");
+        var spans = hd.getElementsByTagName("span");
+        var bd = my$("bd");
+        var divs = bd.getElementsByTagName("div");
+        // 鼠标移上某个 span 让它添加一个类名，其他的失去类名
+        for (var i = 0 ; i < spans.length ; i++) {
+            // 给每一个 span 元素添加一个新的属性，记录自己在数组中的下标
+            spans[i].index = i;
+            spans[i].onmouseover = function () {
+                // console.dir(this);
+                // 1.让 span 自己进行切换
+                // 排他思想：
+                // 排除其他
+                for (var j = 0; j < spans.length ; j++) {
+                    spans[j].className = "";
+                    // 由于 divs 中数据个数与 spans 一样，所以可以再同一个遍历循环中，进行排他操作
+                    divs[j].className = "";
+                }
+                // 保留自己
+                this.className = "current";
+                // console.log(this.index);
+                // 2.让 bd 中的 div 也对应进行切换
+                // 对应控制思想：有两组数据中存储了相同个数的元素对象，一组对象的变化，会引起另外一组的变化
+                // 实现方法：找两个数据中的共同点，两个数组中元素对象的下标是一样的
+                // 对应控制中也会涉及到排他的操作
+                // 保留 div 自己的类名
+                divs[this.index].className = "current";
+            };
+        }
+
+    </script>
+</body>
+</html>

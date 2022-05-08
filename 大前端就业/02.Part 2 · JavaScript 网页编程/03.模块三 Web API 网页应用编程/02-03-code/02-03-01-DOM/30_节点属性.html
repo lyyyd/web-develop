@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">div 1</div>
+    <script>
+        var box = document.getElementById("box");
+        // 元素节点
+        // console.dir(box);
+        // 属性节点获取
+        var idNode = box.getAttributeNode("id");
+        console.dir(idNode);
+        idNode.nodeValue = "demo";
+
+        // 文本节点
+        var childNodes = box.childNodes;
+        console.log(childNodes);
+        childNodes[0].nodeValue = "box 1";
+    </script>
+</body>
+</html>

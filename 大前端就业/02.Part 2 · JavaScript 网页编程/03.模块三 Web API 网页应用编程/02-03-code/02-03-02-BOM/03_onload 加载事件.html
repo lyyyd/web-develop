@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #box {
+      width: 440px;
+      border: 10px solid #f00;
+    }
+    #box img {
+      display: block;
+      width: 440px;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <img src="images/lunbo/01.jpg" alt="">
+    <img src="images/lunbo/02.jpg" alt="">
+    <img src="images/lunbo/03.jpg" alt="">
+    <img src="images/lunbo/04.jpg" alt="">
+    <img src="images/lunbo/05.jpg" alt="">
+  </div>
+
+  <script>
+    var box = document.getElementById("box");
+    var pics = document.getElementsByTagName("img");
+
+    // Chrome 浏览器渲染加载的机制，由于图片加载时间过长，避免等待，图片在加载过程中，会先执行后面的 js 代码
+    // 后续需要使用到 图片的宽度或高度等尺寸，在 js 中可能获取不到
+    // console.log(box.clientHeight);
+
+    // 图片的加载事件,只要图片加载完毕渲染成功后，就能够立即执行事件函数
+    // pic.onload = function () {
+    //   // 在这里已经保证图片加载成功
+    //   console.log(box.clientHeight);
+    // };
+    
+    // 计数器
+    // var sum = 0;
+    // for (var i = 0 ; i < pics.length ; i++) {
+    //   pics[i].onload = function () {
+    //     sum++;
+    //     // 判断这一次是否加载所有图片完毕
+    //     if (sum >= pics.length) {
+    //       console.log(box.clientHeight);
+    //     }
+    //   };
+    // }
+
+    window.onload = function () {
+      console.log(box.clientHeight);
+    };
+  </script>
+</body>
+</html>

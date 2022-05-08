@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #box {
+      width: 440px;
+      border: 10px solid #f00;
+    }
+    #box img {
+      display: block;
+      width: 440px;
+    }
+  </style>
+  <script>
+    // window.onload 事件，一个页面只能使用一次
+    window.onload = function () {
+      // 事件被触发时，页面所有内容都已经加载完毕，获取元素不会出现错误
+      var box = document.getElementById("box");
+      var pics = document.getElementsByTagName("img");
+      console.log(box.clientHeight);
+    };
+  </script>
+</head>
+<body>
+  <div id="box">
+    <img src="images/wufeng/01.jpg" alt="">
+    <img src="images/wufeng/02.jpg" alt="">
+    <img src="images/wufeng/03.jpg" alt="">
+    <img src="images/wufeng/04.jpg" alt="">
+    <img src="images/wufeng/05.jpg" alt="">
+  </div>
+
+  
+</body>
+</html>

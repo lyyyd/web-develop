@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            width: 300px;
+            border: 1px dashed #f0f;
+            margin: 50px auto;
+            font-size: 24px;
+            line-height: 48px;
+            list-style: none;
+        }
+        li {
+            padding-left: 20px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li>刘亦菲</li>
+        <li>杨幂</li>
+        <li>唐嫣</li>
+        <li>赵丽颖</li>
+        <li>刘诗诗</li>
+    </ul>
+    <script>
+        // 让每个 li 被点击后，自己添加特殊的背景色，而其他兄弟不添加
+        // 以前的思路：获取所有的 li 标签元素，批量添加事件
+        // 事件委托：可以将一些子级的公共类型的事件委托给他们的父级添加，在父级内部想办法找到真正触发事件的最底层的事件源
+        // 获取元素
+        var list = document.getElementById("list");
+        var lis = list.children;
+        // 给 ul 添加点击事件
+        list.onclick = function (e) {
+            // 在内部要想办法找到真正触发事件的 li
+            // 借用事件函数内部的一个参数 e，e 是事件对象
+            // 只要触发事件，函数内部都可以得到一个事件对象，对象中存储了关于事件的一系列数据
+            // e.target 属性记录的就是真正触发事件的事件源
+            // 排除其他
+            for (var i = 0 ; i < lis.length ; i++) {
+                lis[i].style.backgroundColor = "";
+            }
+            e.target.style.backgroundColor = "pink";
+        };
+    </script>
+</body>
+
+</html>

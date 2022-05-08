@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="button" id="btn" value="点击有惊喜" onclick="alert('点我做什么？')"> -->
+    <input type="button" id="btn" value="点击有惊喜">
+    <script>
+        // 获取元素
+        var btn = document.getElementById("btn");
+        // 添加绑定事件
+        btn.onclick = function () {
+            // 定义的是事件被触发后要做的事情
+            alert("点我干嘛？");
+        };
+    </script>
+</body>
+</html>

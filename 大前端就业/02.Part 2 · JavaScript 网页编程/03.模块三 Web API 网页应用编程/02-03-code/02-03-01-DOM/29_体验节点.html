@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">div 1</div>
+    <div id="demo">
+        <p>paragraph 1</p>
+        <p>paragraph 2</p>
+        <p>paragraph 3</p>
+        <div class="inner">
+            <p>inner p</p>
+        </div>
+    </div>
+    <script>
+        // 生成一个新的元素对象
+        var newNode = document.createElement("div");
+        newNode.innerHTML = "新的 div";
+        // 给 body 添加一个新的节点子元素
+        document.body.appendChild(newNode);
+        // 移除一些元素
+        var box = document.getElementById("box");
+        var demo = document.getElementById("demo");
+        document.body.removeChild(box);
+
+        // 获取节点内部的子元素节点
+        var child1 = demo.children;
+        console.log(child1);
+    </script>
+</body>
+</html>

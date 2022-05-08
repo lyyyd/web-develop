@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 1000px;
+        }
+        #box1{
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            margin-top: 500px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <script>
+        // 获取元素
+        var box1 = document.getElementById("box1");
+        
+        // 事件对象中有一些获取尺寸的属性
+        box1.onclick = function (e) {
+            // client系列： 客户端尺寸，点击的点参考浏览器窗口左上角的距离
+            console.log(e.clientX);
+            console.log(e.clientY);
+            // page 系列：html 页面尺寸，点击的点参考html文档左上角的距离
+            console.log(e.pageX);
+            console.log(e.pageY);
+        };
+        
+    </script>
+</body>
+</html>

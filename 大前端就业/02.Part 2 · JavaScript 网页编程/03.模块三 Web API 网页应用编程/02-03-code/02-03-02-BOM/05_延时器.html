@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 延时器
+    // 异步语句
+    // 延时器为了保证后期能够被清除，需要定义赋值给一个变量
+    var timeout = window.setTimeout(function () {
+      console.log("boom");
+    },2000);
+    // 同步语句
+    console.log(1);
+    console.log(2);
+    console.log(3);
+    console.log(4);
+
+    // 清除延时器
+    window.clearTimeout(timeout);
+  </script>
+</body>
+</html>

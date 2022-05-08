@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="跳转" id="btn">
+  <script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+      // 输出URL地址
+      // console.log(location.href);
+      // 重新赋值，可以跳转到新页面，并且记录历史
+      // location.href = "http://www.lagou.com";
+
+      // assign 委派
+      // assign() 方法的作用 与 href 属性一样，可以设置页面跳转的地址
+      // location.assign("http://www.lagou.com");
+
+      // replace 替换
+      // 功能：替换掉地址栏中当前的网址，但是不记录历史
+      // location.replace("http://www.lagou.com");
+
+      // reload 重新加载
+      // 类似 键盘中 f5 功能,类似于false效果， ctrl+f5 强制刷新，从服务器获取页面，相当于 true 的效果
+      // 参数：true 强制从服务器获取页面，false 如果浏览器有缓存网页的话，会直接从缓存中获取页面
+      location.reload(true);
+    };
+  </script>
+</body>
+</html>

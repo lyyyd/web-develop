@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <script>
+        // 获取元素
+        var box1 = document.getElementById("box1");
+        
+        // e.type 属性获取事件类型
+        // box1.onclick = function (e) {
+        //     // 事件对象兼容
+        //     e = e || window.event;
+        //     // 触发的事件类型
+        //     console.log(e.type);
+        // };
+
+        // 更多时候可能给同一个元素对象添加不同的事件类型，对应执行的事件函数内部的代码 不同
+        // box1.onmouseover = function () {
+        //     box1.style.backgroundColor = "skyblue";
+        // };
+        // box1.onmouseout = function () {
+        //     box1.style.backgroundColor = "yellowgreen";
+        // };
+        // 可以将 所有给一个元素绑定的事件的事件函数写在一个 函数内，通过函数内部的 e.type 判断走不同的分支
+        box1.onmouseover = fn;
+        box1.onmouseout = fn;
+        // 避免添加多个函数，占用更多的内存
+        function fn(e) {
+            e = e || window.event;
+            // 根据事件类型，执行不同的代码
+            switch (e.type) {
+                case "mouseover":
+                    box1.style.backgroundColor = "pink";
+                    break; 
+                case "mouseout":
+                    box1.style.backgroundColor = "yellowgreen";  
+                    break;                   
+            }
+        }
+    </script>
+</body>
+</html>

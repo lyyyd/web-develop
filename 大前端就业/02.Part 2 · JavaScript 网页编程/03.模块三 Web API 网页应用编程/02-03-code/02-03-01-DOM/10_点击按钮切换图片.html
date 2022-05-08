@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="点击" id="btn"><br>
+  <img src="images/a.jpg" id="pic">
+  <script>
+    // 获取元素
+    var btn = document.getElementById("btn");
+    var pic = document.getElementById("pic");
+    // 通过一个变量作为判断条件，变量值为 1，认为加载的是 a 图片，如果为 2 ，认为加载的是 b 图片
+    var num = 1;
+    // 给按钮添加点击事件
+    btn.onclick = function () {
+      // 给图片换 src 的属性值
+      // 通过 if 语句判断，如果是 a 图片，就换成 b 图片，反之换成 a 图片
+      if (num === 1) {
+        pic.src = "images/b.jpg";
+        // 数字要对应发生变化
+        num = 2;
+      } else {
+        pic.src = "images/a.jpg";
+        num = 1;
+      }
+    };
+  </script>
+</body>
+</html>

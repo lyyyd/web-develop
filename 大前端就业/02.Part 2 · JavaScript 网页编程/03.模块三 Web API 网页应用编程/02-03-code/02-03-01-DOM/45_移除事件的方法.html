@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="点击" id="btn">
+  <script>
+    var btn = document.getElementById("btn");    
+    // 绑定事件
+    // btn.onclick = function () {
+    //   alert(1);
+    // };
+    // 解除绑定方法
+    // btn.onclick = null;
+    // 绑定事件
+    // btn.addEventListener("click",fun);
+    // btn.addEventListener("click",fun2);
+    // 解除绑定
+    // btn.removeEventListener("click",fun);
+
+    // 绑定事件
+    btn.attachEvent("onclick",fun);
+    // 解除绑定
+    btn.detachEvent("onclick",fun);
+    function fun() {
+      alert(2);
+    }
+    function fun2() {
+      alert(3);
+    }
+    </script>
+</body>
+</html>

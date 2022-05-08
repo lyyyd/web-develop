@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" id="btn" value="点击按钮">
+  <script>
+    // 点击输出 随机数
+    var btn = document.getElementById("btn");
+    // 绑定事件
+    // 函数节流操作
+    // 定义一个开关，给函数上一把锁，true 表示锁住状态，不能执行后面的代码，false 表示打开状态，可以执行后面的代码
+    // 初始状态锁是打开的
+    var lock = false;
+    btn.onclick = function () {
+      // 函数内部需要判断，是否在指定的时间之外触发事件
+      // 如果锁是打开的，可以往后执行，
+      // 如果锁是锁住的，不能执行后面的代码
+      if (lock) {
+        return;
+      }
+      console.log(Math.random());
+      // 执行完毕后，锁应该被锁住
+      lock = true;
+      // 隔 2秒 后，锁再次打开
+      setTimeout(function () {
+        lock = false;
+      },2000);
+    };
+  </script>
+</body>
+</html>

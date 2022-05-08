@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="开始" id="start">
+  <div class="box" id="box"></div>
+  <script>
+    // 简单运动
+    // 获取元素
+    var start = document.getElementById("start");
+    var box = document.getElementById("box");
+    // 已知 开始位置、结束位置、总时长、时间间隔
+    // 总距离 = 步长 * 总次数
+    // 总距离 = 结束位置 - 起始位置  ，已知可以求出来
+    // 总次数 = 总时长 / 时间间隔 ，已知可以求出来
+    // 步长 = （结束位置 - 起始位置） / （总时长 / 时间间隔）
+    // 信号量 ,也相当于初始值
+    var nowLeft = box.offsetLeft;
+    var nowWidth = box.offsetWidth;
+    // console.log(nowLeft);
+    // 结束位置
+    var endLeft = 500;
+    var endWidth = 200;
+    // 总时长
+    var time = 1000;
+    // 时间间隔
+    var interval = 50;
+    // 运算总次数
+    var maxcount = time / interval;
+    // 运算出每一次的步长
+    var stepLeft = (endLeft - nowLeft) / maxcount;
+    var stepWidth = (endWidth - nowWidth) / maxcount;
+    // 定义一个次数的累加器
+    var count = 0;
+    // 准备条件结束可以开始定时器了
+    var timer;
+    start.onclick = function () {
+      timer = setInterval(function () {
+        // 让元素的属性每一次变化一个步长
+        nowLeft += stepLeft;
+        nowWidth += stepWidth;
+        // 每运动一次让次数累加器加 1
+        count++;
+        // 停止定时器
+        if (count >= maxcount) {
+          // 拉终停表
+          nowLeft = endLeft;
+          nowWidth = endWidth;
+          clearInterval(timer);
+        }
+        // 给属性赋值
+        box.style.left = nowLeft + "px";
+        box.style.width = nowWidth + "px";
+      },interval);
+    };
+  </script>
+</body>
+</html>

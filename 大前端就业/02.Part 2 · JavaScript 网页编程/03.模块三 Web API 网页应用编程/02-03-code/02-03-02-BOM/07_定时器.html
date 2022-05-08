@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var i = 1;
+    // 定时器也是异步语句
+    // 开启定时器：每隔 0.5 秒输出一次 i，并且让 i 每次自加
+    // 程序执行到定时器代码部分就相当于开启了一个定时器，不需要进行其他的打开操作
+    // 第一次执行函数时是在第一个时间间隔之后
+    // window.setInterval(function () {
+    //   console.log(i++);
+    // },500);
+
+    // 要想清除定时器，在定义的时候必须存到一个变量中
+    var timer = setInterval(function () {
+      console.log(i++);
+    },500);
+    // 清除定时器
+    window.clearInterval(timer);
+  </script>
+</body>
+</html>

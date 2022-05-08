@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    select {
+      width: 200px;
+      height: 200px;
+      background-color: #33cccc;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <select id="all" size="5" multiple="multiple">
+    <option>苹果</option>
+    <option>橘子</option>
+    <option>梨</option>
+    <option>西瓜</option>
+    <option>水蜜桃</option>
+  </select>
+
+  <input type="button" value=">>" id="btn1">
+  <input type="button" value="<<" id="btn2">
+  <input type="button" value=">" id="btn3">
+  <input type="button" value="<" id="btn4">
+
+  <select id="choose" multiple="multiple">
+  </select>
+
+  <script src="common.js"></script>
+  <script>
+    // 获取元素
+    var all = my$("all");
+    var choose = my$("choose");
+    var btn1 = my$("btn1");
+    var btn3 = my$("btn3");
+    // 给第一个按钮添加点击事件，让 all 中的所有子元素移动到 choose 中
+    btn1.onclick = function () {
+      var opts = all.children;  //内部的元素时动态添加的
+      // 获取 all 中所有的子元素
+      // 获取最开始的数组的个数
+      var n = opts.length;
+      // console.log(n);
+      // 将所有的 opts 中的元素添加给 choose
+      for (var i = 0 ; i < n ; i++) {
+        choose.appendChild(opts[0]);
+      }
+    };  
+
+    // 单选移动
+    btn3.onclick = function () {
+      var opts = all.children;  //内部的元素时动态添加的
+      // 移动的内容希望可以是固定的一个数组中的项
+      var arr = [];
+      // 通过判断条件，往 arr 中添加需要移动的元素
+      for (var i = 0 ; i < opts.length ; i++) {
+        if (opts[i].selected === true) {
+          arr.push(opts[i]);
+        }
+      }
+      // console.log(arr);
+      // 对需要移动的固定数组进行遍历
+      for (var j = 0 ; j < arr.length ; j++) {
+        choose.appendChild(arr[j]);
+        arr[j].selected = false;
+      }
+      
+    };
+  </script>
+</body>
+
+</html>

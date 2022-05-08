@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #box {
+      width: 100px;
+      height: 100px;
+      margin: 50px;
+      border: 40px solid red;
+      padding: 10px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    
+  </div>
+  <script>
+      var box = document.getElementById("box");
+
+      // client 客户端大小
+      console.log(box.clientLeft);
+      console.log(box.clientTop);
+      console.log(box.clientWidth);
+      console.log(box.clientHeight);
+
+  </script>
+</body>
+</html>

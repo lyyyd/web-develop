@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>动态创建列表</h1>
+  <div id="box">
+    <!-- <ul>
+      <li>刘备</li>
+    </ul> -->
+  </div>
+  <script src="common.js"></script>
+  <script>
+    // 获取元素
+    var box = my$("box");
+    // 创建一组数据
+    var names = ["刘备","曹操","孙权","关羽"];
+    // 生成 ul 元素
+    var ul = document.createElement("ul");
+    // 添加 元素 到 box内部
+    box.appendChild(ul);
+    // 根据数组的项数往 ul 中添加数据
+    for (var i = 0; i < names.length ; i++) {
+      // 每次都要生成一个新的 li 标签元素
+      var li = document.createElement("li");
+      // 添加到 ul 对象内部
+      ul.appendChild(li);
+      // 给每个生成的 li 元素添加内容
+      li.innerText = names[i];
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="开始" id="start">
+  <input type="button" value="结束" id="end">
+  <div class="box" id="box"></div>
+  <script>
+    // 简单运动
+    // 获取元素
+    var start = document.getElementById("start");
+    var end = document.getElementById("end");
+    var box = document.getElementById("box");
+    // 信号量
+    var nowLeft = 0;
+    // 全局定义一个变量存储定时器
+    var timer;
+    // 定时器
+    // 定时器写在事件函数内部，会由于事件多次被触发，导致定时器累积
+    // 解决方法：设表先关，每次重新开启一个定时器之前都先关闭一下之前的定时器
+    start.onclick = function () {
+      // 先清除定时器
+      clearInterval(timer);
+      timer = setInterval(function () {
+        // 信号量进行自加
+        nowLeft += 5;
+        // 将最新的 nowLeft 的值赋值给元素的 css 属性
+        box.style.left = nowLeft + "px";
+      },100);
+    };
+    // 清除定时器
+    end.onclick = function () {
+      clearInterval(timer);
+    };
+  </script>
+</body>
+</html>

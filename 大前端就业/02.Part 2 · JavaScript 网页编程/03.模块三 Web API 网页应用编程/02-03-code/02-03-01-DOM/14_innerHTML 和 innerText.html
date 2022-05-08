@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    这是一个 div 标签
+    <span>这是一个 span 标签</span>
+  </div>
+  <script>
+    // 获取元素
+    var box = document.getElementById("box");
+    // 打印 box 对象
+    console.dir(box);
+    // 调用标签内部内容
+    console.log(box.innerHTML);
+    console.log(box.innerText);
+    // 设置标签内部的内容
+    // box.innerHTML = "<h2>hello JS</h2>";
+    box.innerText = "<h2>hello JS</h2>";
+  </script>
+</body>
+</html>

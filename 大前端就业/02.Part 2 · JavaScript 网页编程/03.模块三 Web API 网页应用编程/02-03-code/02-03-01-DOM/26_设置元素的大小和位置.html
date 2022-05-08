@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        } 
+        .new {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 200px;
+            top: 200px;
+        }       
+    </style>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+    <div id="box"></div>
+    <script src="common.js"></script>
+    <script>
+        //获取元素
+        var btn = my$("btn"); 
+        var box = my$("box"); 
+        // 添加事件
+        btn.onclick = function () {
+            // 修改类名
+            // box.className = "new";
+            // 修改 style 样式对象中的属性
+            box.style.width = "200px";
+            box.style.height = "200px";
+            box.style.left = "200px";
+            box.style.top = "200px";
+            box.style.position = "absolute";
+        };
+    </script>
+</body>
+</html>

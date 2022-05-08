@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background: url(images/bgs.png) no-repeat -159px -51px;
+            position: fixed;
+            right: 10px;
+            top: 40%;
+        }
+        .erweima {
+            position: absolute;
+            top: 0;
+            left: -150px;
+        }
+        .box a {
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="erweima hide" id="er">
+            <img src="images/456.png" alt=""/>
+        </div>
+    </div>
+    <script src="common.js"></script>
+    <script>
+        // 获取元素
+        var box = my$("box");
+        var er = my$("er");
+        // 给 box 添加鼠标移上事件 onmouseover ，添加鼠标离开事件 onmouseout
+        box.onmouseover = function () {
+            // 让子级元素进行显示，就是将 hide 改为 show
+            // er.className = "erweima show";
+            er.className = er.className.replace("hide","show");
+        };
+        box.onmouseout = function () {
+            // 让子级元素进行隐藏，就是将 show 改为 hide
+            // er.className = "erweima hide";
+            er.className = er.className.replace("show","hide");
+        };
+    </script>
+</body>
+</html>

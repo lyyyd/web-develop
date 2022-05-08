@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <p>段落内容 1</p>
+    <p id="p2">段落内容 2</p>
+    <p>段落内容 3</p>
+    <p>段落内容 4</p>
+  </div>
+  <script src="common.js"></script>
+  <script>
+    // 获取元素
+    var box = my$("box");
+    var p2 = my$("p2");
+    box.onclick = function () {
+      alert(2);
+    };
+
+    // 克隆元素 box
+    // 浅度克隆
+    // var newBox = box.cloneNode(false);
+    // 深度克隆
+    var newBox = box.cloneNode(true);
+    newBox.id = "newBox";
+    document.body.appendChild(newBox);
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="关灯" id="btn">
+  <script src="common.js"></script>
+  <script>
+    // 获取元素
+    var btn = my$("btn");
+    // console.log(btn);
+    // 定义一个判断变量，true 表示开灯状态，false 表示关灯状态
+    // var isOpen = true;
+    // 点击事件，控制 body 的背景
+    btn.onclick = function () {
+      // 开灯时，需要点击后让它关灯并切换文字为 开灯
+      // if (isOpen) {
+      //   document.body.style.backgroundColor = "black";
+      //   this.value = "开灯";
+      //   isOpen = false;
+      // } else {
+      //   document.body.style.backgroundColor = "white";
+      //   this.value = "关灯";
+      //   isOpen = true;
+      // }
+      // 直接使用 btn 的 value 值进行判断
+      if (this.value === "关灯") {
+        document.body.style.backgroundColor = "black";
+        this.value = "开灯";
+      } else {
+        document.body.style.backgroundColor = "white";
+        this.value = "关灯";
+      }
+    };
+  </script>
+</body>
+</html>

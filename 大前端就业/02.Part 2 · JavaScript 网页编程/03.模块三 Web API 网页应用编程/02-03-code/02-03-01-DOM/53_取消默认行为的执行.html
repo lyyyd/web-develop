@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <a id="link" href="52_图片跟随鼠标移动效果.html">点击</a>
+  <script>
+    var link = document.getElementById('link');
+    link.onclick = function (e) {
+      e = e || window.event;
+      alert('hello');
+      // 普通的方式阻止默认行为
+      // return false;
+      // DOM 的方法
+      // e.preventDefault();
+      // 低版本浏览器需要使用一个对象的属性
+      e.returnValue = false;
+    }
+  </script>
+</body>
+</html>

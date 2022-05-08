@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    .hide {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="点击隐藏" id="btn">
+  <div id="box"></div>
+  <script>
+    // 获取元素
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    // 点击按钮，让 div 显示或隐藏
+    // box.style.display = "none";
+    btn.onclick = function () {
+      // 元素 div 当前是显示的，需要让他隐藏
+      // 根据 按钮 的 value 值进行条件判断
+      if (btn.value === "点击隐藏") {
+        box.className = "hide";
+        btn.value = "点击显示";
+      } else {
+        box.className = "show";
+        btn.value = "点击隐藏";
+      }
+      
+    };
+  </script>
+</body>
+</html>

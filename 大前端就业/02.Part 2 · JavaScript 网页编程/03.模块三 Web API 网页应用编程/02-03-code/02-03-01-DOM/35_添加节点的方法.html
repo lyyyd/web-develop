@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <p>段落内容 1</p>
+    <p id="p2">段落内容 2</p>
+    <p>段落内容 3</p>
+    <p>段落内容 4</p>
+  </div>
+  <script src="common.js"></script>
+  <script>
+    // 创建新的节点
+    var div = document.createElement("div");
+    var cls = document.createAttribute("class");
+    var txt = document.createTextNode("hello");
+    // 创建的新的节点，是存储在内存中的，但是并没添加到 DOM 树上
+    // 获取元素
+    var box = my$("box");
+    var p2 = my$("p2");
+    box.appendChild(div);
+    // 文本节点也可以添加到元素内部
+    div.appendChild(txt);
+    // 注意：自己创建的元素节点本身也是一个对象，也可以去添加一些新的属性和方法，这些操作将来在元素加载到 DOM 树中时，依旧保留
+
+    // DOM 中原有的节点也可以传给 appendChild 的参数
+    box.appendChild(p2);
+  </script>
+</body>
+</html>
