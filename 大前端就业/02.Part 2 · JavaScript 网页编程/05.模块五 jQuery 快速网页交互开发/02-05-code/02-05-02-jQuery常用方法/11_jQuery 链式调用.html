@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 1000px;
+      height: 80px;
+      border: 1px solid #333;
+      margin-top: 10px;
+    }
+
+    .box p,
+    .box h2 {
+      float: left;
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h2>h2</h2>
+  </div>
+  <div class="box">
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h2>h2</h2>
+  </div>
+  <div class="box">
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h2>h2</h2>
+  </div>
+
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 获取所有的 p 标签
+    var $ps = $("p")
+    var $box = $(".box")
+
+    // 批量添加事件
+    $ps.click(function () {
+      // 让点击的自己 颜色变红色
+      // jQuery 对象调用除了节点关系的方法之外，其他的方法执行后，返回值就是 对象自己
+      // 可以继续链式调用其他的 jQuery 对象的方法和属性
+      // 好处：简化代码书写
+      // console.log($(this).css("background-color","red").html("哈哈"))
+      $(this).css("background-color", "red")        // 自己变红色
+      .siblings().css("background-color", "gold")   // 兄弟变金色
+      .parent().css("background-color", "pink")     // 父级变粉色
+      .siblings().css("background-color", "blue")   // 父级的兄弟变蓝色
+      .children().css("background-color", "yellowgreen")  // 父级的兄弟的子级变黄绿色
+
+    })
+
+    
+  </script>
+</body>
+
+</html>

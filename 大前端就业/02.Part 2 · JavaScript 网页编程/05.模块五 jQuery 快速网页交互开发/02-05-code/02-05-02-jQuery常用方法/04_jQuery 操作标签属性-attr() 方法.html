@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="images/cat.jpg" alt="这是一只猫" hobby="fish" class="pic">
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 获取元素
+    var $pic = $(".pic")
+
+    // 标签属性设置：需要传 2 个参数
+    // $pic.attr("src","images/cat2.jpg")    
+    $pic.attr("hobby","sleep")    
+
+    // 获取标签属性的值：需要 1 个参数
+    console.log($pic.attr("alt"))
+    console.log($pic.attr("hobby"))
+
+    // 删除属性方法 removeAttr()
+    $pic.removeAttr("hobby")
+  </script>
+</body>
+</html>

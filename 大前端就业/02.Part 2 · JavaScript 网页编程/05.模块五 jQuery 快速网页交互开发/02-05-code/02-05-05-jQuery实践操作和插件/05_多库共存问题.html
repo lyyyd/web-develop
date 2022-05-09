@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>按钮</button>
+  <!-- 引入了一个 jQ 的库 -->
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <!-- 又引入了另一个 other 库 -->
+  <script src="js/other.js"></script>
+  <script>
+    // 使用多个库
+    // 问题：后面的其他库中也有 $ 的标识符
+    // $("button").click(function () {
+    //   alert(1);
+    // })
+
+    // console.log($)
+
+    // 解决方法1： 使用 jQuery 标识符进行调用
+    // jQuery("button").click(function () {
+    //   alert(1);
+    // })
+
+    // 解决方法2：释放 $ 符号
+    var $1 = jQuery.noConflict();
+    // console.log($1)
+    $1("button").click(function () {
+      alert(1);
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+      width: 1300px;
+    }
+
+    #box {
+      width: 1200px;
+      height: 400px;
+      border: 2px solid red;
+      margin: 100px auto;
+    }
+
+    #box li {
+      float: left;
+      width: 240px;
+      height: 400px;
+    }
+    /* li 标签的背景图，需要使用 js 代码动态添加 */
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    // 获取所有的 li 标签
+    var $lis = $("#box ul li");
+    // 模拟后台提供的图片数据
+    var arr = ["fq1.jpg","fq2.jpg","fq3.jpg","fq4.jpg","fq5.jpg"];
+    // 记录文件路径
+    var path = "img/";
+    var during = 1000;
+    // 给每一个 li 去添加背景图
+    // 遍历方法
+    $lis.each(function (i) {
+      // 存储路径
+      var url = "url(" + path + arr[i] + ")";
+      // this 指的是遍历的这一次的 li 元素
+      $(this).css("background-image",url);
+    })
+
+    // 给每个 li 标签添加鼠标进入事件，让自己的宽度变为 800，让其他的兄弟变为 100
+    $lis.mouseenter(function () {
+      $(this).stop(true).animate({"width": 800},during)
+      .siblings().stop(true).animate({"width": 100},during)
+    })
+
+    // 给最外层的大盒子添加鼠标离开事件，让所有的 li 恢复默认宽度
+    $("#box").mouseleave(function () {
+      $lis.stop(true).animate({"width": 240},during)
+    })
+
+  </script>
+</body>
+
+</html>

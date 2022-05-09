@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            width: 80px;
+            height: 80px;
+            background-color: #aaa;
+            margin-bottom: 10px;
+            position: relative;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 获取元素
+        var $ps = $("p");
+        // 习惯会将运动时间存储到一个变量中
+        var during = 2000;
+        // 添加点击事件，让元素运动
+        $ps.click(function () {
+            // 让自己的 left 的值变为 500
+            // 使用 animate() 方法
+            // 参数1： 运动的 css 的属性集，对象格式
+            // 参数2： 运动时间，单词格式，数字格式
+            // 参数3： 运动速度，可选 swing 和 linear
+            // 参数4： 回调函数，在运动结束之后立即执行
+            // $(this).animate({"left": 500},during,"swing",function () {
+            //     // 在运动结束后，让元素变红色
+            //     $(this).css("background","red")
+            // })
+            // 所有有数值的属性都可以运动
+            // $(this).animate({"width": 500})
+            // $(this).animate({"opacity": 0.5})
+            $(this).animate({"background": "#000"})
+        })
+    </script>
+</body>
+</html>

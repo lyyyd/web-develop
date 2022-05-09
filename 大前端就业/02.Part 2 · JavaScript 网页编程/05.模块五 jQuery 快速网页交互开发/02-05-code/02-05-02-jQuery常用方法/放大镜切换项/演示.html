@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <!--版心  -->
+  <div class="w">
+    <!-- 左侧 -->
+    <div class="leftBox">
+      <!-- 上 -->
+      <div class="top">
+        <img src="img/m1.jpg">
+      </div>
+      <ul>
+        <li class="active">
+          <img src="img/s1.jpg" msrc="m1.jpg" bsrc="b1.jpg">
+        </li>
+        <li>
+          <img src="img/s2.jpg" msrc="m2.jpg" bsrc="b2.jpg">
+        </li>
+        <li>
+          <img src="img/s3.jpg" msrc="m3.jpg" bsrc="b3.jpg">
+        </li>
+      </ul>
+    </div>
+    <!-- 右侧 -->
+    <div class="rightBox">
+      <img src="img/b1.jpg" alt="">
+    </div>
+  </div>
+  <script src="lib/jquery-1.12.4.js"></script>
+  <script>
+    // 将文件路径的前缀存储到变量中
+    var path = "img/";
+    // 1、鼠标移上小图片，需要做两件事情
+    $(".leftBox ul li img").mouseover(function(){
+      // 首先：给img所在的父级li标签去切换类名，实现突出显示
+      $(this).parent().addClass("active").siblings().removeClass("active");
+      // 其次：给中图和大图换图片路径,路径由img小图片的自定义属性获取
+      var msrc = path + $(this).attr("msrc");
+      var bsrc = path + $(this).attr("bsrc");
+      // 设置给对应的img标签
+      $(".leftBox .top img").attr("src",msrc);
+      $(".rightBox img").attr("src",bsrc);
+    });
+  </script>
+</body>
+
+</html>

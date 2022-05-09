@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* 版心 */
+
+.w {
+  width: 1120px;
+  margin: 0 auto;
+}
+
+/* 轮播区 */
+
+.w .banner {
+  width: 790px;
+  height: 340px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 左右按钮 */
+
+.btn {
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  background: rgba(255, 255, 255, .4);
+  font: bold 40px/50px '宋体';
+  display: none;
+
+}
+
+/* 右侧按钮 */
+
+.next {
+  right: 0;
+}
+
+/* 鼠标进入轮播区显示按钮 */
+
+.banner:hover .btn {
+  display: block;
+}
+
+/* 一组小点按钮 */
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -98px;
+}
+
+.controls a {
+  float: left;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #eee;
+  font-size: 0;
+  text-indent: -999em;
+}
+
+.controls a+a {
+  margin-left: 10px;
+}
+
+/* 当前选中的项 */
+
+.controls a.active {
+  background: red;
+}

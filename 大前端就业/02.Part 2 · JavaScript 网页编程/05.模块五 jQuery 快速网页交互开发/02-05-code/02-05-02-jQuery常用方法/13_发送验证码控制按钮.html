@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>  
+</head>
+
+<body>
+  <input type="text">
+  <input type="button" value="发送">
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 获取元素
+    var $btn = $("input:button")
+    // 添加按钮的点击事件
+    $btn.click(function () {
+      // 定义一个变量存储时间的数字
+      var n = 5;
+      // 让按钮被禁用
+      // 替换按钮的文字内容
+      $(this).prop("disabled",true).val(n + "s 后重新发送")
+      // 每隔 1s 更改倒计时内容
+      // 通过定时器进行每隔 1s 减时间效果
+      var timer = setInterval(() => {
+        n--;
+        // 文字内容发生变化
+        // 定时器内部的this指向的默认为 window
+        $(this).val(n + "s 后重新发送")
+        // 判断如果时间到了 0 ，就要停止定时器
+        if (n <= 0) {
+          clearInterval(timer)
+          // 5s 结束后，需要让文字恢复 发送
+          // 让按钮取消禁用          
+          $(this).val("重新发送").prop("disabled",false)
+        }
+      },1000)
+      
+    })
+    
+  </script>
+</body>
+
+</html>

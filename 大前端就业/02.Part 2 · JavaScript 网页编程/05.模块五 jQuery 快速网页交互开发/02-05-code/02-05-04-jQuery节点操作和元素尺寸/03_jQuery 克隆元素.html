@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin-bottom: 20px;
+        }
+        .demo {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>标题1</h2>
+        <p>段落1</p>
+    </div>
+    <div class="demo">
+        <h2>标题2</h2>
+        <p>段落2</p>
+    </div>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(".box").click(function(){
+            alert("你好");
+        });
+        
+        // 获取 box 元素
+        var $box = $(".box");
+        // 克隆 box
+        // var $newBox = $box.clone(false); //只克隆内容，不克隆事件
+        var $newBox = $box.clone(true); //克隆内容，克隆事件
+        // // 添加到 body 最后
+        $("body").append($newBox);
+    </script>
+</body>
+</html>

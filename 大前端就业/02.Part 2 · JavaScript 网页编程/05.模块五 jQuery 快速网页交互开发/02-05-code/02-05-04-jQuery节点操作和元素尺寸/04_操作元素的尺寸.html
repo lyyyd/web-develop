@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{            
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            border: 20px solid skyblue;
+            margin: 30px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">123</div>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        var $box = $(".box");
+        // 获取内容区域的大小
+        // console.log($box.width());
+        // 设置大小
+        // $box.width(300)
+
+        // 获取内容区域 + padding 区域的大小
+        // console.log($box.innerWidth())
+        // 设置,将增加或减少的值设置给了 width 属性
+        // $box.innerWidth(400)
+
+        // 获取 border 及以内区域的大小
+        // console.log($box.outerWidth())
+        // 设置,将增加或减少的值设置给了 width 属性
+        $box.outerWidth(440)
+    </script>
+</body>
+</html>

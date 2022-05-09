@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 1000px;
+      height: 80px;
+      border: 1px solid #333;
+      margin-top: 10px;
+      background-color: #fff;
+    }
+
+    .box p,
+    .box span {
+      float: left;
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+      background-color: #ccc;
+    }
+    .box span {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box1">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p>
+      <!-- <span></span> -->
+    </p>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="box">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="box">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 获取元素
+    var $box1 = $("#box1")
+    var $box = $(".box")
+    var $child = $box.children()
+    // find() 方法查找后代中的 span 元素
+    // $box1.find("span").css({
+    //   "width": 50,
+    //   "height": 50
+    // })
+
+    // 兄弟元素查找
+    // next() 下一个兄弟
+    // prev() 上一个兄弟
+    // nextAll() 后面所有兄弟
+    // prevAll() 前面所有兄弟
+
+    // parents() 查找包含body在内的祖先级
+    $child.click(function () {
+      // 让自己变红色，让下一个兄弟变粉色
+      // $(this).css("background-color", "red")
+      // .next().css("background-color", "skyblue")
+      // 让自己变红色，让上一个兄弟变蓝色
+      // $(this).css("background-color", "red")
+      // .prev().css("background-color", "blue")
+      // 让自己变红色，让前面所有兄弟变蓝色，让后面所有兄弟变黄色
+      // $(this).css("background-color", "red")
+      // .prevAll().css("background-color", "blue")
+      // $(this).nextAll("p").css("background-color", "yellow")
+
+      // 让自己变红色，祖先级变天蓝色
+      $(this).css("background-color", "red")
+      .parents("div").css("background-color", "skyblue")
+    })
+  </script>
+</body>
+
+</html>

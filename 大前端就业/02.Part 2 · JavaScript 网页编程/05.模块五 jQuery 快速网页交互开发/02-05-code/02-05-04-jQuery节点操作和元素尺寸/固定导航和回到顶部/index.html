@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        .w{
+            width: 1191px;
+            margin:0 auto;
+        }
+        .box1 {
+            height: 935px;
+        }
+        .box2 {
+            height: 107px;
+        }
+        .box2.active {
+            position: fixed;
+            top:0;
+        }
+
+        .top {
+            width: 50px;
+            height: 50px;
+            font:bold 50px/50px '宋体';
+            text-align:center;
+            color: #fff;
+            background-color: blue;
+            cursor:pointer;
+            position:fixed;
+            bottom: 20px;
+            right: 0;
+            display:none;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="w">
+        <div class="box1">
+            <img src="img/01.png" alt=""/>
+        </div>
+        <!-- 今日团 -->
+        <div class="box2" id="box2">
+            <img src="img/02.png" alt=""/>
+        </div>
+        <div class="box3">
+            <img src="img/03.png" alt=""/>
+        </div>
+        <div class="box4">
+            <img src="img/04.png" alt=""/>
+        </div>
+    </div>
+    1111
+    <div class="top" id="backTop">▲</div>
+    <script src="lib/jquery-1.12.4.js"></script>
+    <script>
+        // 固定导航和返回顶部
+        var $box2 = $("#box2");
+        var $backTop = $("#backTop");
+        // 1.获取一下今日团距离文档顶部的距离
+        var v1 = $box2.offset().top;
+        // console.log(v1)
+        // 2.给整个文档添加滚动事件
+        $(document).scroll(function () {
+            // 3.在事件内部判断卷走的距离是否大于等于今日团距离顶部的间距
+            var v2 = $(this).scrollTop();
+            if (v2 >= v1) {
+                // 4.给今日团进行固定，让返回顶部按钮出现
+                $box2.addClass("active");
+                $backTop.show();
+            } else {
+                // v2 低于 v1 恢复默认
+                $box2.removeClass("active");
+                $backTop.hide();
+            }
+        })
+
+        // 5.返回顶部，添加点击事件
+        // $backTop.click(function () {
+        //     // 让页面滚动到顶部
+        //     // 直接跳转到顶部
+        //     $(document).scrollTop(0);
+        // })
+        // 以运动方式返回顶部
+        $backTop.click(function () {
+            // 让页面滚动到顶部
+            // 滚动的元素要选择 html 或 body
+            // 直接使用 document ，它是没有 scrollTop 属性的
+            $("html,body").animate({"scrollTop": 0},500);
+        })
+    </script>
+</body>
+</html>

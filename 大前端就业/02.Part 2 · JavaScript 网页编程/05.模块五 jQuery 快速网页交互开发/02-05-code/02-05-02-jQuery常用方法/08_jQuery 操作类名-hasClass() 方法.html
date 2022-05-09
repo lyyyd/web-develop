@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .demo{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="添加" id="btn1">
+    <input type="button" value="删除" id="btn2">
+    <input type="button" value="切换" id="btn3">
+    <div id="box" class="box"></div>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 给 box 切换 demo 的类名，从而改变背景颜色
+        var $box = $("#box");
+        var $btn1 = $("#btn1");
+        var $btn2 = $("#btn2");
+        var $btn3 = $("#btn3");
+
+        // 判断一个类名在标签中是否加载
+        console.log($box.hasClass("demo"))
+        // 模拟一下 切换 类名的效果
+        $btn3.click(function () {
+          // 判断 box 是否有 demo 的类名
+          if ($box.hasClass("demo")) {
+            // 如果有 demo，就删除
+            $box.removeClass("demo")
+          } else {
+            // 如果没有 demo，就添加一个
+            $box.addClass("demo")
+          }
+        })
+    </script>
+</body>
+</html>

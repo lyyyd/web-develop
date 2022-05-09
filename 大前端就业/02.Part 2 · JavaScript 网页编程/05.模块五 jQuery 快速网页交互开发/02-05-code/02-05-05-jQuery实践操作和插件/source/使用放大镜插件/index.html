@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+    }
+
+    img {
+      width: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <img src="img/b.jpg" alt="">
+  </div>
+  <!-- jQuery库 -->
+  <script src="lib/jquery-1.12.4.js"></script>
+  <!-- 引入插件库 -->
+  <script src="lib/jquery.zoom.js"></script>
+  <!-- 使用插件库 -->
+  <script>
+    $('#box').zoom();
+    // $('#box').zoom({ on: 'grab' });
+    // $('#ex3').zoom({ on: 'click' });
+    // $('#ex4').zoom({ on: 'toggle' });
+  </script>
+</body>
+
+</html>

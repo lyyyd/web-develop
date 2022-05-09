@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #parents{
+          width: 200px;
+          height: 200px;
+          background-color: yellowgreen;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .demo{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>    
+    <input type="button" value="切换" id="btn1">
+    <div id="parents">
+      <div id="box" class="box"></div>
+    </div>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 给 box 切换 demo 的类名，从而改变背景颜色
+        var $box = $("#box");
+        var $btn1 = $("#btn1");
+        var $parents = $("#parents");
+
+        // 添加事件，使用 自己对象的方法
+        // $btn1.click(function () {
+        //   $box.toggleClass("demo")
+        // })
+
+        // hover() 方法，对mouseenter 和 mouseleave 进行了合并书写
+        $box.hover(function () {
+          // 鼠标移入
+          $box.addClass("demo")
+        },function () {
+          // 鼠标离开
+          $box.removeClass("demo")
+        })
+
+        // jQuery 中增加了自己的事件类型：mouseenter 和 mouseleave
+        // 没有事件冒泡
+        // $box.mouseenter(function () {
+        //   // 鼠标进入元素，触发事件
+        //   console.log("box-mouse-in")
+        // })
+
+        // $box.mouseleave(function () {
+        //   // 鼠标离开元素，触发事件
+        //   console.log("box-mouse-out")
+        // })
+        // $parents.mouseenter(function () {
+        //   // 鼠标进入元素，触发事件
+        //   console.log("parents-mouse-in")
+        // })
+
+        // $parents.mouseleave(function () {
+        //   // 鼠标离开元素，触发事件
+        //   console.log("parents-mouse-out")
+        // })
+
+        // mouseover 和 mouseout ：有事件冒泡
+        // $box.mouseover(function () {
+        //   // 鼠标进入元素，触发事件
+        //   console.log("box-mouse-in")
+        // })
+
+        // $box.mouseout(function () {
+        //   // 鼠标离开元素，触发事件
+        //   console.log("box-mouse-out")
+        // })
+        // $parents.mouseover(function () {
+        //   // 鼠标进入元素，触发事件
+        //   console.log("parents-mouse-in")
+        // })
+
+        // $parents.mouseout(function () {
+        //   // 鼠标离开元素，触发事件
+        //   console.log("parents-mouse-out")
+        // })
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    p {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <p>段落1</p>
+  <p>段落2</p>
+  <p>段落3</p>
+  <p>段落4</p>
+  <p>段落5</p>
+  <p>段落6</p>
+  <p>段落7</p>
+  <p>段落8</p>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 通过 $() 方法获取到的 是 JQ 对象
+    // 获取的是一组 html 的元素，会进行批量操作
+    // $("p").css("background-color","pink")
+    // $("p").html("你好")
+    // $("p").animate({"width": 300},1000)
+
+    // jQuery 对象是不能使用原生 JS 对象的方法的
+    // console.log($("p").innerHTML)
+    // $("p").style.backgroundColor = "red"
+
+    // 原生 JS 对象也不能使用 JQ 对象的方法
+    // var ps = document.getElementsByTagName("p");
+    // ps[0].html("haha")
+
+    // 打印输出一下 JQ 对象
+    // console.log($("p"))
+
+    // 获取 JQ 对象内部 原生 JS 对象的个数
+    // console.log($("p").length)
+    // console.log($("p").size())
+
+    // JQ 对象转换为 原生 JS 对象
+    // var $ps = $("p")
+    // $ps[0].innerHTML = "你好"
+
+    // 原生 JS 对象 转换为 JQ 对象
+    var op = document.getElementsByTagName("p")[0]
+    $(op).css("background-color","skyblue")
+  </script>
+</body>
+</html>

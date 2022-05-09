@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>刘备</li>
+        <li>诸葛亮</li>
+        <li>关羽</li>
+        <li>张飞</li>
+    </ul>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // 原生 DOM 中如何实现事件委托
+        // var ul = document.getElementsByTagName("ul")[0];
+        // ul.onclick = function (e) {
+        //     e.target.style.background = "pink";
+        // };
+
+        // jQuery 中的事件委托
+        // on() 方法传递三个参数
+        // 参数1： 事件类型
+        // 参数2： 进行委托的子元素的选择器
+        // 参数3： 事件处理程序
+        $("ul").on("click", "li", function () {
+            // 在事件委托过程中，事件函数的内部 this 不是指向事件源，而是指向触发事件的 委托子元素
+            alert($(this).text())
+        })
+
+    </script>
+</body>
+</html>

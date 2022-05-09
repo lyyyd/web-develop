@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 500px;
+			height: 100px;
+			border: 1px solid #000;
+			margin-bottom: 10px;
+		}
+		.box p{
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin-right: 10px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<div class="box">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<div class="box">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<div class="box">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+		// 选择所有的 box 元素
+		// var $box = $(".box");
+		// 给每个 box 内部的第二个 p 添加红色
+		// $box.children().eq(1).css("background","red");
+		//  each() 遍历
+		// 将 jQuery 对象中的每一项单独拿出来进行操作
+		// $box.each(function () {
+		// 	// this 关键字，指向的是每一次遍历的元素对象
+		// 	// 就可以针对每一个元素进行单独操作
+		// 	$(this).children().eq(1).css("background","red");
+		// });
+
+		// 选择所有的 p 标签
+		var $ps = $(".box p")
+		// 添加点击事件
+		// $ps.click(function () {
+		// 	// 获取元素在自己的父级中 兄弟间的下标
+		// 	console.log($(this).index())
+		// })
+		// 通过each 方法进行操作
+		$ps.each(function (i) {
+			// i 记录的是这一次遍历时当前元素在 jQuery 对象大排序中的位置
+			$(this).click(function () {
+				// 这个内部的this 就是事件源
+				console.log(i);
+				console.log($(this).index())
+			})
+
+		})
+	</script>
+</body>
+</html>

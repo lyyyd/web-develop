@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+    table {
+      border-collapse: collapse;
+    }
+		td {
+      width: 100px;
+      height: 40px;
+    }
+	</style>
+</head>
+<body>
+	<table border="1">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+    // 选中偶数的列，变色
+    // $("td:even").css("background","skyblue")
+
+    // 可以将每一行作为单独操作单位，让每一行中的列进行隔列变色
+    // 我们一提到对某个元素内部或内部的子元素进行一些操作，首先想到 each 方法
+    // var $tr = $("tr");
+    // $tr.each(function () {
+    //   // 让子级所有的列隔列变色
+    //   $(this).children(":odd").css("background","skyblue")
+    // })
+
+    // 方法2
+    $("td").each(function () {
+      // 可以判断 当前这个 td 在父级中所处的位置
+      // index() 
+      if ($(this).index() % 2 === 0) {
+        $(this).css("background","skyblue")
+      }
+    })
+	</script>
+</body>
+</html>

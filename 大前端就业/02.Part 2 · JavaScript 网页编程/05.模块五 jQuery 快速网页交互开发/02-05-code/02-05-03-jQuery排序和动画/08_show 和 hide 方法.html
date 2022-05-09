@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            display: block;
+            width: 320px;
+            height: 480px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="隐藏" id="btn1">
+    <input type="button" value="显示" id="btn2">
+    <input type="button" value="切换" id="btn3"><br>
+    <img src="images/cat.jpg" id="pic">
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 获取元素
+        var $pic = $("#pic")
+        var $btn1 = $("#btn1")
+        var $btn2 = $("#btn2")
+        var $btn3 = $("#btn3")
+
+        // 添加点击事件，让图片实现显示和隐藏
+        $btn1.click(function () {
+            // $pic.hide("slow");
+            $pic.hide(1000);
+        })
+        $btn2.click(function () {
+            $pic.show("normal");
+        })
+        $btn3.click(function () {
+            $pic.toggle("fast");
+        })
+    </script>
+</body>
+
+</html>

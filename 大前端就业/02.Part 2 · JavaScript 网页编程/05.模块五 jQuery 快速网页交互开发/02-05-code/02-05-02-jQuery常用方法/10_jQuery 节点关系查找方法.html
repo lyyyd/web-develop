@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 1000px;
+      height: 80px;
+      border: 1px solid #333;
+      margin-top: 10px;
+    }
+
+    .box p,
+    .box h2 {
+      float: left;
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h2>h2</h2>
+  </div>
+  <div class="box">
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h2>h2</h2>
+  </div>
+  <div class="box">
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h2>h2</h2>
+  </div>
+
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 获取所有的 p 标签
+    var $ps = $("p")
+    var $box = $(".box")
+
+    // 批量添加事件
+    $ps.click(function () {
+      // 让点击的自己 颜色变红色
+      // this 指向的是触发事件的事件源的原生 JS 对象
+      // 需要转换成 jQuery对象
+      // $(this).css("background-color","red")
+      // 找到事件源的 父级元素，添加黄色背景
+      // $(this).parent().css("background-color","yellow")
+      // 查找兄弟元素
+      // $(this).siblings().css("background-color","skyblue")
+      $(this).siblings("h2").css("background-color","skyblue")
+
+    })
+
+    // 通过点击 div 获取它的子级元素
+    // $box.click(function () {
+    //   // 获取子级
+    //   // $(this).children().css("background-color","pink")
+    //   // 添加参数后，会按照指定的选择器在子级中进行二次选择
+    //   $(this).children("p").css("background-color","pink")
+    // })
+  </script>
+</body>
+
+</html>

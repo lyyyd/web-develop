@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 400px;
+      border: 1px solid #ccc;
+      margin: 10px auto;
+    }
+    img {
+      width: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <img src="img/b.jpg" alt="">
+  </div>
+  <!-- 必须先引入 JQ 的文件，因为后面的插件需要依赖它 -->
+  <script src="lib/jquery-1.12.4.min.js"></script>
+  <!-- 第二步：引入需要使用的插件 -->
+  <script src="lib/jquery.zoom.min.js"></script>
+  <!-- 第三步：书写必要的 js 代码 -->
+  <script>
+    // $('#box').zoom();
+    $('#box').zoom({ on:'grab' });
+  </script>
+</body>
+
+</html>

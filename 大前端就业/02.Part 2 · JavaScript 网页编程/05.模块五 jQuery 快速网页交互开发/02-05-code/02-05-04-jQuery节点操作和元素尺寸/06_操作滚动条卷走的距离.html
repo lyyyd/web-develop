@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 4000px;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #333;
+            margin: 50px auto;
+            font: 16px/32px "宋体";
+            overflow: auto;
+        }
+        input {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+        <p>段落内容</p>
+    </div>
+    <input type="button" value="返回顶部" class="backtop">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // 给元素添加滚动事件
+        $(".box").scroll(function () {
+            // 获取滚动条卷走的距离
+            console.log($(this).scrollTop())
+        })
+
+        // 给文档设置滚动事件
+        $(document).scroll(function () {
+            // 获取滚动条卷走的距离
+            console.log($(this).scrollTop())
+        })
+
+        // 通过点击返回顶部按钮，将文档的卷走的距离设置为 0 
+        $(".backtop").click(function () {
+            // 设置 scrollTop 的值
+            $(document).scrollTop(0)
+        })
+    </script>
+</body>
+</html>

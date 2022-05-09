@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="demo">
+    <p>段落1</p>
+    <p>段落2</p>
+    <p class="para">段落3</p>
+    <p class="para">段落4</p>
+    <p class="para">段落5</p>
+    <p>段落6</p>
+    <p>段落7</p>
+    <p>段落8</p>
+  </div>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 筛选选择器
+    // $("p:first").css("background-color","pink")
+    // $("p:last").css("background-color","skyblue")
+    // $("p:eq(5)").css("background-color","skyblue")
+    // $("p:gt(5)").css("background-color","skyblue")
+    // $("p:lt(5)").css("background-color","skyblue")
+    // $("p:odd").css("background-color","skyblue")
+    // $("p:even").css("background-color","skyblue")
+    // $("p:not(:eq(6))").css("background-color","skyblue")
+    // $("p:not(.para)").css("background-color","skyblue")
+
+    // 筛选方法
+    // $("p").first().css("background-color","skyblue")
+    // $("p").last().css("background-color","skyblue")
+    $("p").eq(4).css("background-color","skyblue")
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">这是原始的 div1</div>
+  <div class="box">这是原始的 div2</div>
+  <div class="box">这是原始的 div3</div>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 获取元素
+    var $box = $(".box")
+    // html() 方法相当于原生 js 中的 innerHTML 属性
+    // html() 方法，如果传递参数，批量更改元素内部的内容
+    // $box.html("这是一个新的内容")
+    // 如果内部的字符串包含了标签的语法的字符，会按照 html 语法进行加载
+    $box.html('这是新增加的子级<p>这是段落</p>')
+
+    // html() 方法不传递参数，是获取元素内容
+    // 获取时只能获取第一个元素内部的文案
+    // console.log($box.html())
+  </script>
+</body>
+</html>

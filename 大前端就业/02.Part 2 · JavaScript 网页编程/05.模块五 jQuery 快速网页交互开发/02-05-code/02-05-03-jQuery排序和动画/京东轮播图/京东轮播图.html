@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>京东商城</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .slider {
+      height: 340px;
+      width: 790px;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .slider ul li {
+      position: absolute;
+      display: none;
+    }
+
+    .slider ul li:first-child {
+      display: block;
+    }
+
+
+    .arrow {
+      display: none;
+    }
+
+    .slider:hover .arrow {
+      display: block;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      font-family: "SimSun", "宋体";
+      width: 30px;
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 50%;
+      margin-top: -30px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 60px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 30px;
+    }
+
+    .arrow-left:hover,
+    .arrow-right:hover {
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    .arrow-left {
+      left: 0;
+    }
+
+    .arrow-right {
+      right: 0;
+    }
+    .slider ol{
+      position: absolute;
+      left:100px;
+      bottom: 30px;
+      width: 240px;
+      height: 20px;
+    }
+    .slider ol li{
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background:rgba(255, 255, 255, .5);
+      cursor:pointer;
+    }
+    .slider ol li.cur{
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <ul>
+      <li><a href="#"><img src="img/jd1.jpg" alt=""></a></li>
+      <li><a href="#"><img src="img/jd2.jpg" alt=""></a></li>
+      <li><a href="#"><img src="img/jd3.jpg" alt=""></a></li>
+      <li><a href="#"><img src="img/jd4.jpg" alt=""></a></li>
+      <li><a href="#"><img src="img/jd5.jpg" alt=""></a></li>
+      <li><a href="#"><img src="img/jd6.jpg" alt=""></a></li>
+      <li><a href="#"><img src="img/jd7.jpg" alt=""></a></li>
+      <li><a href="#"><img src="img/jd8.jpg" alt=""></a></li>
+    </ul>
+    <!--箭头-->
+    <div class="arrow">
+      <span class="arrow-left">&lt;</span>
+      <span class="arrow-right">&gt;</span>
+    </div>
+    <!-- 下标 -->
+    <ol>
+      <li class="cur"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+
+  <script src="lib/jquery-1.12.4.js"></script>
+  <script>
+    // 获取元素
+    var $ulLis = $(".slider ul li");
+    var $olLis = $(".slider ol li");
+    // 信号量编程
+    var idx = 0;
+    // 右按钮事件
+    $(".arrow-right").click(function () {
+      // 函数节流，防骚扰
+      if ($ulLis.eq(idx).is(":animated")) return;
+      // 让当前这一个 li 去淡出隐藏
+      $ulLis.eq(idx).fadeOut();
+      // 让信号量自加
+      idx++;
+      if (idx > $ulLis.length - 1) {
+        idx = 0;
+      }
+      move();
+    })
+    // 左按钮事件
+    $(".arrow-left").click(function () {
+      // 函数节流，防骚扰
+      if ($ulLis.eq(idx).is(":animated")) return;
+      // 让当前这一个 li 去淡出隐藏
+      $ulLis.eq(idx).fadeOut();
+      // 让信号量自减
+      idx--;
+      if (idx < 0) {
+        idx = $ulLis.length - 1;
+      }
+      move();
+    })
+
+    // 添加小圆点的事件
+    $olLis.click(function () {
+      // 函数节流，防骚扰
+      if ($ulLis.eq(idx).is(":animated")) return;
+      // 让当前的这一个 li 去淡出隐藏
+      $ulLis.eq(idx).fadeOut();
+      // 找到点击的当前的小圆点对应的下标，赋值给信号量
+      idx = $(this).index();
+      move();
+    })
+
+    // 封装公共部分
+    function move () {
+      // 让指定的一项 li 进行淡入显示
+      $ulLis.eq(idx).fadeIn();
+      $olLis.eq(idx).addClass("cur").siblings().removeClass("cur");
+    }
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" style="width: 300px;"></div>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 获取元素
+    var $box = $(".box")
+    
+    // css() 传一个参数：获取对应的属性值
+    console.log($box.css("width"))
+    // 复合属性的单一属性写法，可以是横线写法，也可以是驼峰命名法
+    console.log($box.css("background-color"))
+    console.log($box.css("backgroundColor"))
+
+    // css() 传入两个参数：设置或更改对应的属性值
+    // $box.css("width","400px")
+    // $box.css("width","400")
+    // $box.css("width",500)
+    // $box.css("width","+=100px")
+
+    // 设置多条属性，可以使用对象形式的参数
+    $box.css({
+      "width": 200,
+      "height": 300
+    })
+
+  </script>
+</body>
+</html>

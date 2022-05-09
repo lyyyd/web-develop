@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 插件的样式 -->
+    <link rel="stylesheet" href="css/jcarousel.basic.css">
+    <!-- 自己的样式 -->
+    <link rel="stylesheet" href="css/index.css">
+
+
+
+</head>
+
+<body>
+    <!-- 版心 -->
+    <div class="w">
+        <!-- 轮播区 -->
+        <div class="banner">
+            <!-- 轮播项 -->
+            <div class="jcarousel">
+                <ul>
+                    <li>
+                        <img src="img/jd1.jpg">
+                    </li>
+                    <li>
+                        <img src="img/jd2.jpg">
+                    </li>
+                    <li>
+                        <img src="img/jd3.jpg">
+                    </li>
+                    <li>
+                        <img src="img/jd4.jpg">
+                    </li>
+                    <li>
+                        <img src="img/jd5.jpg">
+                    </li>
+                    <li>
+                        <img src="img/jd6.jpg">
+                    </li>
+                    <li>
+                        <img src="img/jd7.jpg">
+                    </li>
+                    <li>
+                        <img src="img/jd8.jpg">
+                    </li>
+                </ul>
+            </div>
+            <!-- 左右按钮 -->
+            <a href="#" data-jcarousel-control="true" data-target="-=1" class="prev btn">&lsaquo;</a>
+            <a href="#" data-jcarousel-control="true" data-target="+=1" class="next btn">&rsaquo;</a>
+            <!-- 一组小点按钮 -->
+            <p class="controls">
+                <!-- <a href="#" class="active"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a> -->
+            </p>
+        </div>
+    </div>
+    <!-- jQuery库 -->
+    <script src="lib/jquery-1.12.4.js"></script>
+    <!-- 插件库 -->
+    <script src="lib/jquery.jcarousel.min.js"></script>
+    <!-- 使用插件 -->
+    <script>
+        // 初始化
+        $('.jcarousel').jcarousel({
+            // 配置实现无限滚动
+            wrap: 'circular'
+        });
+
+        // 左侧按钮点击切换
+        $('.prev')
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        // 右侧按钮点击切换
+        $('.next')
+            .jcarouselControl({
+                target: '+=1'
+            });
+
+        // 点击小点实现切换
+        $('.controls')
+            .on('jcarouselpagination:active', 'a', function () {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function () {
+                $(this).removeClass('active');
+            })
+            .jcarouselPagination();
+
+
+        // 自动轮播
+        $('.jcarousel').jcarouselAutoscroll({
+            // 配置间隔时间
+            interval: 1000
+        });
+
+
+        // 鼠标进入轮播区，停止自动轮播
+        $('.banner').mouseenter(function () {
+            // 停止自动轮播
+            $('.jcarousel').jcarouselAutoscroll('stop');
+        });
+        // 鼠标离开轮播区，启动自动轮播
+        $('.banner').mouseleave(function () {
+            // 启动自动轮播
+            $('.jcarousel').jcarouselAutoscroll('start');
+        });
+    </script>
+
+
+
+</body>
+
+</html>

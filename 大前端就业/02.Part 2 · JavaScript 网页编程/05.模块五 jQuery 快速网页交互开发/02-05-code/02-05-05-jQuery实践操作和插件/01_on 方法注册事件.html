@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // 简单注册事件的方式
+        // $("input").click(function () {
+        //     alert(1)
+        // })
+
+        // 使用 on 方法注册简单事件
+        // on() 方法的封装的底层实际是 addEventListener()
+        $("input").on("click",function () {
+            alert(2)
+        })
+        $("input").on("click",function () {
+            alert(3)
+        })
+    </script>
+</body>
+</html>

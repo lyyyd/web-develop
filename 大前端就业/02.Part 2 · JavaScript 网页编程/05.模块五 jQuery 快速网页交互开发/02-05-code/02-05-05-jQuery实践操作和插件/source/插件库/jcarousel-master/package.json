@@ -1,0 +1,39 @@
+{
+  "name": "jcarousel",
+  "title": "jCarousel",
+  "description": "Riding carousels with jQuery",
+  "version": "0.3.7",
+  "homepage": "http://sorgalla.com/jcarousel/",
+  "author": {
+    "name": "Jan Sorgalla",
+    "url": "http://sorgalla.com"
+  },
+  "main": "dist/jquery.jcarousel.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsor/jcarousel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jsor/jcarousel/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">=1.7"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-contrib-qunit": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-replace": "^1.0.1"
+  },
+  "keywords": [
+    "carousel",
+    "slideshow",
+    "animation",
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ]
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border: 10px solid #ccc;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url(images/0.jpg) no-repeat center center;
+        }
+        
+        div span{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"><span></span></div>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        var $box1 = $(".box1");
+        var during = 1000;        
+
+        // 将运动设置给事件，事件多次触发会积累动画出现动画排队
+        // 清除动画排队方法1： 在每一次新的运动开始之前，去停止之前所有的动画排队
+        // $box1.mouseenter(function () {
+        //     $(this).children().stop(true).slideUp(during)
+        // })
+        // $box1.mouseleave(function () {
+        //     $(this).children().stop(true).slideDown(during)
+        // })
+
+        // 清空动画排队方法2：使用函数节流方式
+        $box1.mouseenter(function () {
+            // 判断元素自己是否在运动中，如果是，那么直接返回不要往下添加新的运动
+            if ($(this).children().is(":animated")) {
+                return;
+            }
+            // 如果走到这里，说明元素没有在运动，就可以添加新运动
+            $(this).children().stop(true).slideUp(during)
+        })
+        $box1.mouseleave(function () {
+            // 判断元素自己是否在运动中，如果是，那么直接返回不要往下添加新的运动
+            if ($(this).children().is(":animated")) {
+                return;
+            }
+            $(this).children().stop(true).slideDown(during)
+        })
+    </script>
+</body>
+</html>

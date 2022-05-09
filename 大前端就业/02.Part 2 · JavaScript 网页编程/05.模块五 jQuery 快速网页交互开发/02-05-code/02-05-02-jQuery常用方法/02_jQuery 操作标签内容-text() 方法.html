@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">这是原始的 div1 <span>span1</span></div>
+  <div class="box">这是原始的 div2 <span>span2</span></div>
+  <div class="box">这是原始的 div3 <span>span3</span></div>
+  
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>    
+    // 获取元素
+    var $box = $(".box")
+    // text() 方法相当于 innerText 属性
+    // 获取，获取所有的标签内部的文字内容，忽略标签
+    // console.log($box.text())
+
+    // 设置,会将书写的内容都当成普通文字，不会按照标签加载
+    $box.text("普通文本<p>段落</p>")
+  </script>
+</body>
+</html>

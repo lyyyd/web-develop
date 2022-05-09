@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .demo{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="添加" id="btn1">
+    <input type="button" value="删除" id="btn2">
+    <input type="button" value="切换" id="btn3">
+    <div id="box" class="box"></div>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 给 box 切换 demo 的类名，从而改变背景颜色
+        var $box = $("#box");
+        var $btn1 = $("#btn1");
+        var $btn2 = $("#btn2");
+        var $btn3 = $("#btn3");
+
+        // jQuery 中的类名控制方法，只会操作指定的类名，不会影响其他类名
+        // 点击按钮 添加，让元素增加一个类名
+        $btn1.click(function () {
+          $box.addClass("demo")
+        })
+
+        // 点击按钮 删除，让元素减少一个类名
+        $btn2.click(function () {
+          // $box.removeClass("demo")
+          // 如果不传参数，会删除所有类名
+          $box.removeClass()
+        })
+
+        // 点击按钮 切换，让元素在一个类名中进行添加和删除的自动切换
+        $btn3.click(function () {
+          $box.toggleClass("demo")
+        })
+    </script>
+</body>
+</html>

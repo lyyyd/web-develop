@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="demo">
+    <p>段落1</p>
+    <p>段落2</p>
+    <p>段落3</p>
+    <p>段落4</p>
+    <p>段落5</p>
+    <p>段落6</p>
+    <p>段落7</p>
+    <p>段落8</p>
+    <input type="button" value="按钮1">
+    <input type="button" value="按钮1" disabled="disabled">
+    <input type="button" value="按钮1">
+    <input type="text" >
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+  </div>
+  <p>段落9</p>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 基础选择器
+    // $("*")
+    // $("p")
+    // $(".box")
+    // $("#demo")
+    // 高级选择器
+    // $(".box p").html("你好")
+
+    // 表单对象属性
+    // $("input:disabled").css("background-color","red")
+    // $("input:enabled").css("background-color","red")
+    // 表单
+    // $(":input").css("background-color","red")
+    $(":text").css("background-color","red")
+  </script>
+</body>
+
+</html>

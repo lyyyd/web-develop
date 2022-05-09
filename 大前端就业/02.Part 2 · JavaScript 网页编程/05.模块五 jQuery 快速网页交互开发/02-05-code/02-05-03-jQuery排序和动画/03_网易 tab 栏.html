@@ -1,0 +1,127 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		.tab {
+			width: 310px;
+			height: 190px;
+			border-top: 2px solid #206f96;
+			margin: 100px;
+			float: left;
+		}
+
+		.tab .title {
+			width: 309px;
+			height: 30px;
+			border-left: 1px solid #cfcfcf;
+			overflow: hidden;
+		}
+
+		.tab .title span {
+			float: left;
+			width: 102px;
+			height: 29px;
+			border-right: 1px solid #cfcfcf;
+			border-bottom: 1px solid #cfcfcf;
+			background-color: #f5f5f5;
+			font: 14px/29px "SimSun";
+			text-align: center;
+		}
+
+		.tab .title span.current {
+			height: 30px;
+			background-color: #fff;
+		}
+
+		.tab .title span a {
+			color: #252525;
+			text-decoration: none;
+		}
+
+		.tab .detail {
+			height: 143px;
+			padding: 17px 0 0 9px;
+			font: 14px/27px "SimSun";
+		}
+
+		.tab .detail ul {
+			display: none;
+		}
+
+		.tab .detail ul.current {
+			display: block;
+		}
+
+		.tab .detail ul li a {
+			color: #252525;
+			text-decoration: none;
+		}
+
+		.tab .detail ul li.first {
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="tab">
+		<div class="title">
+			<span class="current"><a href="#">新闻</a></span>
+			<span><a href="#">图片</a></span>
+			<span><a href="#">军事</a> <a href="#">航空</a></span>
+		</div>
+		<div class="detail">
+			<ul class="current">
+				<li class="first"><a href="#">习近平离京访问捷克并出席核安全峰会</a></li>
+				<li><a href="#">习近平在捷克发文 热议 出访专题 这三年</a></li>
+				<li><a href="#">李克强:亚洲国家较含蓄 更需开放交流 在博鳌</a></li>
+				<li><a href="#">张德江会客 江泽民为《世界名曲45首》作序</a></li>
+				<li><a href="#">酒店枕头下现近万现金 房客怒投诉:没换枕套</a></li>
+			</ul>
+			<ul>
+				<li class="first"><a href="#">2习近平离京访问捷克并出席核安全峰会</a></li>
+				<li><a href="#">习近平在捷克发文 热议 出访专题 这三年</a></li>
+				<li><a href="#">李克强:亚洲国家较含蓄 更需开放交流 在博鳌</a></li>
+				<li><a href="#">张德江会客 江泽民为《世界名曲45首》作序</a></li>
+				<li><a href="#">酒店枕头下现近万现金 房客怒投诉:没换枕套</a></li>
+			</ul>
+			<ul>
+				<li class="first"><a href="#">3习近平离京访问捷克并出席核安全峰会</a></li>
+				<li><a href="#">习近平在捷克发文 热议 出访专题 这三年</a></li>
+				<li><a href="#">李克强:亚洲国家较含蓄 更需开放交流 在博鳌</a></li>
+				<li><a href="#">张德江会客 江泽民为《世界名曲45首》作序</a></li>
+				<li><a href="#">酒店枕头下现近万现金 房客怒投诉:没换枕套</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+		// 获取所有的 span
+		var $span = $(".tab .title span");
+		// 添加鼠标移上事件
+		$span.mouseenter(function () {
+			// 利用变量存储 this 的下标
+			var idx = $(this).index();
+			// 自己级别的排他
+			$(this).addClass("current").siblings().removeClass("current");
+			// 对应级别的排他
+			$(".tab .detail ul").eq(idx).addClass("current").siblings().removeClass("current");
+		})
+	</script>
+</body>
+
+</html>

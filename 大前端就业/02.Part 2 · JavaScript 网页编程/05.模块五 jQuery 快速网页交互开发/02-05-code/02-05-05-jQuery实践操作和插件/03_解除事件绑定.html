@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮">
+    <ul>
+        <li>刘备</li>
+        <li>诸葛亮</li>
+        <li>关羽</li>
+        <li>张飞</li>
+    </ul>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>       
+        // 定义事件处理函数
+        var fun1 = function () {
+            alert(2)
+        }; 
+        var fun2 = function () {
+            alert(3)
+        };
+        // 绑定简单事件
+        $("input").on("click",fun1)
+        $("input").on("click",fun2)
+
+        // 解绑事件
+        $("input").off("click",fun2)
+
+        var fn1 = function () {            
+            alert($(this).text())
+        };
+        var fn2 = function () {            
+            alert($(this).index())
+        };
+        // 绑定事件委托的事件
+        $("ul").on("click", "li", fn1)
+        $("ul").on("click", "li", fn2)
+
+        // 解绑事件委托
+        $("ul").off("click", "li", fn2)
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="按钮" disabled="disabled" class="btn"><br>
+  <input type="checkbox" checked="checked" class="choose"> 绘画
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 获取元素
+    var $btn = $(".btn")
+    var $choose = $(".choose")
+    var btn = document.querySelector(".btn")
+
+    // 获取 disabled 的属性值
+    // console.log(btn.disabled)
+    // console.log($btn.attr("disabled"))
+    // console.log($btn[0].disabled)
+
+    // prop() 方法，直接操作的就是布尔值
+    console.log($btn.prop("disabled"))
+    console.log($choose.prop("checked"))
+
+    // 设置
+    $btn.prop("disabled",false)
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">
+    <p>段落</p>
+    <h2>标题</h2>
+  </div>
+  <ul>
+    <li>这是第 1 个标签</li>
+    <li>这是第 2 个标签</li>
+    <li class="third">这是第 3 个标签</li>
+    <li>这是第 4 个标签</li>
+    <li>这是第 5 个标签</li>
+  </ul>
+
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 删除元素自己
+    // $(".third").remove();
+
+    // 清空元素内部的所有子节点
+    // 方法1： empty() 方法，清除所有子节点的同事，清除子节点上的事件
+    // $(".box").empty();
+    // 方法2： html() 方法，将参数设置为空字符串
+    // $(".box").html("");
+  </script>
+</body>
+
+</html>
