@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    // 使用拦截器，对请求进行拦截处理
+    axios.interceptors.request.use(function (config) {
+      config.params = {
+        id: 2
+      }
+      config.baseURL = "http://localhost:3000"
+      return config
+    })
+    // 对响应进行拦截
+    axios.interceptors.response.use(function (response) {
+      return response.data;
+    })
+    // axios 方法    
+    axios("/posts")
+    .then(function (res) {
+      console.log(res)
+    })
+    .catch(function (error) {
+      console.log(error)
+    });
+    axios("/comments")
+    .then(function (res) {
+      console.log(res)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

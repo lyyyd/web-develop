@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 发送 get 请求
+    // $.ajax({
+    //   url: "http://localhost:3000/comments",
+    //   type: "get",
+    //   dataType: "json",
+    //   data: {"id": 2},
+    //   success: function (data) {
+    //     console.log(data);
+    //   }
+    // })
+
+    // 化简后的方法直接发送 get 请求
+    $.get("http://localhost:3000/comments", {"id": 1}, function (data) {
+      console.log(data);
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    // get 请求
+    // axios.get("http://localhost:3000/users?id=2")
+    //   .then(function (res) {
+    //     console.log(res.data)
+    //   })
+    // axios.get("http://localhost:3000/users",{
+    //   params: {
+    //     id: 3
+    //   }
+    // })
+    //   .then(function (res) {
+    //     console.log(res.data)
+    //   })
+
+    // post 请求 ，添加数据
+    axios.post("http://localhost:3000/users",{
+      "name": "nancy",
+      "age": 19,
+      "class": 2
+    })
+    .then(function (res) {
+      console.log(res.data)
+    })
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

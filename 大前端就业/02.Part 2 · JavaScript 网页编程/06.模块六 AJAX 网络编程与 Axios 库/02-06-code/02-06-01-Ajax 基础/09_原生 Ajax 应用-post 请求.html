@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var xhr = new XMLHttpRequest();
+    // post 请求
+    xhr.open("POST","http://localhost:3000/users");
+    // 设置请求头
+    // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Content-Type","application/json");
+    // xhr.send("name=lily&age=19&class=2");
+    // xhr.send(`{
+    //   "name": "lulu",
+    //   "age": 18,
+    //   "class": 2
+    // }`);
+    xhr.send(JSON.stringify({
+      "name": "harry",
+      "age": 18,
+      "class": 1
+    }));
+    xhr.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        console.log(this.responseText);
+      }
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

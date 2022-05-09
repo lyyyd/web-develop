@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var xhr = new XMLHttpRequest();
+    // 发送 GET 请求
+    xhr.open("GET", "http://localhost:3000/users?age=19");
+    xhr.send(null);
+    xhr.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        console.log(this.responseText);
+      }
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

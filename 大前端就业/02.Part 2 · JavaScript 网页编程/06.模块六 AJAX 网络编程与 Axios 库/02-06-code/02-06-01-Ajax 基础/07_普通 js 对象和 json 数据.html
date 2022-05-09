@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // js 对象字面量
+    var obj = {
+      name: "tom",
+      age: 19,
+      cp: {
+        name: "harry",
+        age: 18
+      }
+    };
+    // JSON 格式的数据，与 js 对象的区别
+    // 1.JSON 数据不需要存到变量中
+    // 2.结束时不需要写分号
+    // 3.JSON 数据中的属性名必须加引号
+
+    var str = '{"name": "tom","age": 80}';
+
+    // JSON 对象
+    // console.log(JSON)
+    console.log(obj);
+    console.log(JSON.stringify(obj));
+    // 使用 JSON 对象的 parse 方法可以将 json 格式的字符串转换成 对象格式，
+    // 具有了属性和方法，方便我们在js 中进行使用
+    console.log(JSON.parse(str));
+    var strObj = JSON.parse(str);
+    console.log(strObj.name)
+    console.log(strObj.age)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

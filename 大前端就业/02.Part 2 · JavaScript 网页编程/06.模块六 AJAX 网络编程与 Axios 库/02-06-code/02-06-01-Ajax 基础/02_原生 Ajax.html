@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1.创建一个 XMLHttpRequest 类型的对象  --- 相当于打开了一个浏览器
+    var xhr = new XMLHttpRequest();
+    // 2.打开一个与网址之间的连接  --- 相当于在地址栏输入网址
+    xhr.open("GET","https://jsonplaceholder.typicode.com/users");
+    // 3.通过连接发送一次请求 --- 相当于点击回车或者超链接
+    xhr.send(null);
+    // 4.指定 xhr 状态变化事件处理函数   --- 相当于处理网页呈现后的操作
+    xhr.onreadystatechange = function () {
+      // 通过判断 xhr 的 readyState ，确定此次请求是否完成
+      if (this.readyState === 4) {
+        console.log(this.responseText)
+      }
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

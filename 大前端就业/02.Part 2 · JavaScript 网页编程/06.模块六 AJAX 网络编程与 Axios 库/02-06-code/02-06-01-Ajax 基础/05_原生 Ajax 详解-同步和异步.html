@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1.创建一个 XMLHttpRequest 类型的对象 
+    var xhr = null;
+    // 兼容写法
+    if (window.XMLHttpRequest) {
+      // 标准浏览器
+      xhr = new XMLHttpRequest();
+    } else {
+      // IE 6 浏览器
+      xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    // 2.打开一个与网址之间的连接 
+    // 设置同步或异步
+    xhr.open("GET","https://jsonplaceholder.typicode.com/users",true);
+    // xhr.open("GET","https://jsonplaceholder.typicode.com/users",false);
+    // 如果设置了同步加载，程序会卡在 send 部分
+    xhr.onreadystatechange = function () {
+      // 通过判断 xhr 的 readyState ，确定此次请求是否完成
+      if (this.readyState === 4) {
+        console.log("请求成功")
+      }
+    }
+    // 3.通过连接发送一次请求
+    xhr.send(null);
+    // 4.指定 xhr 状态变化事件处理函数 
+    
+    // Ajax 后面的代码
+    console.log("After Ajax");
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

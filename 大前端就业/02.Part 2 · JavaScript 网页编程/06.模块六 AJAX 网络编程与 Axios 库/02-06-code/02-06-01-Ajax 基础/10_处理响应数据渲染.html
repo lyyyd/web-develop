@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    table {
+      width: 300px;
+      margin: 30px auto;
+      font: 14px/28px "微软雅黑";
+      color: #333;
+      border-collapse: collapse;
+    }
+    td,th {
+      width: 100px;
+    }
+  </style>
+  
+</head>
+<body>
+  <table border="1" id="box">
+    <tr>
+      <th>学号</th>
+      <th>姓名</th>
+      <th>年龄</th>
+      <th>班级</th>
+    </tr>
+    
+  </table>
+  <script>
+    // 获取元素
+    var box = document.getElementById("box");
+    var xhr = new XMLHttpRequest();
+    // 发送 GET 请求
+    xhr.open("GET", "http://localhost:3000/users");
+    xhr.send(null);
+    xhr.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        // 讲获取的响应体的字符串转为对象
+        var data = JSON.parse(this.responseText)
+        console.log(data);
+        var str = "";
+        // 循环遍历数组
+        for (var i = 0 ; i < data.length ;i++) {
+          // 进行字符串拼接 
+          // str += "<tr><td>" + data[i].id + "</td><td>" + data[i].name + "</td><td>" + data[i].age + "</td><td>" + data[i].class + "</td></tr>";
+          // 使用 模板字符串 进行拼接
+          str += `<tr>
+            <td>${data[i].id}</td>
+            <td>${data[i].name}</td>
+            <td>${data[i].age}</td>
+            <td>${data[i].class}</td>
+          </tr>`
+        }
+        box.innerHTML += str;
+      }
+    };
+  </script>
+</body>
+</html>

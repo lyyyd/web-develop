@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    // 全局配置默认值
+    axios.defaults.baseURL = "http://localhost:3000";
+    // axios 方法
+    axios({
+      url: "/comments",
+      method: "get"
+    }).then(function (res) {
+      console.log(res.data)
+    }).catch(function (error) {
+      console.log(error)
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

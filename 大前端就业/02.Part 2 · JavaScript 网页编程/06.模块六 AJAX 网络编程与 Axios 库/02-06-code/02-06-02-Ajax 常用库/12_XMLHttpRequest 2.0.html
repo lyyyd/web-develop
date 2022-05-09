@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:3000/posts");
+    xhr.onload = function () {
+      console.log("load",this.readyState)
+    }
+    xhr.onprogress = function (e) {
+      console.log("progress",this.readyState)
+      // 在周期性请求过程中，接收到的数据的个数
+      console.log(e.loaded);
+      // 接收数据的总个数
+      console.log(e.total);
+    }
+    xhr.send(null);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

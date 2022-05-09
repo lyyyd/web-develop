@@ -1,0 +1,23 @@
+<?xml verson="1.0" encoding="utf-8" ?>
+<booklist>
+  <book>
+    <name>三国演义</name>
+    <author>罗贯中</author>
+    <cate>古典名著</cate>
+  </book>
+  <book>
+    <name>西游记</name>
+    <author>吴承恩</author>
+    <cate>古典名著</cate>
+  </book>
+  <book>
+    <name>红楼梦</name>
+    <author>曹雪芹</author>
+    <cate>古典名著</cate>
+  </book>
+</booklist>
+<!-- xml 就是一种数据格式 -->
+<!-- 元数据：用来描述数据的数据 -->
+<!-- 这种数据的缺点：
+1.元数据占用的数据量比较大的，不利于大量数据的网络传输
+2.在其他语言中，比如 js，解析内部数据时，方法比较复杂，不方便使用 -->

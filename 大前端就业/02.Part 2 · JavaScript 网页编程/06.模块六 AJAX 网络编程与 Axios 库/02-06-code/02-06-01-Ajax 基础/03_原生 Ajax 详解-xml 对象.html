@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1.创建一个 XMLHttpRequest 类型的对象 
+    var xhr = null;
+    // 兼容写法
+    if (window.XMLHttpRequest) {
+      // 标准浏览器
+      xhr = new XMLHttpRequest();
+    } else {
+      // IE 6 浏览器
+      xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    // 2.open() 方法开启请求
+    // xhr.open("GET","https://jsonplaceholder.typicode.com/users?id=1");
+    xhr.open("POST","https://jsonplaceholder.typicode.com/users");
+    // 设置请求头
+    // 一般 get 方法不需要设置，而 post 方法必须设置
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    // 3.send() 方法发送一次请求
+    // 如果是 get 方法请求，不需要再 send 中传参数，它如果想传参数，直接写在网址上
+    // xhr.send(null);
+    xhr.send("name=harry&age=19");
+    
+    xhr.onreadystatechange = function () {
+      // 通过判断 xhr 的 readyState ，确定此次请求是否完成
+      if (this.readyState === 4) {
+        console.log(this.responseText)
+      }
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

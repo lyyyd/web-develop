@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    input {
+      border: 0;
+      outline: none;
+    }
+    .box {
+      width: 500px;
+      height: 50px;
+      margin:  20px auto;
+    }
+    .box .search-box {
+      float: left;
+      width: 400px;
+      border: 2px solid #0af;
+      box-sizing: border-box;
+    }
+    .box .search-box .txt {
+      display: block;
+      height: 46px;
+      padding-left: 10px;
+      line-height: 46px;
+      font-size: 16px;
+      color: #333;
+    }
+    .box .search-box ul li {
+      padding: 0 10px;
+      line-height: 36px;
+    }
+    .box .btn {
+      float: left;
+      width: 100px;
+      height: 50px;
+      background-color: #0af;
+      font-size: 18px;
+      color: #fff;
+      font-weight: bold;
+    }
+  </style>  
+</head>
+<body>
+  <div class="box">
+    <div class="search-box">
+        <input type="text" class="txt">
+        <ul class="suggest-list">
+          
+        </ul>
+    </div>
+    <input type="button" value="搜索" class="btn">    
+  </div> 
+   <!--引包  -->
+   <script src="js/jquery-1.12.4.min.js"></script>
+   <script>
+    //  添加一个 txt 中的按键弹起事件，每输入一个文字都会触发事件
+    var $txt = $(".txt");
+    var $ul = $(".suggest-list");
+
+    $txt.keyup(function () {
+      // 获取搜索联想的数据
+      var keyword = $(this).val();
+      // 发送数据请求
+      $.ajax({
+        url: "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web",
+        dataType: "jsonp",
+        jsonp: "cb",
+        data: {"wd": keyword},
+        success: function (data) {
+          // console.log(data);
+          // 获取需要的数组
+          var arr = data.g;
+          // 将所有的数组中的数据，渲染到页面中的 ul 里
+          var str = "";
+          // 数组遍历，进行字符串拼接
+          for (var i = 0 ; i < arr.length; i++){
+            str += `<li>${arr[i].q}</li>`
+          }
+          // 将最终拼接的字符串添加到页面上
+          $ul.html(str);
+        } 
+      })
+    })
+   </script>
+</body>
+</html>

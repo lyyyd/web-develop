@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 发送 post 请求
+    // $.ajax({
+    //   url: "http://localhost:3000/comments",
+    //   type: "post",
+    //   dataType: "json",
+    //   data: {"postId": 2, "content": "bad"},
+    //   success: function (data) {
+    //     console.log(data);
+    //   }
+    // })
+
+    // $.post() 快捷方法发送请求
+    $.post("http://localhost:3000/comments", {"postId": 3, "content": "bad"},function (data) {
+      console.log(data);
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

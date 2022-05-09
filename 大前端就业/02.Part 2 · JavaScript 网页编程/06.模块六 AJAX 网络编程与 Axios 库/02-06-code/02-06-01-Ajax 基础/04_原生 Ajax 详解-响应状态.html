@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1.创建一个 XMLHttpRequest 类型的对象 
+    var xhr = null;
+    // 兼容写法
+    if (window.XMLHttpRequest) {
+      // 标准浏览器
+      xhr = new XMLHttpRequest();
+    } else {
+      // IE 6 浏览器
+      xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    console.log("UNSENT",xhr.readyState);
+    // 2.open() 方法开启请求
+    xhr.open("GET","https://jsonplaceholder.typicode.com/users");
+    console.log("OPENED",xhr.readyState);
+    // 3.send() 方法发送一次请求
+    xhr.send("name=harry&age=19");
+    // 4.指定回调函数，处理得到的数据
+    xhr.onreadystatechange = function () {
+      // 通过判断 xhr 的 readyState ，确定此次请求是否完成
+      if (this.readyState === 2) {
+        console.log("headers received",xhr.readyState);
+      } else if (this.readyState === 3) {
+        console.log("loading",xhr.readyState)
+        console.log(xhr.responseText)
+      } else if (this.readyState === 4) {
+        console.log("done",xhr.readyState)
+        console.log(xhr.responseText)
+      }
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
