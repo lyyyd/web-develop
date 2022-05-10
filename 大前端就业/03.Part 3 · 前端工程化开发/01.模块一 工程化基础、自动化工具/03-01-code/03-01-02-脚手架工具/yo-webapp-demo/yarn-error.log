@@ -1,0 +1,94 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\changtaoliu\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Python27;C:\Users\changtaoliu\AppData\Local\Yarn\bin;C:\Users\changtaoliu\AppData\Local\Microsoft\WindowsApps;C:\Users\changtaoliu\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  14.10.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: D:\lagou\code\yo-webapp-demo\node_modules\node-sass: UNKNOWN: unknown error, open 'C:\Users\CHANGT~1\AppData\Local\Temp\yarn--1600067988795-0.9578628038761077\yarn.cmd'
+
+npm manifest: 
+  {
+    "private": true,
+    "engines": {
+      "node": ">=4"
+    },
+    "dependencies": {
+      "bootstrap": "^4.3.1",
+      "jquery": "^3.4.1",
+      "modernizr": "^3.7.1",
+      "popper.js": "^1.15.0"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.4.5",
+      "@babel/preset-env": "^7.4.5",
+      "autoprefixer": "^9.5.1",
+      "browser-sync": "^2.26.5",
+      "cross-env": "^5.2.0",
+      "cssnano": "^4.1.10",
+      "del": "^4.1.1",
+      "gulp": "^4.0.2",
+      "gulp-babel": "^8.0.0",
+      "gulp-cli": "^2.2.0",
+      "gulp-eslint": "^5.0.0",
+      "gulp-filter": "^6.0.0",
+      "gulp-htmlmin": "^5.0.1",
+      "gulp-if": "^2.0.2",
+      "gulp-imagemin": "^6.0.0",
+      "gulp-load-plugins": "^1.6.0",
+      "gulp-plumber": "^1.2.1",
+      "gulp-postcss": "^8.0.0",
+      "gulp-sass": "^4.0.2",
+      "gulp-size": "^3.0.0",
+      "gulp-uglify": "^3.0.2",
+      "gulp-useref": "^3.1.6",
+      "mkdirp": "^0.5.1",
+      "mocha": "^6.1.4",
+      "yargs": "13.2.4"
+    },
+    "scripts": {
+      "serve:test": "cross-env NODE_ENV=test gulp serve",
+      "serve:dist": "cross-env NODE_ENV=production gulp serve",
+      "start": "gulp serve",
+      "build": "cross-env NODE_ENV=production gulp",
+      "test": "npm run serve:test",
+      "tasks": "gulp --tasks"
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions",
+      "Firefox ESR"
+    ],
+    "eslintConfig": {
+      "parserOptions": {
+        "sourceType": "module"
+      },
+      "env": {
+        "es6": true,
+        "node": true,
+        "browser": true,
+        "jquery": true
+      },
+      "rules": {
+        "quotes": [
+          2,
+          "single"
+        ]
+      }
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

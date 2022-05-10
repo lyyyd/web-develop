@@ -1,0 +1,12 @@
+{
+  "name": "style",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "style": "lessc styles/main.less styles/main.css && minify styles/main.css > styles/main.min.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "style",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "style": "lessc styles/main.less styles/main.css && minify styles/main.css > styles/main.min.css",
+    "script": "babel js -d scripts && minify scripts/main.js > scripts/main.min.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0"
+  }
+}

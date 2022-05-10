@@ -1,0 +1,8 @@
+/**
+ * body 样式
+ */
+body {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: red;
+}
