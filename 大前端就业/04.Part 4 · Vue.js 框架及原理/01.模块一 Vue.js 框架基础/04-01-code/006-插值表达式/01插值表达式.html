@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <ul>
+      <li>第一段示例内容：{{ 10 + 20 + 30 }}</li>
+      <li>第二段示例内容：{{ 22 > 3 ? '22比3大' : '3比22大' }}</li>
+      <!-- <li id="{{ 1 + 2 }}"></li> -->
+      <!-- <li>{{ var num = 100; }}</li> -->
+    </ul>
+  </div>
+
+  <script src="lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app'
+    });
+  </script>
+</body>
+</html>

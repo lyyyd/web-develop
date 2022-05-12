@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-focus>
+  </div>
+
+  <div id="app2">
+    <input type="text" v-focus>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 自定义局部指令
+    new Vue({
+      el: '#app',
+      data: {},
+      directives: {
+        focus: {
+          inserted (el) {
+            el.focus();
+          }
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app2'
+    });
+  </script>
+</body>
+</html>

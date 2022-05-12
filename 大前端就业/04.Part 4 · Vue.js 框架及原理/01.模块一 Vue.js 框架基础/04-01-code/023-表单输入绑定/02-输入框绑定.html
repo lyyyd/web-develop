@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>input 输入框的内容为： {{ value1 }}</p>
+    <input type="text" v-model="value1">
+
+    <p>textarea 输入框的内容为： {{ value2 }}</p>
+    <textarea v-model="value2"></textarea>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        value1: '',
+        value2: ''
+      }
+    });
+  </script>
+</body>
+</html>

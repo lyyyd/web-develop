@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+
+    <ul>
+      <!-- 不推荐 v-if 与 v-for 同时应用与同一个元素 -->
+      <li v-if="item > 10" v-for="item in arr">{{ item }}</li>
+    </ul>
+
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        arr: [1, 11, 2, 22, 3, 33, 4, 44, 5, 55]
+      }
+    });
+  </script>
+</body>
+</html>

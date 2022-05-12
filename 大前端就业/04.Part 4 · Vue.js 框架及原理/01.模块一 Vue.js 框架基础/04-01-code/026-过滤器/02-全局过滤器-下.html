@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <p>{{ value | filterA | filterB }}</p> -->
+
+    <p>{{ value | filterC('lagou-', 200) }}</p>
+
+    <p>{{ value | filterC('qqq-', 200) }}</p>
+
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    /* Vue.filter('filterA', function (value) {
+      console.log(value, 'filterA');
+      return value.split('-').join('');
+    });
+
+    Vue.filter('filterB', function (value) {
+      console.log(value, 'filterB');
+      return value[0].toUpperCase() + value.slice(1);
+    }) */
+
+    Vue.filter('filterC', function (par1, par2, par3) {
+      return par2 + par1.split('-').join('');
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        value: 'a-b-c'
+      }
+    });
+  </script>
+</body>
+</html>

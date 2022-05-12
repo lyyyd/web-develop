@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in fn()">{{ item }}</li>
+    </ul>
+
+    <ul>
+      <li v-for="item in fn()">{{ item }}</li>
+    </ul>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        arr: [1, 11, 2, 22, 3, 33, 4, 44, 5, 55]
+      },
+      methods: {
+        fn () {
+          console.log('函数代码执行了');
+          // 遍历 arr ，找到大于 10 的数据
+          var resultArr = [];
+          for (var i = 0; i < this.arr.length; i++) {
+            if (this.arr[i] > 10) {
+              resultArr.push(this.arr[i])
+            }
+          }
+          return resultArr;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

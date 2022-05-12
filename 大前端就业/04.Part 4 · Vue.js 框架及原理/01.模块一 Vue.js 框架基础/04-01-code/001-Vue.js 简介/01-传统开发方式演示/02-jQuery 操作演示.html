@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width= , initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container">
+    <p id="text">当前数值为：100</p>
+    <button id="btn1">点击增大</button>
+    <button id="btn2">点击减小</button>
+  </div>
+
+  <script src="lib/jquery.js"></script>
+  <script>
+    var $text = $('#text');
+    var $btn1 = $('#btn1');
+    var $btn2 = $('#btn2');
+
+    var num = 100;
+
+    $btn1.on('click', function () {
+      num++;
+      $text.text('当前数值为：' + num);
+    });
+
+    $btn2.on('click', function () {
+      num--;
+      $text.text('当前数值为：' + num);
+    });
+  </script>
+</body>
+</html>

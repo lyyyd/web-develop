@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <p>{{ content | filterA }}</p>
+    <p>{{ content2 | filterA }}</p> -->
+
+    <p>{{ content | filterA | filterB }}</p>
+
+    <p>{{ content | filterA | filterC('lagou-') }}</p>
+  </div>
+
+  <!-- <div id="app2">
+    <p>{{ content | filterA }}</p>
+  </div> -->
+  <script src="lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        content: 'a-b-c',
+        content2: 'x-y-z'
+      },
+      filters: {
+        filterA: function (value) {
+          return value.split('-').join('');
+        },
+        filterB: function (value) {
+          return value.split('').reverse().join('');
+        },
+        filterC (value, prefix) {
+          return prefix + value;
+        }
+      }
+    });
+
+    /* new Vue({
+      el: '#app2',
+      data: {
+        content: 'q-w-e'
+      }
+    }) */
+  </script>
+</body>
+</html>

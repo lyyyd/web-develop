@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-bind:title="value | filterA">这是标签</p>
+    <p>{{ value2 | filterA }}</p>
+  </div>
+
+  <div id="app2">
+    <p>{{ value | filterA }}</p>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 设置全局过滤器
+    Vue.filter('filterA', function (value) {
+      return value.split('-').join('');
+    });
+
+
+    new Vue({
+      el: '#app',
+      data: {
+        value: 'a-b-c',
+        value2: 'x-y-z'
+      }
+    });
+
+    new Vue({
+      el: '#app2',
+      data: {
+        value: 'q-w-e'
+      }
+    })
+  </script>
+</body>
+</html>

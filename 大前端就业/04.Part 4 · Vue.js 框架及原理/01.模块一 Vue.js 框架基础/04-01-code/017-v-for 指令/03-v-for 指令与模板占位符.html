@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <template v-for="item in obj">
+      <span>{{ item }}</span>
+      <br>
+    </template>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        obj: {
+          content1: '内容1',
+          content2: '内容2',
+          content3: '内容3'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-text="100">这是 p 标签的原始内容</p>
+    <p v-text="content">这是 p 标签的原始内容</p>
+    <p v-text="content2"></p>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        content: '内容文本',
+        content2: '<span>span的内容</span>'
+      }
+    });
+  </script>
+</body>
+</html>

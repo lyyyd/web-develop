@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!-- <li v-for="item in arr">元素内容为：{{ item }}</li> -->
+      <!-- <li v-for="(item, index) in arr">
+        元素内容为：{{ item }}, 索引为：{{ index }}
+      </li> -->
+
+      <!-- <li v-for="value in obj">元素内容为：{{ value }}</li> -->
+      <!-- <li v-for="(value, key, index) in obj">
+        元素内容为: {{ value }}, 键为： {{ key }}, 索引值为： {{ index }}
+      </li> -->
+    </ul>
+
+    <ul>
+      <li v-for="(item, index) in 5">
+        这是第{{ item }}个元素，索引值为：{{ index }}
+      </li>
+    </ul>
+
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        // arr: ['内容1', '内容2', '内容3']
+        obj: {
+          content1: '内容1',
+          content2: '内容2',
+          content3: '内容3'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-bind="attrObj">这是 p 标签的内容</p>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        attrObj: {
+          id: 'box',
+          title: '示例内容',
+          class: 'clearFix',
+          'data-title': '这是 data-title 的内容'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

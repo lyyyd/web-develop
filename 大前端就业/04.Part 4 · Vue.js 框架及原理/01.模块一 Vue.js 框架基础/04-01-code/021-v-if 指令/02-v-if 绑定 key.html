@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="type==='username'" :key="'username'">
+      用户名输入框：<input type="text">
+    </div>
+    <div v-else :key="'email'">
+      邮箱输入框：<input type="text">
+    </div>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        bool: true,
+        type: 'username'
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div @click="fn1">
+      <!-- <button @click.stop="fn2">按钮</button> -->
+      <a @click.prevent.stop="fn2" href="https://kaiwu.lagou.com/">链接</a>
+    </div>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+        fn1 () {
+          console.log('div 的点击事件');
+        },
+        fn2 () {
+          // console.log('button 的点击事件');
+          console.log('a 的点击事件');
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>

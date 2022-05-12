@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <input type="text" @keyup="fn"> -->
+    <!-- <input type="text" @keyup.49="fn"> -->
+    <!-- <input type="text" @keyup.a="fn"> -->
+
+    <!-- <input type="text" @keyup.esc="fn"> -->
+
+    <input type="text" @keyup.a.b.c="fn">
+
+
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+        fn (event) {
+          console.log(event);
+          console.log('输入了对应内容');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

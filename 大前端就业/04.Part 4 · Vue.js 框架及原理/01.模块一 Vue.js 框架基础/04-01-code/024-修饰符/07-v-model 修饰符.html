@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <input type="text" v-model.trim="inputValue">
+    <p>{{ inputValue }}</p> -->
+
+    <!-- <input type="text" v-model.lazy="inputValue">
+    <p>{{ inputValue }}</p> -->
+
+    <input type="text" v-model.number="inputValue">
+    <p>{{ inputValue }}</p>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        inputValue: ''
+      }
+    });
+  </script>
+</body>
+</html>

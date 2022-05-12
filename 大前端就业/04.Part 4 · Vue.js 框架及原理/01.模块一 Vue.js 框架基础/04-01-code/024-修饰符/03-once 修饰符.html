@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="fn">按钮1</button>
+    <button @click.once="fn">按钮2</button>
+
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+        fn () {
+          console.log('按钮被点击了');
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ content | filterA }}</p>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 全局过滤器 filterA 设置翻转字符串功能
+    Vue.filter('filterA', function (value) {
+      return value.split('').reverse().join('');
+    });
+
+
+    new Vue({
+      el: '#app',
+      data: {
+        content: 'a-b-c-d-e-f'
+      },
+      // 局部过滤器 filterA 设置去除 - 的功能
+      filters: {
+        filterA (value) {
+          return value.split('-').join('');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in result">{{ item }}</li>
+    </ul>
+
+    <ul>
+      <li v-for="item in result">{{ item }}</li>
+    </ul>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        arr: [1, 11, 2, 22, 3, 33, 4, 44, 5, 55]
+      },
+      computed: {
+        result () {
+          console.log('执行了代码');
+          return this.arr.filter(item => item > 10);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

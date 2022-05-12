@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ title1.split('-').join('') }}</p>
+    <p>{{ title2.split('-').join('') }}</p>
+
+    <p>{{ fn(title1) }}</p>
+    <p>{{ fn(title2) }}</p>
+  </div>
+
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        prefix: '处理的结果为：',
+        title1: 'a-b-c-d-e',
+        title2: 'x-y-z'
+      },
+      methods: {
+        fn (value) {
+          // console.log(this);
+          this.fn1();
+          this.fn2();
+          return this.prefix + value.split('-').join('');
+        },
+        fn1 () {
+          console.log('执行了 fn1 的代码');
+        },
+        fn2 () {
+          console.log('执行了 fn2 的代码');
+        }
+      }
+    });
+
+    // console.log(vm)
+  </script>
+</body>
+</html>

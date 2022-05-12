@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-bind:title="myTitle">p标签的内容</p>
+    <p :title="myTitle">p标签的内容</p>
+
+    <p :class="'num' + 1 + 2 + 3">p标签的内容</p>
+    <p :class="prefix + num"></p>
+
+    <p :class="var a = 1"></p>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        myTitle: '这是title的内容',
+        prefix: 'demo',
+        num: 10
+      }
+    });
+  </script>
+</body>
+</html>

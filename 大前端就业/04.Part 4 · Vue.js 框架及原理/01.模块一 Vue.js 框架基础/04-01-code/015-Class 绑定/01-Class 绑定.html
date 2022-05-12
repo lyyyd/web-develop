@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <p v-bind:class="cls1">标签内容</p> -->
+    <!-- <p class="a" :class="cls1">标签内容</p> -->
+
+    <!-- 下面是错误写法，要注意 -->
+    <!-- <p class="a b c" :class="cls1 cls2 cls3"></p> -->
+    <!-- <p :class="cls"></p> -->
+
+    <!-- <p :class="bool ? cls1 : cls2"></p> -->
+
+    <!-- <p :class="{ x: isX, y: false, z: true }"></p> -->
+
+    <p :class="['a', classB, {c: isC}]"></p>
+
+  </div>
+
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        classB: 'b',
+        isC: true
+        // isX: true
+        /* bool: true,
+        cls: 'q w e',
+        cls1: 'x',
+        cls2: 'y',
+        cls3: 'z' */
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ content }}</p>
+    <button v-on:click="content='这是新的内容'">按钮</button>
+    
+    <button @click="content='这是按钮2设置的内容'">按钮2</button>
+
+    <button @click="fn">按钮3</button>
+
+    <button @click="fn2(200, $event)">按钮4</button>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        content: '这是默认内容'
+      },
+      methods: {
+        fn (event) {
+          console.log(event);
+          this.content = '这是按钮3设置的内容';
+        },
+        fn2 (value, event) {
+          console.log(value, event);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

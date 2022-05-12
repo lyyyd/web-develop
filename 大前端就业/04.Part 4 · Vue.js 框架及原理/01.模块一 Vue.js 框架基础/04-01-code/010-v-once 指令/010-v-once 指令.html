@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>此内容会随数据变化而自动变化：{{ content }}</p>
+    <p v-once>此内容不会随数据变化而自动变化: {{ content }}</p>
+  </div>
+
+  <script src="lib/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        content: '内容文本'
+      }
+    })
+  </script>
+</body>
+</html>
