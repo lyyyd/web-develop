@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .colorBlue {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h3>购物车</h3>
+    <!-- <product-item 
+      v-for="product in products"
+      :title="product.title"
+      :key="product.id"
+    ></product-item> -->
+    <product-item></product-item>
+    
+    <product-total></product-total>
+  </div>
+  
+  <script src="lib/vue.js"></script>
+  <script src="EventBus.js"></script>
+  <script>
+    // 商品组件
+    Vue.component('product-item', {
+      // props: ['title'],
+      /* template: `
+        <div>
+          <span>商品名称：{{ title }}，商品个数： {{ count }}</span>
+          <button @click="countIns">+1</button>
+        </div>`, */
+      template: `
+        <div>
+          <span>商品名称：苹果，商品个数： {{ count }}</span>
+          <button @click="countIns">+1</button>
+        </div>`,
+      data () {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        countIns () {
+          bus.$emit('countChange', 1);
+          this.count++;
+        },
+      }
+    });
+
+    // 计数组件
+    Vue.component('product-total', {
+      template: `
+        <p>总个数为：{{ totalCount }}</p>
+      `,
+      data () {
+        return {
+          totalCount: 0
+        }
+      },
+      created () {
+        bus.$on('countChange', (productCount) => {
+          this.totalCount += productCount;
+        });
+      }
+    });
+    
+
+
+    // 根实例
+    new Vue({
+      el: '#app',
+      // data: {
+      //   products: [
+      //     { id: 1, title: '苹果1个' },
+      //     { id: 2, title: '橙子1个' },
+      //     { id: 3, title: '香蕉1根' }
+      //   ]
+      // }
+    });
+  </script>
+</body>
+</html>

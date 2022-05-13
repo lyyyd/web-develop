@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 父组件接收子组件A的数据 -->
+    <com-a
+      @value-change="value = $event"
+    ></com-a>
+    <!-- 父组件将数据传递给子组件B -->
+    <com-b
+      :value="value"
+    ></com-b>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 子组件A：发送数据
+    Vue.component('ComA', {
+      template: `
+        <div>
+          组件A的内容： {{ value }}
+          <button
+            @click="$emit('value-change', value)"
+          >发送</button>
+        </div>
+      `,
+      data () {
+        return {
+          value: '这是组件A中的数据'
+        }
+      }
+    });
+
+    // 子组件B：接收数据
+    Vue.component('ComB', {
+      props: ['value'],
+      template: `
+        <div>
+          组件B接收到： {{ value }}
+        </div>  
+      `
+    });
+
+
+    // 根实例（父组件）
+    new Vue({
+      el: '#app',
+      data: {
+        // 用于数据中转
+        value: ''
+      }
+    })
+  </script>
+</body>
+</html>

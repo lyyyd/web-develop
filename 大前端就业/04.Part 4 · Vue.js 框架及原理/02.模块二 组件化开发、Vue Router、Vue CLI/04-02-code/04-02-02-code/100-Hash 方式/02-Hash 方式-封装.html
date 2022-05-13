@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <a href="#/">首页</a>
+    <a href="#/category">分类页</a>
+    <a href="#/user">用户页</a>
+  </div>
+  <div id="container">
+    这是首页功能
+  </div>
+
+  <script>
+    // 准备对象，用于封装 hash 功能。
+    var router = {
+      // 路由存储位置： 保存了 url 与 内容处理函数的对应关系。
+      routes: {},
+      // 定义路由规则的方法
+      route: function (path, callback) {
+        this.routes[path] = callback;
+      },
+      // 初始化路由的方法
+      init: function () {
+        var that = this;
+        window.onhashchange = function () {
+          // 当 hash 改变，我们需要得到当前新的 hash
+          var hash = location.hash.replace('#', '');
+          // 根据 hash 触发 routes 中的对应 callback
+          that.routes[hash] && that.routes[hash]();
+        };
+      }
+    };
+
+    var container = document.getElementById('container');
+    // 定义路由规则
+    router.route('/', function () {
+      container.innerHTML = '这是首页功能';
+    });
+    router.route('/category', function () {
+      container.innerHTML = '这是分类功能';
+    });
+    router.route('/user', function () {
+      container.innerHTML = '这是用户功能';
+    });
+
+    // 初始化路由
+    router.init();
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <input type="text" ref="inp">
+    <button @click="fn">按钮</button> -->
+
+    <com-a ref="comA"></com-a>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+    var ComA = {
+      template: `
+        <p>组件 A：{{ value }}</p>
+      `,
+      data () {
+        return {
+          value: '这是 ComA 的数据'
+        }
+      }
+    };
+    var vm = new Vue({
+      el: '#app',    
+      components: {
+        ComA
+      },
+      mounted () {
+        console.log(this.$refs);
+        this.$refs.comA.value = '修改子组件数据';
+      },
+    });
+  </script>
+</body>
+</html>

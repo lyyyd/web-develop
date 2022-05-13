@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .v-enter, .v-leave-to {
+      opacity: 0;
+    }
+
+    .v-enter-active, .v-leave-active {
+      transition: all .5s;
+    }
+
+    .test {
+      transition: all 3s;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="show = !show">切换</button>
+
+    <transition
+      enter-active-class="test"
+      leave-active-class="test"
+    >
+      <p v-if="show">这是 p 标签</p>
+    </transition>
+  </div>  
+  <script src="./lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        show: true
+      }
+    });
+  </script>
+</body>
+</html>

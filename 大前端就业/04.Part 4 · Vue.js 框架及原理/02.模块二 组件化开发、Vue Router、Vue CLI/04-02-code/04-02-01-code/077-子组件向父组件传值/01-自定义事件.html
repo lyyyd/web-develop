@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h3>购物车</h3>
+    <product-item
+      v-for="product in products"
+      :key="product.id"
+      :title="product.title"
+
+      @count-change="totalCount++"
+    ></product-item>
+    <p>商品总个数为：{{ totalCount }}</p>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('ProductItem', {
+      props: ['title'],
+      template: `
+        <div>
+          <span>商品名称： {{ title }}, 商品个数： {{ count }}</span>
+          <button @click="countIns">+1</button>
+        </div>
+      `,
+      data () {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        countIns () {
+          this.$emit('count-change');
+          this.count++;
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        products: [
+          {
+            id: 1,
+            title: '苹果一斤'
+          },
+          {
+            id: 2,
+            title: '香蕉一根'
+          },
+          {
+            id: 3,
+            title: '橙子一个'
+          }
+        ],
+        totalCount: 0
+      }
+    });
+  </script>
+</body>
+</html>

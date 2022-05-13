@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 静态属性设置 -->
+    <my-component-a 
+      title="这是静态的标题"
+      content="这是静态的内容"
+    ></my-component-a>
+
+    <!-- 动态属性绑定 -->
+    <my-component-a
+      v-bind:title="'这是静态的标题，这是演示'"
+      :content="'这是静态内容'"
+    ></my-component-a>
+
+    <!-- 动态属性绑定：常用操作 -->
+    <my-component-a
+      :title="item.title"
+      :content="item.content"
+    ></my-component-a>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 创建子组件
+    Vue.component('my-component-a', {
+      props: ['title', 'content'],
+      template: `
+        <div>
+          <h3>{{ title }}</h3>
+          <p>{{ content }}</p>
+        </div>
+      `
+    });
+
+
+    new Vue({
+      el: '#app',
+      data: {
+        item: {
+          title: '这是示例标题',
+          content: '这是示例内容'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

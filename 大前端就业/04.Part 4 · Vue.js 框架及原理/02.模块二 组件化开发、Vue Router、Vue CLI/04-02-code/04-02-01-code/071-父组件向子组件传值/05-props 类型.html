@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-component
+      :par-str="str"
+      :par-num="num"
+      :par-arr="arr"
+      :par-obj="obj"
+      :par-any="any"
+      :par-data="str"
+    ></my-component>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('MyComponent', {
+      // 如果要设置 props 的具体规则，需要更改为对象写法
+      props: {
+        parStr: String,
+        parNum: Number,
+        parArr: Array,
+        parObj: Object,
+        parAny: undefined, // null
+        parData: [String, Boolean]
+      },
+      template: `
+        <div>
+          {{ parStr }}
+          {{ parNum }}
+          {{ parArr }}
+          {{ parObj }}
+          {{ parAny }}
+          {{ parData }}
+        </div>
+      `
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        num: 100,
+        str: 'abc',
+        arr: [1, 2, 3],
+        obj: {
+          content1: '示例内容1',
+          content2: '示例内容2'
+        },
+        any: [1, 2, 3]
+      }
+    });
+  </script>
+</body>
+</html>

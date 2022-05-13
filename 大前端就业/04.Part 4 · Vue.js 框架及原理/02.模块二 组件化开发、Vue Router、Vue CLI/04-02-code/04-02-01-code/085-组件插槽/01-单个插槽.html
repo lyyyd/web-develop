@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <com-a>这是组件的内容</com-a>
+
+    <com-a>
+      这是第二个组件的内容：
+      <span>这是span的内容</span>
+    </com-a>
+
+    <com-a>
+      这里是父组件的视图模板，只能使用父组件的数据:
+      {{ parValue }}
+    </com-a>
+
+    <com-a></com-a>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('ComA', {
+      template: `
+        <div>
+          <h3>组件标题</h3>
+          <slot>
+            这是插槽的默认内容
+          </slot>
+        </div>
+      `,
+      data () {
+        return {
+          value: '子组件的数据'
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        parValue: '这是父组件的数据'
+      }
+    })
+  </script>
+</body>
+</html>

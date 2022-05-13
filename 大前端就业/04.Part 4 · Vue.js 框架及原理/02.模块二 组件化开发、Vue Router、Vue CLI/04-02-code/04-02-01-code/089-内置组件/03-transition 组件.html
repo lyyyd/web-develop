@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 用于设置出场的最终状态 */
+    .v-leave-to {
+      opacity: 0;
+    }
+
+    /* 用于设置过渡的执行过程 */
+    .v-leave-active {
+      transition: opacity 1s;
+    }
+
+    /* 用于设置入场的初始状态 */
+    .v-enter {
+      opacity: 0;
+    }
+
+    /* 用于设置入场的最终状态 */
+    .v-enter-to {
+      opacity: 0.5;
+    }
+
+    /* 用于设置入场的过程 */
+    .v-enter-active {
+      transition: all 1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="show = !show">切换</button>
+
+    <transition>
+      <p v-if="show">hello world</p>
+    </transition>
+  </div>  
+  <script src="./lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        show: true
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .colorBlue {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <com-a 
+      @value-change="value = $event"
+    ></com-a>
+    <com-b
+      :value="value"
+    ></com-b>
+  </div>
+  
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('ComA', {
+      template: `
+        <div>
+          组件A的内容：{{ value }}
+          <button 
+            @click="$emit('value-change', value)"
+          >发送</button>
+        </div>`,
+      data () {
+        return {
+          value: '示例内容'
+        }
+      }
+    });
+
+    
+    Vue.component('ComB', {
+      props: ['value'],
+      template: `
+        <div>
+          组件B接收到：{{ value }}
+        </div>`,
+    });
+   
+    
+
+
+    // 根实例
+    new Vue({
+      el: '#app',
+      data: {
+        // 用于中转
+        value: ''
+      }
+    });
+  </script>
+</body>
+</html>

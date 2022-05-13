@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link to="/user/1">用户1</router-link>
+    <router-link to="/user/2">用户2</router-link>
+    <router-link to="/user/3">用户3</router-link>
+
+    <router-view></router-view>
+
+  </div>
+  <script src="lib/vue.js"></script>
+  <script src="lib/vue-router.js"></script>
+  <script>
+    // 设置组件 
+    var User = {
+      template: `<div>这是用户 {{ $route.params.id }} 的功能</div>`
+    };
+
+    // 设置路由规则
+    var routes = [
+      {
+        path: '/user/:id', component: User
+      }
+    ];
+
+    var router = new VueRouter({ routes });
+    var vm = new Vue({
+      el: '#app',
+      router
+    });
+  </script>
+</body>
+</html>

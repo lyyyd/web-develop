@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .colorBlue {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h3>购物车</h3>
+    <product-item 
+      v-for="product in products"
+      :title="product.title"
+      :key="product.id"
+      @count-change="totalCount += $event"></product-item>
+    <p>总数为：{{ totalCount }}</p>
+  </div>
+  
+  <script src="lib/vue.js"></script>
+  <script>
+    // 当子组件进行数据处理后希望传递给父组件时，例如购物车的单个商品个数变化需要由父组件统一收集并计算总数
+    Vue.component('product-item', {
+      props: ['title'],
+      template: `
+        <div>
+          <span>商品名称：{{ title }}，商品个数： {{ count }}</span>
+          <button @click="countIns1">+1</button>
+          <button @click="countIns5">+5</button>
+        </div>`,
+      data () {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        countIns1 () {
+          this.$emit('count-change', 1);
+          this.count++;
+        },
+        countIns5 () {
+          this.$emit('count-change', 5);
+          this.count+= 5;
+        }
+      }
+    });
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        products: [
+          { id: 1, title: '苹果1个' },
+          { id: 2, title: '橙子1个' },
+          { id: 3, title: '香蕉1根' }
+        ],
+        totalCount: 0
+      },
+      methods: {
+        onCountChange (productCount) {
+          console.log(productCount);
+          this.totalCount += productCount;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

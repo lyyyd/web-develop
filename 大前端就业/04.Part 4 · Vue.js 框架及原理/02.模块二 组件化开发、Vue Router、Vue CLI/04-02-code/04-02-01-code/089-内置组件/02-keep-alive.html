@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button 
+      v-for="title in titles"
+      :key="title"
+      @click="currentCom = title"
+    >
+      {{title}}
+    </button>
+
+    <!-- 通过 include 设置哪些组件会被缓存 -->
+    <!-- <keep-alive include="ComA,ComB,ComC"> -->
+    <!-- <keep-alive :include="['ComA', 'ComB', 'ComC']"> -->
+    <!-- <keep-alive :include="/Com[ABC]/"> -->
+
+    <!-- 通过 exclude 设置哪些组件不会被缓存 -->
+    <!-- <keep-alive exclude="ComD"> -->
+    <!-- <keep-alive :exclude="['ComD']"> -->
+    <!-- <keep-alive :exclude="/ComD/"> -->
+
+    
+    <keep-alive max="2">
+      <!-- 动态组件 -->
+      <component :is="currentCom"></component>
+    </keep-alive>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var ComA = {
+      template: `
+        <div>
+          请选择主食：
+          <br>
+          <label for="mantou">馒头：</label>
+          <input id="mantou" type="radio" name="zhushi" value="mantou">
+          <br>
+          <label for="mifan">米饭：</label>
+          <input id="mifan" type="radio" name="zhushi" value="mifan">
+        </div>
+      `
+    };
+    var ComB = {
+      template: `
+        <div>
+          请选择菜品：
+          <br>
+          <label for="luobo">炒萝卜：</label>
+          <input id="luobo" type="checkbox" name="cai" value="luobo">
+          <br>
+          <label for="niurou">炒牛肉：</label>
+          <input id="niurou" type="checkbox" name="cai" value="niurou">
+          <br>
+          <label for="pingguo">炒苹果：</label>
+          <input id="pingguo" type="checkbox" name="cai" value="pingguo">
+        </div>
+      `
+    };
+    var ComC = {
+      template: `
+        <div>
+          请选择汤：
+          <br>
+          <label for="tang1"">西红柿鸡蛋汤：</label>
+          <input id="tang1"" type="radio" name="tang" value="tang1"">
+          <br>
+          <label for="tang2">紫菜蛋花汤：</label>
+          <input id="tang2" type="radio" name="tang" value="tang2">
+          <br>
+          <label for="tang3">清汤</label>
+          <input id="tang3" type="radio" name="tang" value="tang3">
+        </div>
+      `
+    };
+
+    var ComD = {
+      template: `
+        <div>
+          请输入支付信息：
+          <br>
+          <label for="account"">请输入账号：</label>
+          <input id="account"" type="text" name="account">
+          <br>
+          <label for="password">请输入密码：</label>
+          <input id="password" type="password" name="password">
+          <br>
+        </div>
+      
+      `
+    };
+
+    new Vue({
+      el: '#app',
+      data: {
+        titles: ['ComA', 'ComB', 'ComC', 'ComD'],
+        currentCom: 'ComA'
+      },
+      components: {
+        ComA, ComB, ComC, ComD
+      }
+    });
+  </script>
+</body>
+</html>

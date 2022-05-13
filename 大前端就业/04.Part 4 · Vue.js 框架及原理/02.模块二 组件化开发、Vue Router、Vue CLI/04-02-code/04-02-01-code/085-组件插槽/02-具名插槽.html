@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <com-a>
+      <template v-slot:header>
+        <h3>组件的头部内容</h3>
+      </template>
+
+      <!-- <template v-slot:default>
+        <p>组件的主体内容1</p>
+        <p>组件的主体内容2</p>
+      </template> -->
+
+      <p>组件的主体内容1</p>
+      <p>组件的主体内容2</p>
+
+      <template #footer>
+        <p>组件底部内容</p>
+      </template>
+    </com-a>
+  </div>
+
+
+  <script src="lib/vue.js"></script>
+  <script>
+    // 子组件 
+    Vue.component('ComA', {
+      template: `
+        <div>
+          <header>
+            <slot name="header"></slot>
+          </header>
+          <main>
+            <slot></slot>
+          </main>
+          <footer>
+            <slot name="footer"></slot>
+          </footer>
+        </div>
+      `
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+
+      }
+    });
+  </script>
+</body>
+</html>

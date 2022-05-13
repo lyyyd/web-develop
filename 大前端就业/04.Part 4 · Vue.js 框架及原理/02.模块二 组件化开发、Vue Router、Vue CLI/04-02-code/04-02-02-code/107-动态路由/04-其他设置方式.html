@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link to="/user/1">用户1</router-link>
+    <router-link to="/user/2">用户2</router-link>
+    <router-link to="/user/3">用户3</router-link>
+
+    <router-link to="/category/1">分类1</router-link>
+    <router-link to="/category/2">分类2</router-link>
+    <router-link to="/category/3">分类3</router-link>
+
+    <router-view></router-view>
+    <router-view name="sidebar"></router-view>
+    <router-view name="sidebar2"></router-view>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script src="lib/vue-router.js"></script>
+  <script>
+    // 组件的配置对象
+    var User = {
+      template: `<div>这是用户 {{ $route.params.id }} 功能</div>`
+    };
+
+    var Category = {
+      props: ['id'],
+      template: `<div>这是分类 {{ id }} 功能</div>`
+    };
+
+    var SideBar = {
+      template: `<div>侧边栏功能</div>`
+    };
+
+    var SideBar2 = {
+      props: ['a', 'b'],
+      template: `
+      <div>
+        侧边栏2功能: {{ a }} {{ b }}
+      </div>`
+    };
+
+    // 设置路由规则
+    var routes = [
+      {
+        path: '/user/:id',
+        component: User
+      },
+      {
+        path: '/category/:id',
+        components: {
+          default: Category,
+          sidebar: SideBar,
+          sidebar2: SideBar2
+        },
+        props: {
+          default: true,
+          sidebar: false,
+          sidebar2: {
+            a: '状态1',
+            b: '状态2'
+          }
+        }
+      }
+    ];
+
+    var router = new VueRouter({ routes });
+    var vm = new Vue({
+      el: '#app',
+      router
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .colorBlue {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <my-component-a 
+      :par-title="content"
+      :par-num="num"
+      :par-arr="arr"
+      :par-obj="obj"
+      :par-reg="reg"
+    ></my-component-a>
+
+    <my-component-a 
+      :par-title="content"
+      :par-num="num"
+      :par-arr="arr"
+      :par-obj="obj"
+      :par-reg="reg"
+    ></my-component-a>
+
+    <!-- <my-component-a
+      demo-attr="示例属性"
+      style="height: 200px;"
+      class="colorBlue"
+      title="示例title"
+      
+    ></my-component-a> -->
+
+
+    <!-- <my-component-c 
+      :par-title="content"
+      :par-num="num"
+      :par-arr="arr"
+      :par-obj="obj"
+    ></my-component-c> -->
+    <!-- <p v-for="item,key in obj" :key="key">{{item}}</p> -->
+  </div>
+
+  <script src="lib/vue.js"></script>
+  <script>
+   /*  var MyComponentC = { 
+      // props: ['parTitle'],
+      props: {
+        parTitle: String,
+        parNum: Number,
+        parArr: Array,
+        parObj: Object,
+      },
+      template: `
+      <p>
+        {{ parTitle }}
+        {{ parNum }}
+        {{ parArr }}
+        {{ parObj }}
+      </p>`,
+      data () {
+        return {
+          title: '组件C'
+        }
+      }
+    } */
+
+    Vue.component('MyComponentA', {
+      inheritAttrs: false,
+      props: {
+        parTitle: String,
+        parNum: Number,
+        parArr: Array,
+        parObj: Object,
+        parReg: RegExp,
+        // parAny: null
+        parAny: {
+          type: [String, Boolean],
+          default: [1,3,4]
+          // required: true
+        }
+      },
+      template: `
+        <p title="原始title" class="fl" style="width: 200px;">
+          {{ parTitle }}
+          {{ parNum }}
+          {{ parArr }}
+          {{ parObj }}
+          {{ parReg }}
+          {{ parAny }}
+        </p>`
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        content: '父组件data的数据',
+        num: 200,
+        arr: [1, 2, 3],
+        obj: {
+          content1: '父组件示例示例内容1',
+          content2: '父组件示例示例内容2',
+          content3: '父组件示例示例内容3',
+        },
+        reg: /[0-9]/,
+        any: '123'
+      },
+      components: {
+        // 'my-component-a': MyComponentA,
+        // 'my-component-b': MyComponentB
+        // MyComponentA,
+        // MyComponentB,
+        // MyComponentC
+      }
+    });
+  </script>
+</body>
+</html>

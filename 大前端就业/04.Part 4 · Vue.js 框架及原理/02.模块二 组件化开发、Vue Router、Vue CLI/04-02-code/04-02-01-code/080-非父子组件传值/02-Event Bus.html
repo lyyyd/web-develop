@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h3>购物车</h3>
+    <product-item></product-item>
+    <product-total></product-total>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script src="EventBus.js"></script>
+  <script>
+    // 商品组件
+    Vue.component('ProductItem', {
+      template: `
+        <div>
+          <span>商品名称：苹果，商品个数：{{ count }}</span>
+          <button
+            @click="countIns"
+          >+1</button>
+        </div>
+      `,
+      data () {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        countIns () {
+          // 给bus触发自定义事件，传递数据
+          bus.$emit('countChange', 1);
+          this.count++;
+        }
+      }
+    });
+
+    // 计数组件
+    Vue.component('ProductTotal', {
+      template: `
+        <p>总个数为： {{ totalCount }}</p>
+      `,
+      data () {
+        return {
+          totalCount: 0
+        }
+      },
+      created () {
+        // 给 bus 注册事件，并接收数据
+        bus.$on('countChange', (productCount) => {
+          // 实例创建完毕，可以使用 data 等功能
+          this.totalCount += productCount;
+        });
+
+      }
+    })
+
+    // 根实例
+    new Vue({
+      el: '#app',
+      data: {
+
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-component
+      data-index="3"
+      :title="'示例标题内容'"
+      style="height: 200px;"
+      class="colorRed"
+    ></my-component>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('MyComponent', {
+      inheritAttrs: false,
+      template: `
+      <div data-index="6"
+           title="旧的title"
+           class="abc" 
+           style="width: 200px;">
+        <p>这是组件的内容</p>
+      </div>
+      `
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link :to="{ name: 'school', params: { id: 10 } }">学校10</router-link>
+
+    <router-view></router-view>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script src="lib/vue-router.js"></script>
+  <script>
+    var School = {
+      template: `<div>School 组件的功能： {{ $route.params }}</div>`
+    };
+
+    var routes = [
+      {
+        path: '/user/:id/info/school',
+        name: 'school',
+        component: School
+      }
+    ];
+
+    var router = new VueRouter({ routes });
+    var vm = new Vue({
+      el: '#app',
+      router
+    });
+
+
+  </script>
+</body>
+</html>

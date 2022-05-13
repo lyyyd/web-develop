@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-component
+      :item-title="item.title"
+      :item-content="item.content"
+    ></my-component>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('my-component', {
+      props: ['itemTitle', 'itemContent'],
+      template: `
+        <div>
+          <h3>{{ itemTitle }}</h3>
+          <p>{{ itemContent }}</p>
+        </div>
+      `
+    })
+    new Vue({
+      el: '#app',
+      data: {
+        item: {
+          title: '这是示例标题',
+          content: '这是示例内容'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

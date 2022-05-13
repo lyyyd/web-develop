@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-component
+      :initial-title="title"
+      :obj="obj"
+    ></my-component>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('my-component', {
+      props: ['initialTitle', 'obj'],
+      template: `
+        <div>
+          {{ title }}
+          <button @click="fn">按钮</button>
+        </div>
+      `,
+      data () {
+        return {
+          title: this.initialTitle
+        }
+      },
+      methods: {
+        fn () {
+          // this.title = '这是新的标题';
+          // this.initialTitle = '这是新的标题'; // 不会影响父组件
+          this.obj.name = 'jack';
+
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        title: '这是示例标题',
+        obj: {
+          name: 'william',
+          age: 18
+        }
+      }
+    });
+  </script>
+</body>
+</html>

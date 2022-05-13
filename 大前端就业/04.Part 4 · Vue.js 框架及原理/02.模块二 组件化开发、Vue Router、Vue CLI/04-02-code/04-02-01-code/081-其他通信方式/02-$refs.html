@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 给 HTML 标签设置 ref 属性 -->
+    <input type="text" ref="inp">
+    <button @click="fn">按钮</button>
+
+    <!-- 给子组件设置 ref 属性 -->
+    <com-a ref="comA"></com-a>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    var ComA = {
+      template: `<div>组件A的内容：{{ value }}</div>`,
+      data () {
+        return {
+          value: '示例内容'
+        }
+      }
+    }
+
+    var vm = new Vue({
+      el: '#app',
+      methods: {
+        fn () {
+          // 点击后修改 HTML 标签焦点状态
+          this.$refs.inp.focus();
+
+          this.$refs.comA.value = '新的内容';
+        }
+      },
+      components: {
+        ComA
+      },
+      mounted () {
+        console.log(this.$refs);
+        this.$refs.comA.value = "修改后的内容";
+      },
+    });
+  </script>
+</body>
+</html>

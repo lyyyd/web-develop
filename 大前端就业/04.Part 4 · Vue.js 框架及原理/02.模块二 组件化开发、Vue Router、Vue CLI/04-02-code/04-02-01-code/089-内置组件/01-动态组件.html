@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 按钮代表选项卡的标题功能 -->
+    <button
+      v-for="title in titles"
+      :key="title"
+      @click="currentCom = title"
+    >
+      {{ title }}
+    </button>
+
+    <!-- component 设置动态组件 -->
+    <component :is="currentCom"></component>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 设置要切换的子组件选项对象
+    var ComA = {
+      template: `<p>这是组件A的内容：<input type="text"></p>`
+    };  
+    var ComB = {
+      template: `<p>这是组件B的内容：<input type="text"></p>`
+    };
+    var ComC = {
+      template: `<p>这是组件C的内容：<input type="text"></p>`
+    };
+
+    new Vue({
+      el: '#app',
+      data: {
+        // 所有组件名称
+        titles: ['ComA', 'ComB', 'ComC'],
+        // 当前组件名称
+        currentCom: 'ComA'
+      },
+      components: {
+        ComA, ComB, ComC
+      }
+    });
+  </script>
+</body>
+</html>

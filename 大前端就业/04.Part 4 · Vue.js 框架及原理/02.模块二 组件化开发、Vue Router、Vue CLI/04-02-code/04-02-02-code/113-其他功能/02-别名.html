@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link :to="{ name: 'school', params: { id: 10, date: '0612'} }">学校信息</router-link>
+    <router-link to="/20/1234">学校信息2</router-link>
+    <router-view></router-view>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script src="lib/vue-router.js"></script>
+  <script>
+    // 组件
+    var School = {
+      template: `
+        <div>School 组件</div>
+      `
+    };
+
+    // 路由规则
+    var router = new VueRouter({
+      routes: [
+        {
+          path: '/user/:id/info/school/:date',
+          name: 'school',
+          component: School,
+          alias: '/:id/:date'
+        }
+      ]
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      router
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .colorBlue {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <my-component-a 
+      :par-title="content"
+    ></my-component-a>
+
+  </div>
+
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('MyComponentA', {
+      props: ['parTitle'],
+      template: `
+        <p>
+          {{ parTitle }}
+        </p>`
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        content: '父组件data的数据',
+      }
+    });
+  </script>
+</body>
+</html>

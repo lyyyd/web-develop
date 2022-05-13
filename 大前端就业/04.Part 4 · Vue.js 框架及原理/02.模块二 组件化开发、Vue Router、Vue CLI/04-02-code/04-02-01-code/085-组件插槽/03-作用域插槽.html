@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 多个插槽的作用域插槽书写方式 -->
+    <com-a>
+      <template v-slot:default="dataObj">
+        {{ dataObj.value }}
+        {{ dataObj.num }}
+      </template>
+      
+      <template v-slot:footer="dataObj">
+        {{ dataObj.value }}
+      </template>
+    </com-a>
+
+    <!-- 只具有默认插槽的作用域插槽书写方式 -->
+    <!-- <com-b v-slot="dataObj"> -->
+    <com-b #default="dataObj">
+      {{ dataObj }}
+    </com-b>
+
+    <!-- 通过 ES6 的解构操作接收作用域插槽的数据 -->
+    <com-b v-slot="{ value, num }">
+      {{ value }}
+      {{ num }}
+    </com-b>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 子组件B的选项对象
+     var ComB = {
+      template: `
+        <div>
+          <p>组件B的内容: </p>
+          <slot
+            :value="value"
+            :num="num"
+          ></slot>
+        </div>
+      `,
+      data () {
+        return {
+          value: '这是组件B内部的数据',
+          num: 200
+        }
+      }
+    };
+
+
+    // 子组件A的选项对象
+    var ComA = {
+      template: `
+        <div>
+          <p>组件A的内容: </p>
+          <slot
+            v-bind:value="value"
+            :num="num"
+          ></slot>
+          <slot name="footer"
+            :value="value"
+          ></slot>
+        </div>
+      `,
+      data () {
+        return {
+          value: '这是组件A内部的数据',
+          num: 100
+        }
+      }
+    };
+
+    new Vue({
+      el: '#app',
+      components: {
+        ComA, ComB
+      }
+    });
+  </script>
+</body>
+</html>

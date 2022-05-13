@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <com-a v-slot:default="dataObj"> -->
+    <!-- <com-a v-slot="dataObj"> -->
+    <com-a v-slot="{ value }">
+      下面是组件A的内容：
+      {{ value }}
+    </com-a>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+    var ComA = {
+      template: `
+        <div>
+          <p>组件 A：</p>
+          <slot :value="value">这是默认文本</slot>
+        </div>
+      `,
+      data () {
+        return {
+          value: '子组件数据'
+        }
+      }
+    };
+    var vm = new Vue({
+      el: '#app',    
+      data: {
+        parValue: '父组件数据'
+      },
+      components: {
+        ComA
+      },
+    });
+  </script>
+</body>
+</html>

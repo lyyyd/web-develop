@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-component
+      :par-str="str"
+      :par-num="num"
+      :par-num2="2000"
+      :par-arr="arr"
+      par-content="lagou: hello world"
+    ></my-component>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    Vue.component('MyComponent', {
+      props: {
+        parStr: {
+          type: String
+        },
+        parData: {
+          type: [Array, Object]
+        },
+        parNum: {
+          type: Number,
+          required: true
+        },
+        parNum2: {
+          type: Number,
+          default: 100
+        },
+        parArr: {
+          type: Array,
+          default () {
+            return [1, 2, 3];
+          }
+        },
+        parContent: {
+          type: String,
+          validator (value) {
+            console.log(this);
+            return value.startsWith('lagou');
+          }
+        }
+      },
+      template: `<div></div>`
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        str: '示例内容',
+        num: 100,
+        arr: [10, 20, 30],
+        obj: {
+          content1: '内容1',
+          content2: '内容2'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

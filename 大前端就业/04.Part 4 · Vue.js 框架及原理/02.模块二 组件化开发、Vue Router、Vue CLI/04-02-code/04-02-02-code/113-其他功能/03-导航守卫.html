@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link to="/">首页</router-link>
+    <router-link to="/user">用户</router-link>
+    <router-link to="/category">分类</router-link>
+    <router-view></router-view>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script src="lib/vue-router.js"></script>
+  <script>
+    var Index = {
+      template: `<div>这是首页功能</div>`
+    };
+    var User = {
+      template: `<div>这是用户功能</div>`
+    };
+    var Category = {
+      template: `<div>这是分类功能</div>`
+    };
+
+    var router = new VueRouter({
+      routes: [
+        { path: '/', component: Index },
+        { path: '/user', component: User },
+        { path: '/category', component: Category },
+      ]
+    });
+
+    // 设置导航守卫
+    router.beforeEach(function (to, from, next) {
+      // console.log(to, from);
+      // next();
+      // next(false);
+
+      if (to.path === '/user') {
+        next('/category');
+      } else {
+        next();
+      }
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      router
+    })
+  </script>
+</body>
+</html>

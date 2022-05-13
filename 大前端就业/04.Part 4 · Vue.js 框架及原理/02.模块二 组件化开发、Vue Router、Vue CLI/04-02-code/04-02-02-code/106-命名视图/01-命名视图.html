@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link to="/">首页</router-link>
+    <router-link to="/user">用户</router-link>
+
+    <router-view name="sidebar"></router-view>
+    <!-- 没有设置 name 的 router-view 默认 name 为 default-->
+    <router-view></router-view>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script src="lib/vue-router.js"></script>
+  <script>
+    var SideBar1 = {
+      template: `<div>侧边栏1功能</div>`
+    };
+
+    var SideBar2 = {
+      template: `<div>侧边栏2功能</div>`
+    };
+
+    var Index = {
+      template: `<div>首页功能</div>`
+    };
+
+    var User = {
+      template: `<div>用户功能</div>`
+    };
+
+    // 定义路由规则
+    var routes = [
+      {
+        path: '/',
+        components: {
+          // router-view 的 name : 组件配置对象
+          default: Index,
+          sidebar: SideBar1
+        }
+      },
+      {
+        path: '/user',
+        components: {
+          default: User,
+          sidebar: SideBar2
+        }
+      }
+    ];
+
+    // 创建 Vue Router 实例
+    var router = new VueRouter({
+      routes
+    });
+
+    // 创建 Vue 实例
+    new Vue({
+      el: '#app',
+      router
+    });
+  </script>
+</body>
+</html>

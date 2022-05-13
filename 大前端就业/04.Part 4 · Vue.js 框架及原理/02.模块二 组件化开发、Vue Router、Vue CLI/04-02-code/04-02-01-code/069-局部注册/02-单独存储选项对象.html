@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-component-a></my-component-a>
+    <my-component-b></my-component-b>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 组件 A 的选项对象
+    var MyComponentA = {
+      template: `
+        <div>
+          <h3>{{ title }}</h3>
+          <p>{{ content }}</p>
+        </div>
+      `,
+      data () {
+        return {
+          title: '组件 A 标题',
+          content: '组件 A 内容'
+        }
+      }
+    };
+
+    // 组件 B 的选项对象
+    var MyComponentB = {
+      template: `
+        <div>
+          <h3>{{ title }}</h3>
+          <p>{{ content }}</p>
+        </div>
+      `,
+      data () {
+        return {
+          title: '组件 B',
+          content: '组件 B 内容'
+        }
+      }
+    }
+
+    new Vue({
+      el: '#app',
+      data: {
+
+      },
+      components: {
+        'my-component-a': MyComponentA,
+        MyComponentB
+      }
+    });
+
+    // new Vue({
+    //   el: '#app2'
+    // })
+  </script>
+</body>
+</html>

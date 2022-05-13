@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>输入内容为：{{ iptValue }}</p>
+    <com-input v-model="iptValue"></com-input>
+  </div>
+  
+  <script src="lib/vue.js"></script>
+  <script>
+    var ComInput = {
+      props: ['value'],
+      template: `
+        <input 
+          type="text" 
+          :value="value" 
+          @input="$emit('input', $event.target.value)">`
+    };
+    new Vue({
+      el: '#app',
+      data: {
+        iptValue: ''
+      },
+      components: {
+        ComInput
+      }
+    })
+  </script>
+</body>
+</html>

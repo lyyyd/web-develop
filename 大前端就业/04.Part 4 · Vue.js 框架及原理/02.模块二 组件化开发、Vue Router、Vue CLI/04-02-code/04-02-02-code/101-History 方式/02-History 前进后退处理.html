@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <a href="/">首页</a>
+    <a href="/category">分类</a>
+    <a href="/user">用户</a>
+  </div>
+  <div id="container">
+    这是首页功能
+  </div>
+
+  <script>
+    var router = {
+      // 存储路由的对象
+      routes: {},
+      // 定义路由的方法
+      route (path, callback) {
+        this.routes[path] = callback;
+      },
+      // 用于触发指定的路由操作
+      go (path) {
+        // 更改 url
+        history.pushState({ path: path }, null, path);
+        // 触发路由对应的回调函数
+        this.routes[path] && this.routes[path]();
+      },
+      // 设置初始化方法，用来检测前进后退按钮的功能
+      init () {
+        var that = this;
+        window.addEventListener('popstate', function (e) {
+          var path = e.state ? e.state.path : '/';
+          that.routes[path] && that.routes[path]();
+        });
+      }
+    };
+
+    router.init();
+
+    // 设置 a 标签的功能
+    var links = document.querySelectorAll('a');
+    var container = document.querySelector('#container');
+
+    links.forEach(function (ele) {
+      ele.addEventListener('click', function (event) {
+        router.go(this.getAttribute('href'));
+        event.preventDefault();
+      });
+    });
+
+    // 路由规则
+    router.route('/', function () {
+      container.innerHTML = '首页功能';
+    });
+
+    router.route('/category', function () {
+      container.innerHTML = '分类功能';
+    });
+
+    router.route('/user', function () {
+      container.innerHTML = '用户功能';
+    });
+
+    
+
+  </script>
+</body>
+</html>

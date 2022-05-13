@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link to="/user">用户功能</router-link>
+    <router-view></router-view>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script src="./lib/vue-router.js"></script>
+  <script>
+    var User = {
+      template: `
+        <div>
+          <h3>这是 User 组件的功能</h3>
+          <router-link to="/user/hobby">爱好功能</router-link>
+          <router-link to="/user/info">用户信息</router-link>
+          <router-view></router-view>
+        </div>
+      `
+    };
+
+    var UserHobby = {
+      template: `<div> UserHobby 组件</div>`
+    };
+
+    var UserInfo = {
+      template: `
+        <div> 
+          UserInfo 组件
+          <router-link to="/user/info/school">学校信息</router-link>
+          <router-view></router-view>
+        </div>`
+    };
+
+    var UserInfoSchool = {
+      template: `<div> UserInfoSchool 组件</div>`
+    };
+
+    var routes = [
+      {
+        path: '/user',
+        component: User,
+        children: [
+          {
+            path: 'hobby',
+            component: UserHobby
+          },
+          {
+            path: 'info',
+            component: UserInfo,
+            children: [
+              {
+                path: 'school',
+                component: UserInfoSchool
+              },
+            ]
+          }
+        ]
+      }
+    ];
+
+    var router =  new VueRouter({ routes });
+    var vm = new Vue({
+      el: '#app',
+      router
+    });
+  </script>
+</body>
+</html>

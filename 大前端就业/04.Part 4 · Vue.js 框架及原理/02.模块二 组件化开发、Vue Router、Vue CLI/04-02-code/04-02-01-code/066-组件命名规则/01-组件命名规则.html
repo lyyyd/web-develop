@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-com-a></my-com-a>
+    <!-- <MyComA></MyComA> -->
+    <my-com-b></my-com-b>
+    <!-- <MyComB></MyComB> -->
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // kebab-case 进行注册
+    Vue.component('my-com-a', {
+      template: '<div>这是a组件的内容</div>'
+    });
+
+    // PascalCase 进行注册
+    Vue.component('MyComB', {
+      template: '<div>这是b组件的内容</div>'
+    });
+
+
+
+    new Vue({
+      el: '#app',
+      data: {
+
+      }
+    })
+  </script>
+</body>
+</html>

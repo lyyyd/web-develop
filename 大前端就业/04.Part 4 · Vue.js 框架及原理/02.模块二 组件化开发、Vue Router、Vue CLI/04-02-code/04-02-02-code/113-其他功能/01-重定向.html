@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <router-link to="/">首页</router-link>
+    <router-link to="/category/2">分类2</router-link>
+    <router-link to="/category"> /category </router-link>
+
+    <router-view></router-view>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script src="./lib/vue-router.js"></script>
+  <script>
+    var Index = {
+      template: `<div>首页功能</div>`
+    };
+
+    var Category = {
+      template: `<div>分类 {{ $route.params.id }} 功能</div>`
+    };
+
+    var router = new VueRouter({
+      routes: [
+        {
+          path: '/',
+          component: Index
+        },
+        {
+          path: '/category/:id',
+          component: Category
+        },
+        {
+          path: '/category',
+          redirect: '/'
+        }
+      ]
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      router
+    });
+  </script>
+</body>
+</html>

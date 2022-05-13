@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>父组件数据： {{ count }}</p>
+    <com-a></com-a>
+    <com-b></com-b>
+  </div>
+  
+  <script src="lib/vue.js"></script>
+  <script>
+    var ComA = {
+      template: `
+        <div>
+          组件 A : {{ $root.count }}
+          <button @click="clickFn">+1</button>
+        </div>
+      `,
+      methods: {
+        clickFn () {
+          this.$root.count++;
+        }
+      }
+    };
+
+    var ComB = {
+      template: `
+        <div>
+          组件 B : {{ $root.count }}
+          <button @click="clickFn">+1</button>
+        </div>
+      `,
+      methods: {
+        clickFn () {
+          this.$root.count++;
+        }
+      }
+    };
+    
+    new Vue({
+      el: '#app',
+      data: {
+        count: 0
+      },
+      components: {
+        ComA,
+        ComB
+      }
+    })
+  </script>
+</body>
+</html>

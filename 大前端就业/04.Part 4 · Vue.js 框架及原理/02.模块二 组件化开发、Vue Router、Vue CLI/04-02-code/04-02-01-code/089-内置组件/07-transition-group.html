@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      position: relative;
+    }
+
+    .v-enter, .v-leave-to {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    .v-enter-active, .v-leave-active {
+      transition: all .5s;
+    }
+
+    /* 让元素在离场的过程中脱离标准流 */
+    .v-leave-active {
+      position: absolute;
+    }
+
+    .v-move {
+      transition: all .5s;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text"
+      v-model="newTitle"
+      @keyup.enter="addItem"
+    >
+
+    <transition-group
+      tag="ul"
+    >
+      <li
+        v-for="item in items"
+        :key="item.id"
+        @click="removeItem(item)"
+      >
+        {{ item.title }}
+      </li>
+    </transition-group>
+  </div>  
+  <script src="./lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        items: [
+          { id: 1, title: '示例内容1'},
+          { id: 2, title: '示例内容2'},
+          { id: 3, title: '示例内容3'},
+          { id: 4, title: '示例内容4'},
+          { id: 5, title: '示例内容5'},
+        ],
+        newTitle: '',
+        latestId: 5
+      },
+      methods: {
+        addItem () {
+          this.items.push({
+            id: this.latestId + 1,
+            title: this.newTitle
+          });
+          this.latestId++;
+          this.newTitle = '';
+        },
+        removeItem (item) {
+          var i = this.items.indexOf(item);
+          this.items.splice(i, 1);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

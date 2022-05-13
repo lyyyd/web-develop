@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>输入框内容为：{{ iptValue }}</p>
+    <com-input v-model="iptValue"></com-input>
+  </div>
+  <script src="lib/vue.js"></script>
+  <script>
+    // 子组件
+    var ComInput = {
+      props: ['value'],
+      template: `
+        <input
+          type="text"
+          :value="value"
+          @input="onInput"
+        >
+      `,
+      methods: {
+        onInput (event) {
+          this.$emit('input', event.target.value)
+        }
+      }
+    }
+
+    // 根实例
+    new Vue({
+      el: '#app',
+      data: {
+        iptValue: ''
+      },
+      components: {
+        ComInput
+      }
+    });
+  </script>
+</body>
+</html>
