@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">原始内容</div>
+  <script>
+    // 声明数据对象，模拟 Vue 实例的 data 属性
+    let data = {
+      msg1: 'hello',
+      msg2: 'world',
+      arr: [1, 2, 3],
+      obj: {
+        name: 'jack',
+        age: 18
+      }
+    }
+    // 模拟 Vue 实例的对象
+    let vm = {}
+
+    // 封装为函数，用于对数据进行响应式处理
+    const createReactive = (function () {
+      const arrMethodName = ['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse']
+      const customProto = {}
+      customProto.__proto__ = Array.prototype
+      arrMethodName.forEach(method => {
+        customProto[method] = function () {
+          const result = Array.prototype[method].apply(this, arguments)
+          document.querySelector('#app').textContent = this
+          return result
+        }
+      })
+
+      // 需要进行数据劫持的主体功能，也是递归时需要的功能
+      return function (data, vm) {
+        // 遍历被劫持对象的所有属性
+        Object.keys(data).forEach(key => {
+          // 检测是否为数组
+          if (Array.isArray(data[key])) {
+            // 将当前数组实例的 __proto__ 更换为 customProto 即可
+            data[key].__proto__ = customProto
+          } else if (typeof data[key] === 'object' && data[key] !== null) {
+            // 检测是否为对象，如果为对象，进行递归操作
+            vm[key] = {}
+            createReactive(data[key], vm[key])
+            return
+          }
+
+          // 通过数据劫持的方式，将 data 的属性设置为 getter/setter
+          Object.defineProperty(vm, key, {
+            enumerable: true,
+            configurable: true,
+            get () {
+              console.log('访问了属性')
+              return data[key]
+            },
+            set (newValue) {
+              // 更新数据
+              data[key] = newValue
+              // 数据更改，更新视图中 DOM 元素的内容
+              document.querySelector('#app').textContent = data[key]
+            }
+          })
+        })
+      }
+
+    })()
+  
+    createReactive(data, vm)
+  </script>
+</body>
+</html>

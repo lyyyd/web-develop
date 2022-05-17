@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 被观察者 (观察目标)
+    //   1 添加观察者
+    //   2 通知所有观察者
+    class Subject {
+      constructor () {
+        // 存储所有的观察者
+        this.observers = []
+      }
+      // 添加观察者功能
+      addObserver (observer) {
+        // 检测传入的参数是否为 观察者 实例
+        if (observer && observer.update) {
+          this.observers.push(observer)
+        }
+      }
+      // 通知所有观察者
+      notify () {
+        // 调用观察者列表中每个观察者的更新方法
+        this.observers.forEach(observer => {
+          observer.update()
+        })
+      }
+    }
+
+    // 观察者
+    //   1 当观察目标发生状态变化时，进行"更新"
+    class Observer {
+      update () {
+        console.log('事件发生了，进行相应的处理...')
+      }
+    }
+
+
+    // 功能测试
+    const subject = new Subject()
+    const ob1 = new Observer()
+    const ob2 = new Observer()
+
+    // 将观察者添加给要观察的观察目标
+    subject.addObserver(ob1)
+    subject.addObserver(ob2)
+
+    // 通知观察者进行操作（某些具体的场景下）
+    subject.notify()
+
+  </script>
+</body>
+</html>

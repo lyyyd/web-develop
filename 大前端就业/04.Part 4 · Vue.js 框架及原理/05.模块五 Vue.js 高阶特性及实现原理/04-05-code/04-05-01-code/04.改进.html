@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">原始内容</div>
+  <script>
+    // 声明数据对象，模拟 Vue 实例的 data 属性
+    let data = {
+      msg1: 'hello',
+      msg2: 'world',
+      arr: [1, 2, 3]
+    }
+    // 模拟 Vue 实例的对象
+    let vm = {}
+
+    // --- 添加数组方法支持 ---
+    const arrMethodName = ['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse']
+
+    // 用于存储处理结果的对象，准备替换掉数组实例的原型指针 __proto__
+    const customProto = {}
+
+    // 为了避免数组实例无法再使用其他的数组方法
+    customProto.__proto__ = Array.prototype
+
+    arrMethodName.forEach(method => {
+      customProto[method] = function () {
+        // 确保原始功能可以使用（this 为数组实例）
+        const result = Array.prototype[method].apply(this, arguments)
+        // 进行其他自定义功能设置，例如，更新视图
+        document.querySelector('#app').textContent = this
+        return result
+      }
+    })
+
+    // 遍历被劫持对象的所有属性
+    Object.keys(data).forEach(key => {
+      // 检测是否为数组
+      if (Array.isArray(data[key])) {
+        // 将当前数组实例的 __proto__ 更换为 customProto 即可
+        data[key].__proto__ = customProto
+      }
+
+      // 通过数据劫持的方式，将 data 的属性设置为 getter/setter
+      Object.defineProperty(vm, key, {
+        enumerable: true,
+        configurable: true,
+        get () {
+          console.log('访问了属性')
+          return data[key]
+        },
+        set (newValue) {
+          // 更新数据
+          data[key] = newValue
+          // 数据更改，更新视图中 DOM 元素的内容
+          document.querySelector('#app').textContent = data[key]
+        }
+      })
+    })
+
+  </script>
+</body>
+</html>

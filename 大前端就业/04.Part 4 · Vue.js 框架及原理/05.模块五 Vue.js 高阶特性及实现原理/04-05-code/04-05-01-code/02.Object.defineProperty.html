@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name: 'william',
+      age: 18
+    }
+    
+    // Object.defineProperty() 操作演示与回顾
+    /* Object.defineProperty(obj, 'gender', {
+      value: '男',
+      writable: true,
+      enumerable: true,
+      configurable: true
+    })
+
+    Object.defineProperty(obj, 'gender', {
+      enumerable: false
+    })
+
+    for (var k in obj) {
+      console.log(k, obj[k])
+    } */
+
+    var genderValue = '男'
+    Object.defineProperty(obj, 'gender', {
+      get () {
+        console.log('任意获取时需要的自定义操作')
+        return genderValue
+      },
+      set (newValue) {
+        console.log('任意设置时需要的自定义操作')
+        genderValue = newValue
+      }
+    })
+
+
+
+  </script>
+</body>
+</html>

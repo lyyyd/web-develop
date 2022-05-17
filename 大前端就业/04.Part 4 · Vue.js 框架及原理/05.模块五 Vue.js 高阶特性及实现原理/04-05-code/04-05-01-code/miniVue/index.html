@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    这是msg1:{{ msg1 }} 这是msg2:{{ msg2 }}
+    <p v-text="msg1" class="text"></p>
+    <p>{{ msg1 }}</p>
+    <p>{{ msg2 }}</p>
+    <input type="text" v-model="msg2">
+  </div>
+  <script src="./js/Watcher.js"></script>
+  <script src="./js/Dep.js"></script>
+  <script src="./js/Compiler.js"></script>
+  <script src="./js/Observer.js"></script>
+  <script src="./js/Vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      // el: document.querySelector('#app'),
+      data: {
+        msg1: '内容1',
+        msg2: '内容2',
+        obj: {
+          name: 'william',
+          age: 18
+        }
+      }
+    })
+  </script>
+</body>
+</html>

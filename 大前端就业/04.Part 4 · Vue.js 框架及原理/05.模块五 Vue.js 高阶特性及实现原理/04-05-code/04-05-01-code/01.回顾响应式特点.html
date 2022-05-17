@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ content }}</p>
+    <p v-text="content"></p>
+    <input
+      type="text"
+      v-model="content"
+    >
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        content: '默认文本内容'
+      }
+    })
+  </script>
+</body>
+</html>

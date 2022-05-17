@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">原始内容</div>
+  <script>
+    const data = {
+      msg: 'hello',
+      content: 'world',
+      arr: [1, 2, 3],
+      obj: {
+        name: 'william',
+        age: 18
+      }
+    }
+
+    const vm = new Proxy(data, {
+      get (target, key) {
+        return target[key]
+      },
+      set (target, key, newValue) {
+        // 数据更新
+        target[key] = newValue
+        // 视图更新
+        document.querySelector('#app').textContent = target[key]
+      }
+    })
+
+
+
+  </script>
+</body>
+</html>

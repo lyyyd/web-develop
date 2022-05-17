@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">原始内容</div>
+  <script>
+    // 声明数据对象，模拟 Vue 实例的 data 属性
+    let data = {
+      msg: 'hello'
+    }
+    // 模拟 Vue 实例的对象
+    let vm = {}
+    // 通过数据劫持的方式，将 data 的属性设置为 getter/setter
+    Object.defineProperty(vm, 'msg', {
+      // 可遍历
+      enumerable: true,
+      // 可配置
+      configurable: true,
+      get () {
+        console.log('访问了属性')
+        return data.msg
+      },
+      set (newValue) {
+        // 更新数据
+        data.msg = newValue
+        // 数据更改，更新视图中 DOM 元素的内容
+        document.querySelector('#app').textContent = data.msg
+      }
+    })
+  </script>
+</body>
+</html>
