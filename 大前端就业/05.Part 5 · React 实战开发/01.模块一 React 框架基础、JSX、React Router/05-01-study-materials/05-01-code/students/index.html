@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生信息管理</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-12">
+            <h3 class="title">学生信息管理</h3>
+        </div>
+        <div class="col-md-5">
+            <form>
+                <div class="form-group">
+                    <label>学号</label>
+                    <input type="number" class="form-control" placeholder="请输入学号">
+                </div>
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" class="form-control" placeholder="请输入姓名">
+                </div>
+                <div class="form-group">
+                    <label>性别&nbsp;&nbsp;</label>
+                    <label class="checkbox-inline">
+                        <input type="radio" value="男"> 男
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="radio" value="女"> 女
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>年龄</label>
+                    <input type="text" class="form-control" placeholder="请输入姓名">
+                </div>
+                <div class="form-group">
+                    <label>入学时间</label>
+                    <input class="form-control" type="date">
+                </div>
+                <div class="form-group">
+                    <label>爱好</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="足球"> 足球
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="篮球"> 篮球
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="橄榄球"> 橄榄球
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>所属学院</label>
+                    <select class="form-control">
+                        <option value="大前端">大前端</option>
+                        <option value="Java">Java</option>
+                        <option value="python">python</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default">添加</button>
+            </form>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>入学时间</th>
+                    <th>爱好</th>
+                    <th>所属学院</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                    <td>2020-08-02</td>
+                    <td>
+                        <span>足球</span>
+                    </td>
+                    <td>python</td>
+                    <td>
+                        <a href="">删除</a>
+                        <a href="">修改</a>
+                    </td>
+                </tr>
+            </table>
+            <p class="text-center">无学生信息</p>
+            <p>总共有 50 个学生</p>
+            <p>学生的平均年龄是 25</p>
+        </div>
+    </div>
+</body>
+
+</html>
