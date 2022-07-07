@@ -1424,7 +1424,3 @@ var strFun = function(str, num) {
 
 
 
-
-
-
-
